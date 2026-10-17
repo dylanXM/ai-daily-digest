@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>October 17, 2026 AI Digest | AI Daily Digest</title>
+<meta name="description" content="AI news, trending GitHub AI projects, and new AI products for October 17, 2026.">
+<link rel="canonical" href="https://ai-daily.example.com/2026-10-17.html">
+<meta property="og:title" content="October 17, 2026 AI Digest | AI Daily Digest">
+<meta property="og:description" content="AI news, trending GitHub AI projects, and new AI products for October 17, 2026.">
+<meta property="og:type" content="article">
+<style>
+/* AI Daily Digest - modern minimalist style (light theme first, dark mode supported) */
+:root{
+  --bg:#ffffff;
+  --bg-soft:#f7f8fa;
+  --bg-card:#ffffff;
+  --text:#1a1d23;
+  --text-secondary:#5c6470;
+  --text-muted:#8a93a0;
+  --border:#e9edf1;
+  --accent:#2563eb;
+  --accent-soft:#eff4ff;
+  --accent-hover:#1d4ed8;
+  --badge-bg:#eef2ff;
+  --badge-text:#4338ca;
+  --star:#b45309;
+  --header-bg:rgba(255,255,255,.92);
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 1px 3px rgba(16,24,40,.08);
+  --radius:12px;
+}
+html[data-theme="dark"]{
+  --bg:#0f1216;
+  --bg-soft:#161b22;
+  --bg-card:#161b22;
+  --text:#e8ebef;
+  --text-secondary:#a9b2bd;
+  --text-muted:#6b7480;
+  --border:#232a34;
+  --accent:#6ea8fe;
+  --accent-soft:#16202e;
+  --accent-hover:#9ec1fe;
+  --badge-bg:#1c2440;
+  --badge-text:#b6bffc;
+  --star:#f5b04c;
+  --header-bg:rgba(15,18,22,.92);
+  --shadow:0 1px 2px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  transition:background .2s ease,color .2s ease;
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:880px;margin:0 auto;padding:0 20px}
+
+/* ===== Top navigation ===== */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:var(--header-bg);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-size:19px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px}
+.brand:hover{text-decoration:none}
+.brand-mark{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:10px;
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  color:#fff;font-size:16px;
+}
+.site-nav{display:flex;align-items:center;gap:18px}
+.site-nav a{color:var(--text-secondary);font-size:15px}
+.site-nav a:hover{color:var(--accent);text-decoration:none}
+.theme-toggle{
+  border:1px solid var(--border);background:var(--bg-soft);
+  color:var(--text-secondary);font-size:16px;cursor:pointer;
+  width:36px;height:36px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ===== Hero ===== */
+.hero{padding:44px 0 8px}
+.hero-eyebrow{
+  display:inline-block;font-size:13px;font-weight:600;letter-spacing:.08em;
+  color:var(--accent);background:var(--accent-soft);
+  padding:4px 12px;border-radius:999px;margin-bottom:14px;
+}
+.hero h1{font-size:clamp(28px,5vw,40px);line-height:1.3;font-weight:800;letter-spacing:-.01em}
+.hero p{color:var(--text-secondary);margin-top:10px;font-size:16px}
+.hero-meta{display:flex;gap:14px;align-items:center;margin-top:14px;font-size:14px;color:var(--text-muted);flex-wrap:wrap}
+.publish-time{background:var(--bg-soft);border:1px solid var(--border);padding:3px 12px;border-radius:999px}
+
+/* ===== Sections ===== */
+.section{margin:40px 0}
+.section-head{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--border);
+}
+.section-head h2{font-size:21px;font-weight:700}
+.section-head .count{
+  font-size:13px;color:var(--text-muted);
+  background:var(--bg-soft);border:1px solid var(--border);
+  padding:2px 10px;border-radius:999px;
+}
+
+/* News cards */
+.card{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px 22px;margin-bottom:16px;
+  box-shadow:var(--shadow);
+  transition:transform .15s ease,box-shadow .15s ease;
+}
+.card:hover{transform:translateY(-2px)}
+.card-title{font-size:18px;font-weight:700;line-height:1.5;margin-bottom:8px}
+.card-title a{color:var(--text)}
+.card-title a:hover{color:var(--accent);text-decoration:none}
+.card-summary{color:var(--text-secondary);font-size:15px;margin-bottom:12px}
+.card-meta{display:flex;gap:12px;align-items:center;font-size:13px;color:var(--text-muted);flex-wrap:wrap}
+.source{font-weight:600;color:var(--text-secondary)}
+.ext-link{font-size:13px}
+
+/* GitHub cards */
+.repo-card{
+  display:flex;gap:14px;align-items:flex-start;
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:18px 20px;margin-bottom:14px;
+  box-shadow:var(--shadow);
+}
+.repo-rank{
+  flex-shrink:0;width:34px;height:34px;border-radius:10px;
+  background:var(--bg-soft);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:15px;color:var(--text-secondary);
+}
+.repo-body{flex:1;min-width:0}
+.repo-name{font-size:17px;font-weight:700;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;word-break:break-all}
+.repo-desc{color:var(--text-secondary);font-size:14.5px;margin:6px 0}
+.repo-note{color:var(--text-muted);font-size:13.5px;border-left:3px solid var(--border);padding-left:10px;margin:8px 0 4px}
+.repo-meta{display:flex;gap:14px;font-size:13px;color:var(--text-muted);margin-top:8px;flex-wrap:wrap}
+.repo-stars{color:var(--star);font-weight:600}
+.lang-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--accent);margin-right:5px}
+
+/* Product cards */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.product-card{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px;
+  box-shadow:var(--shadow);
+  display:flex;flex-direction:column;gap:8px;
+  transition:transform .15s ease;
+}
+.product-card:hover{transform:translateY(-2px)}
+.product-tag{
+  align-self:flex-start;font-size:12.5px;font-weight:600;
+  background:var(--badge-bg);color:var(--badge-text);
+  padding:3px 12px;border-radius:999px;
+}
+.product-name{font-size:17px;font-weight:700}
+.product-name a{color:var(--text)}
+.product-name a:hover{color:var(--accent);text-decoration:none}
+.product-desc{color:var(--text-secondary);font-size:14.5px;flex:1}
+
+/* Archive */
+.archive-item{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:16px 20px;border:1px solid var(--border);border-radius:var(--radius);
+  margin-bottom:12px;background:var(--bg-card);box-shadow:var(--shadow);
+}
+.archive-item:hover{border-color:var(--accent)}
+.archive-date{font-size:17px;font-weight:700;color:var(--text)}
+.archive-stats{font-size:13.5px;color:var(--text-muted)}
+.archive-arrow{color:var(--text-muted);font-size:18px}
+
+/* Empty state */
+.empty{color:var(--text-muted);text-align:center;padding:32px 0}
+
+/* Archive entry link */
+.more-link{display:block;text-align:center;margin:36px 0}
+.btn{
+  display:inline-block;background:var(--accent);color:#fff;
+  padding:12px 32px;border-radius:999px;font-weight:600;font-size:15px;
+  box-shadow:var(--shadow);
+}
+.btn:hover{background:var(--accent-hover);text-decoration:none;color:#fff}
+
+/* Ad slot placeholder (layout-neutral) */
+.ad-slot{display:none}
+
+/* ===== Footer ===== */
+.site-footer{border-top:1px solid var(--border);margin-top:56px;padding:32px 0 40px;background:var(--bg-soft)}
+.footer-inner p{font-size:14px;color:var(--text-secondary);margin-bottom:8px}
+.footer-meta{font-size:13px;color:var(--text-muted)}
+
+/* ===== Responsive ===== */
+@media (max-width:640px){
+  body{font-size:15px}
+  .hero{padding:32px 0 4px}
+  .site-nav{gap:12px}
+  .site-nav a{font-size:14px}
+  .card{padding:16px 18px}
+  .repo-card{padding:14px 16px}
+  .product-grid{grid-template-columns:1fr}
+  .archive-item{padding:14px 16px}
+}
+@media print{
+  .site-header,.theme-toggle,.more-link,.ad-slot{display:none}
+}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="https://ai-daily.example.com/"><span class="brand-mark">✦</span> AI Daily Digest</a>
+    <nav class="site-nav">
+      <a href="https://ai-daily.example.com/">Today</a>
+      <a href="https://ai-daily.example.com/archive.html">Archive</a>
+      <a href="https://ai-daily.example.com/feed.xml">RSS</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">◐</button>
+    </nav>
+  </div>
+</header>
+<main class="container">
+<div class="hero"><span class="hero-eyebrow">From the archive</span><h1>October 17, 2026 · AI Digest</h1><div class="hero-meta"><span class="publish-time">Published: Oct 18, 2026, 10:00 AM (UTC+0800)</span></div></div><section class="section"><div class="section-head"><h2>📰 AI News</h2><span class="count">5 items</span></div>
+<article class="card"><h3 class="card-title"><a href="https://the-decoder.com/an-openai-model-hacked-a-government-site-grabbed-24-years-of-hospital-data-and-kept-it-quiet/" target="_blank" rel="noopener">An OpenAI model hacked a government site, grabbed 24 years of hospital data and kept it quiet</a></h3><p class="card-summary">OpenAI has published four new cases where its AI models bypassed security boundaries on their own during training or testing.</p><div class="card-meta"><span class="source">The Decoder</span><a class="ext-link" href="https://the-decoder.com/an-openai-model-hacked-a-government-site-grabbed-24-years-of-hospital-data-and-kept-it-quiet/" target="_blank" rel="noopener">Read original ↗</a></div></article>
+<article class="card"><h3 class="card-title"><a href="https://the-decoder.com/deepseek-v4-1-flash-1017-beats-larger-rivals-in-agentic-tasks-while-once-again-massively-cutting-per-task-costs/" target="_blank" rel="noopener">Deepseek V4.1 Flash 1017 beats larger rivals in agentic tasks while once again massively cutting per-task costs</a></h3><p class="card-summary">Deepseek has released V4.1-Flash-1017 as an open-weight model that posts better benchmarks, finishes tasks faster, and produces shorter outputs than its predecessor.</p><div class="card-meta"><span class="source">The Decoder</span><a class="ext-link" href="https://the-decoder.com/deepseek-v4-1-flash-1017-beats-larger-rivals-in-agentic-tasks-while-once-again-massively-cutting-per-task-costs/" target="_blank" rel="noopener">Read original ↗</a></div></article>
+<article class="card"><h3 class="card-title"><a href="https://techcrunch.com/2026/10/17/meta-removes-language-that-raised-scraping-and-ai-training-concerns/" target="_blank" rel="noopener">Meta removes language that raised scraping and AI training concerns</a></h3><p class="card-summary">A Meta spokesperson insisted that the updated terms did not reflect a change in the way Meta crawls the web.</p><div class="card-meta"><span class="source">TechCrunch</span><a class="ext-link" href="https://techcrunch.com/2026/10/17/meta-removes-language-that-raised-scraping-and-ai-training-concerns/" target="_blank" rel="noopener">Read original ↗</a></div></article>
+<!-- ADSENSE: in-feed -->
+<div class="ad-slot"></div>
+<article class="card"><h3 class="card-title"><a href="https://the-decoder.com/anthropics-claude-cracks-a-25-year-old-nsa-cryptography-mystery-in-under-30-minutes/" target="_blank" rel="noopener">Anthropics&#x27; Claude cracks a 25-year-old NSA cryptography mystery in under 30 minutes</a></h3><p class="card-summary">Anthropic&#x27;s AI model Claude has solved a 25-year-old cryptography puzzle. The mysterious seeds behind NIST&#x27;s standard curves for digital signatures were provided by the NSA without explanation, raisin...</p><div class="card-meta"><span class="source">The Decoder</span><a class="ext-link" href="https://the-decoder.com/anthropics-claude-cracks-a-25-year-old-nsa-cryptography-mystery-in-under-30-minutes/" target="_blank" rel="noopener">Read original ↗</a></div></article>
+<article class="card"><h3 class="card-title"><a href="https://the-decoder.com/ai-models-hide-mistakes-in-their-own-work-reports-but-one-sentence-in-your-prompt-can-help/" target="_blank" rel="noopener">AI models hide mistakes in their own work reports, but one sentence in your prompt can help</a></h3><p class="card-summary">AI agents systematically skip errors in their own reports, even when they spot the problems.</p><div class="card-meta"><span class="source">The Decoder</span><a class="ext-link" href="https://the-decoder.com/ai-models-hide-mistakes-in-their-own-work-reports-but-one-sentence-in-your-prompt-can-help/" target="_blank" rel="noopener">Read original ↗</a></div></article>
+</section>
+<!-- ADSENSE: in-article -->
+<section class="section"><div class="section-head"><h2>💻 Trending on GitHub</h2><span class="count">8 items</span></div>
+<article class="repo-card"><div class="repo-rank">1</div><div class="repo-body"><div class="repo-name"><a href="https://github.com/onehumanbeing/esp32-iphone-agent" target="_blank" rel="noopener">onehumanbeing/esp32-iphone-agent</a></div><p class="repo-desc">Let an AI model use a real iPhone with a $7 ESP32: AirPlay eyes, USB HID hands, any OpenAI-compatible vision model. No Mac, no developer account, no jailbreak.</p><p class="repo-note">Created 2026-10-11 · 3k stars · C</p><div class="repo-meta"><span><span class="lang-dot"></span>C</span><span class="repo-stars">★ 3k</span></div></div></article>
+<article class="repo-card"><div class="repo-rank">2</div><div class="repo-body"><div class="repo-name"><a href="https://github.com/rociiu/talorys" target="_blank" rel="noopener">rociiu/talorys</a></div><p class="repo-desc">Your personal AI agent in your own Cloudflare account. Chat, memory, tasks, notes and scheduled reminders, deployed with one command: npx create-talorys@latest.</p><p class="repo-note">Created 2026-10-10 · 1.3k stars · TypeScript</p><div class="repo-meta"><span><span class="lang-dot"></span>TypeScript</span><span class="repo-stars">★ 1.3k</span></div></div></article>
+<article class="repo-card"><div class="repo-rank">3</div><div class="repo-body"><div class="repo-name"><a href="https://github.com/feder-cr/git-ai" target="_blank" rel="noopener">feder-cr/git-ai</a></div><p class="repo-desc">Git designed for AI agents.</p><p class="repo-note">Created 2026-10-15 · 1.1k stars · Go</p><div class="repo-meta"><span><span class="lang-dot"></span>Go</span><span class="repo-stars">★ 1.1k</span></div></div></article>
+<article class="repo-card"><div class="repo-rank">4</div><div class="repo-body"><div class="repo-name"><a href="https://github.com/Leonxlnx/earshot" target="_blank" rel="noopener">Leonxlnx/earshot</a></div><p class="repo-desc">Ears for coding agents: let AI hear, review and make sound. CPU-only, open source.</p><p class="repo-note">Created 2026-10-15 · 679 stars · Python</p><div class="repo-meta"><span><span class="lang-dot"></span>Python</span><span class="repo-stars">★ 679</span></div></div></article>
+<article class="repo-card"><div class="repo-rank">5</div><div class="repo-body"><div class="repo-name"><a href="https://github.com/anujasid/blender-ai-mcp-addon" target="_blank" rel="noopener">anujasid/blender-ai-mcp-addon</a></div><p class="repo-desc">AI assistant and MCP server for Blender: visual chat, scene tools, multi-agent workflows. Works with OpenAI, ChatGPT, Claude, Gemini, Ollama, OpenCode. Blender </p><p class="repo-note">Created 2026-10-15 · 611 stars · Python</p><div class="repo-meta"><span><span class="lang-dot"></span>Python</span><span class="repo-stars">★ 611</span></div></div></article>
+<article class="repo-card"><div class="repo-rank">6</div><div class="repo-body"><div class="repo-name"><a href="https://github.com/yeyuxin777/baoyan-agent-benchmark" target="_blank" rel="noopener">yeyuxin777/baoyan-agent-benchmark</a></div><p class="repo-desc">Sprix AI at 屿智同行 × 保研岛 — an open-source benchmark for AI agents in Baoyan advising and application planning.</p><p class="repo-note">Created 2026-10-12 · 504 stars · Python</p><div class="repo-meta"><span><span class="lang-dot"></span>Python</span><span class="repo-stars">★ 504</span></div></div></article>
+<article class="repo-card"><div class="repo-rank">7</div><div class="repo-body"><div class="repo-name"><a href="https://github.com/i12bp8/decomp.wtf" target="_blank" rel="noopener">i12bp8/decomp.wtf</a></div><p class="repo-desc">What The Function: your AI agent decompiles games you own into C that compiles to the exact same bytes. Runs locally.</p><p class="repo-note">Created 2026-10-13 · 489 stars · Python</p><div class="repo-meta"><span><span class="lang-dot"></span>Python</span><span class="repo-stars">★ 489</span></div></div></article>
+<article class="repo-card"><div class="repo-rank">8</div><div class="repo-body"><div class="repo-name"><a href="https://github.com/BaruqueRodrigues/llm-legislativo" target="_blank" rel="noopener">BaruqueRodrigues/llm-legislativo</a></div><p class="repo-desc">Corpus legislativo brasileiro em larga escala e modelo Transformer causal treinado do zero em PyTorch puro.</p><p class="repo-note">Created 2026-10-13 · 395 stars · Python</p><div class="repo-meta"><span><span class="lang-dot"></span>Python</span><span class="repo-stars">★ 395</span></div></div></article>
+</section>
+<!-- ADSENSE: in-article -->
+<section class="section"><div class="section-head"><h2>🚀 New AI Products</h2><span class="count">7 items</span></div>
+<div class="product-grid">
+<article class="product-card"><span class="product-tag">LLM</span><div class="product-name"><a href="https://llmspeed.dev/" target="_blank" rel="noopener">Llmspeed – feel how fast a local LLM runs before you buy the hardware</a></div><p class="product-desc">Llmspeed – feel how fast a local LLM runs before you buy the hardware · Spotted on Hacker News Show HN</p></article>
+<article class="product-card"><span class="product-tag">AI Tools</span><div class="product-name"><a href="https://forgemesh.io/blog/pay-per-crawl-every-stack" target="_blank" rel="noopener">Pay-per-Crawl – make AI crawlers pay per page in USDC, for 10 stacks</a></div><p class="product-desc">Pay-per-Crawl – make AI crawlers pay per page in USDC, for 10 stacks · Spotted on Hacker News Show HN</p></article>
+<article class="product-card"><span class="product-tag">AI Tools</span><div class="product-name"><a href="https://github.com/andunieee/twain" target="_blank" rel="noopener">Twain, a diff viewer like Meld, but for the age of AI</a></div><p class="product-desc">Twain, a diff viewer like Meld, but for the age of AI · Spotted on Hacker News Show HN</p></article>
+<article class="product-card"><span class="product-tag">LLM</span><div class="product-name"><a href="https://Joe-Heffer.github.io/sys2txt/" target="_blank" rel="noopener">Sys2txt – transcribe system audio to text in the CLI with a local LLM</a></div><p class="product-desc">Sys2txt – transcribe system audio to text in the CLI with a local LLM · Spotted on Hacker News Show HN</p></article>
+<article class="product-card"><span class="product-tag">Developer Tools</span><div class="product-name"><a href="https://playbitty.com/" target="_blank" rel="noopener">Bitty – Turn AI coding wait time into brain breaks</a></div><p class="product-desc">Bitty – Turn AI coding wait time into brain breaks · Spotted on Hacker News Show HN</p></article>
+<article class="product-card"><span class="product-tag">Agents</span><div class="product-name"><a href="https://primerkit.ai/" target="_blank" rel="noopener">PrimerKit, financial market work at agent speed</a></div><p class="product-desc">PrimerKit, financial market work at agent speed · Spotted on Hacker News Show HN</p></article>
+<article class="product-card"><span class="product-tag">AI Tools</span><div class="product-name"><a href="https://apps.microsoft.com/detail/9n2dr3g0jw0z?hl=en-US&amp;gl=US" target="_blank" rel="noopener">KIRA – Sovereign, local-first AI and media workstation for Windows</a></div><p class="product-desc">KIRA – Sovereign, local-first AI and media workstation for Windows · Spotted on Hacker News Show HN</p></article>
+</div>
+</section>
+<!-- ADSENSE: sidebar -->
+<div class="ad-slot"></div>
+</main>
+<footer class="site-footer">
+  <!-- ADSENSE: footer-ad -->
+  <div class="container footer-inner">
+    <p><strong>AI Daily Digest</strong> · Every morning at 10:00 (Beijing time), a roundup of the previous day's AI news, trending AI projects on GitHub, and new AI products.</p>
+    <p class="footer-meta">Content is for informational purposes only; all rights belong to the original authors · <a href="https://ai-daily.example.com/archive.html">Archive</a> · <a href="https://ai-daily.example.com/feed.xml">RSS</a></p>
+  </div>
+</footer>
+<script>
+/* Dark mode toggle: follows system by default, manual choice saved to localStorage */
+(function(){
+  var KEY = "ai-daily-theme";
+  var root = document.documentElement;
+  function systemTheme(){
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  function current(){
+    try { return localStorage.getItem(KEY) || systemTheme(); }
+    catch(e){ return systemTheme(); }
+  }
+  function apply(t){ root.setAttribute("data-theme", t); }
+  apply(current());
+  try {
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function(e){
+      if (!localStorage.getItem(KEY)) apply(e.matches ? "dark" : "light");
+    });
+  } catch(e){}
+  document.addEventListener("DOMContentLoaded", function(){
+    var btn = document.getElementById("theme-toggle");
+    if (!btn) return;
+    btn.addEventListener("click", function(){
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      apply(next);
+      try { localStorage.setItem(KEY, next); } catch(e){}
+    });
+  });
+})();
+
+</script>
+</body>
+</html>

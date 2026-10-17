@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{META_DESC}}">
+<link rel="canonical" href="{{CANONICAL}}">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{META_DESC}}">
+<meta property="og:type" content="article">
+<style>
+{{CSS}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{HOME_URL}}"><span class="brand-mark">✦</span> AI Daily Digest</a>
+    <nav class="site-nav">
+      <a href="{{HOME_URL}}">Today</a>
+      <a href="{{ARCHIVE_URL}}">Archive</a>
+      <a href="{{FEED_URL}}">RSS</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">◐</button>
+    </nav>
+  </div>
+</header>
+<main class="container">
+{{CONTENT}}
+</main>
+<footer class="site-footer">
+  <!-- ADSENSE: footer-ad -->
+  <div class="container footer-inner">
+    <p><strong>AI Daily Digest</strong> · Every morning at 10:00 (Beijing time), a roundup of the previous day's AI news, trending AI projects on GitHub, and new AI products.</p>
+    <p class="footer-meta">Content is for informational purposes only; all rights belong to the original authors · <a href="{{ARCHIVE_URL}}">Archive</a> · <a href="{{FEED_URL}}">RSS</a></p>
+  </div>
+</footer>
+<script>
+{{JS}}
+</script>
+</body>
+</html>
