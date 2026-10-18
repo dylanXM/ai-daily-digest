@@ -1,6 +1,6 @@
 {
   "date": "2026-10-17",
-  "published_at": "2026-10-17T19:46:19-04:00",
+  "published_at": "2026-10-18T08:55:51.749823-04:00",
   "news": [
     {
       "title": "An OpenAI model hacked a government site, grabbed 24 years of hospital data and kept it quiet",
@@ -38,9 +38,9 @@
       "name": "onehumanbeing/esp32-iphone-agent",
       "description": "Let an AI model use a real iPhone with a $7 ESP32: AirPlay eyes, USB HID hands, any OpenAI-compatible vision model. No Mac, no developer account, no jailbreak.",
       "url": "https://github.com/onehumanbeing/esp32-iphone-agent",
-      "stars": "3k",
+      "stars": "3.1k",
       "language": "C",
-      "note": "Created 2026-10-11 · 3k stars · C"
+      "note": "Created 2026-10-11 · 3.1k stars · C"
     },
     {
       "name": "rociiu/talorys",
@@ -54,49 +54,49 @@
       "name": "feder-cr/git-ai",
       "description": "Git designed for AI agents.",
       "url": "https://github.com/feder-cr/git-ai",
-      "stars": "1.1k",
+      "stars": "1.2k",
       "language": "Go",
-      "note": "Created 2026-10-15 · 1.1k stars · Go"
+      "note": "Created 2026-10-15 · 1.2k stars · Go"
+    },
+    {
+      "name": "jwuthri-cloud/Tracely-ai",
+      "description": "Trace-native CI/CD for AI agents: grade production traces, cluster failures, freeze them into replayable regression tests, and block PRs that regress. Self-host",
+      "url": "https://github.com/jwuthri-cloud/Tracely-ai",
+      "stars": "976",
+      "language": "Python",
+      "note": "Created 2026-10-11 · 976 stars · Python"
+    },
+    {
+      "name": "LiCinCan/blender-ai-mcp-addon",
+      "description": "AI assistant and MCP server for Blender: visual chat, scene tools, multi-agent workflows. Works with OpenAI, ChatGPT, Claude, Gemini, Ollama, OpenCode. Blender ",
+      "url": "https://github.com/LiCinCan/blender-ai-mcp-addon",
+      "stars": "729",
+      "language": "Python",
+      "note": "Created 2026-10-15 · 729 stars · Python"
     },
     {
       "name": "Leonxlnx/earshot",
       "description": "Ears for coding agents: let AI hear, review and make sound. CPU-only, open source.",
       "url": "https://github.com/Leonxlnx/earshot",
-      "stars": "679",
+      "stars": "729",
       "language": "Python",
-      "note": "Created 2026-10-15 · 679 stars · Python"
-    },
-    {
-      "name": "anujasid/blender-ai-mcp-addon",
-      "description": "AI assistant and MCP server for Blender: visual chat, scene tools, multi-agent workflows. Works with OpenAI, ChatGPT, Claude, Gemini, Ollama, OpenCode. Blender ",
-      "url": "https://github.com/anujasid/blender-ai-mcp-addon",
-      "stars": "611",
-      "language": "Python",
-      "note": "Created 2026-10-15 · 611 stars · Python"
+      "note": "Created 2026-10-15 · 729 stars · Python"
     },
     {
       "name": "yeyuxin777/baoyan-agent-benchmark",
       "description": "Sprix AI at 屿智同行 × 保研岛 — an open-source benchmark for AI agents in Baoyan advising and application planning.",
       "url": "https://github.com/yeyuxin777/baoyan-agent-benchmark",
-      "stars": "504",
+      "stars": "599",
       "language": "Python",
-      "note": "Created 2026-10-12 · 504 stars · Python"
+      "note": "Created 2026-10-12 · 599 stars · Python"
     },
     {
       "name": "i12bp8/decomp.wtf",
       "description": "What The Function: your AI agent decompiles games you own into C that compiles to the exact same bytes. Runs locally.",
       "url": "https://github.com/i12bp8/decomp.wtf",
-      "stars": "489",
+      "stars": "494",
       "language": "Python",
-      "note": "Created 2026-10-13 · 489 stars · Python"
-    },
-    {
-      "name": "BaruqueRodrigues/llm-legislativo",
-      "description": "Corpus legislativo brasileiro em larga escala e modelo Transformer causal treinado do zero em PyTorch puro.",
-      "url": "https://github.com/BaruqueRodrigues/llm-legislativo",
-      "stars": "395",
-      "language": "Python",
-      "note": "Created 2026-10-13 · 395 stars · Python"
+      "note": "Created 2026-10-13 · 494 stars · Python"
     }
   ],
   "products": [
@@ -119,27 +119,27 @@
       "tag": "AI Tools"
     },
     {
-      "name": "Sys2txt – transcribe system audio to text in the CLI with a local LLM",
-      "description": "Sys2txt – transcribe system audio to text in the CLI with a local LLM · Spotted on Hacker News Show HN",
-      "url": "https://Joe-Heffer.github.io/sys2txt/",
-      "tag": "LLM"
-    },
-    {
-      "name": "Bitty – Turn AI coding wait time into brain breaks",
-      "description": "Bitty – Turn AI coding wait time into brain breaks · Spotted on Hacker News Show HN",
-      "url": "https://playbitty.com/",
-      "tag": "Developer Tools"
-    },
-    {
       "name": "PrimerKit, financial market work at agent speed",
       "description": "PrimerKit, financial market work at agent speed · Spotted on Hacker News Show HN",
       "url": "https://primerkit.ai/",
       "tag": "Agents"
     },
     {
-      "name": "KIRA – Sovereign, local-first AI and media workstation for Windows",
-      "description": "KIRA – Sovereign, local-first AI and media workstation for Windows · Spotted on Hacker News Show HN",
-      "url": "https://apps.microsoft.com/detail/9n2dr3g0jw0z?hl=en-US&gl=US",
+      "name": "Thoreau's Walden as a 3D browser game with an AI guide",
+      "description": "Thoreau's Walden as a 3D browser game with an AI guide · Spotted on Hacker News Show HN",
+      "url": "https://walden.learnmer.com/",
+      "tag": "Developer Tools"
+    },
+    {
+      "name": "GoRoute – Ultra-Lightweight LLM Gateway in Go (<15MB RAM)",
+      "description": "GoRoute – Ultra-Lightweight LLM Gateway in Go (<15MB RAM) · Spotted on Hacker News Show HN",
+      "url": "https://github.com/ziuus/goroute",
+      "tag": "LLM"
+    },
+    {
+      "name": "Would You Merge It? – 24 bugs AI assistants write, as fix-it katas",
+      "description": "Would You Merge It? – 24 bugs AI assistants write, as fix-it katas · Spotted on Hacker News Show HN",
+      "url": "https://github.com/SohailKhan0525/would-you-merge",
       "tag": "AI Tools"
     }
   ]
