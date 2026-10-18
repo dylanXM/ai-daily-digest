@@ -27,6 +27,7 @@ import urllib.parse
 import urllib.error
 import xml.etree.ElementTree as ET
 from datetime import date, timedelta, datetime, timezone
+from zoneinfo import ZoneInfo
 from email.utils import parsedate_to_datetime
 
 BASE = os.path.expanduser("~/workspace/ai-daily")
@@ -424,7 +425,7 @@ def main():
 
     payload = {
         "date": target.isoformat(),
-        "published_at": f"{(target + timedelta(days=1)).isoformat()}T10:00:00+08:00",
+        "published_at": datetime.now(ZoneInfo("America/New_York")).isoformat(),
         "news": news,
         "github": github,
         "products": products,

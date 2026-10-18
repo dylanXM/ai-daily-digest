@@ -26,7 +26,7 @@ DIST_DIR = ROOT / "dist"
 # Used for canonical / RSS / sitemap.
 BASE_URL = "https://ai-daily-news.sweetai.work"
 SITE_NAME = "AI Daily Digest"
-SITE_DESC = "Every morning at 10:00 (Beijing time), a roundup of the previous day's AI news, trending AI projects on GitHub, and new AI products."
+SITE_DESC = "Every morning at 9:00 AM Eastern Time, a roundup of the previous day's AI news, trending AI projects on GitHub, and new AI products."
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
@@ -180,7 +180,7 @@ def en_date(date_str):
 
 
 def fmt_published(published_at, fallback_date):
-    """Format an ISO-8601 timestamp like 2026-10-18T10:00:00+08:00 nicely."""
+    """Format an ISO-8601 timestamp like 2026-10-18T09:00:00-04:00 nicely."""
     try:
         dt = datetime.fromisoformat(published_at)
         return dt.strftime("%b %-d, %Y, %-I:%M %p (UTC%z)")
@@ -192,7 +192,7 @@ def render_index(template, css, js, latest, issues):
     published = fmt_published(latest.get("published_at", ""), latest["date"])
     hero = (
         f'<div class="hero">'
-        f'<span class="hero-eyebrow">Daily · Published 10:00 AM</span>'
+        f'<span class="hero-eyebrow">Daily · Published 9:00 AM ET</span>'
         f"<h1>Today's AI Digest</h1>"
         f'<p>The most important AI news, the hottest AI projects on GitHub, and the newest AI products from the previous day — in 3 minutes.</p>'
         f'<div class="hero-meta"><span>🗓 {en_date(latest["date"])}</span>'

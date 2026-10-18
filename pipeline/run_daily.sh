@@ -4,7 +4,7 @@
 set -euo pipefail
 
 AI_DAILY="$HOME/workspace/ai-daily"
-YESTERDAY="$(TZ=Asia/Shanghai date -d "yesterday" +%F)"
+YESTERDAY="$(TZ=America/New_York date -d "yesterday" +%F)"
 LOG_DIR="$AI_DAILY/logs"
 LOG_FILE="$LOG_DIR/${YESTERDAY}.log"
 mkdir -p "$LOG_DIR"
