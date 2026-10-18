@@ -14,11 +14,11 @@ mkdir -p "$LOG_DIR"
   echo "[$(date '+%F %T %Z')] ai-daily daily pipeline started, target date: $YESTERDAY"
   echo "=================================================================="
 
-  echo "--- [1/3] collecting content ---"
+  echo "--- [1/4] collecting content ---"
   python3 "$AI_DAILY/pipeline/collect.py" "$YESTERDAY"
   echo "collection done, exit code: $?"
 
-  echo "--- [2/3] rebuilding site ---"
+  echo "--- [2/4] rebuilding site ---"
   if [ -f "$AI_DAILY/build.py" ]; then
     python3 "$AI_DAILY/build.py"
     echo "site rebuilt"
@@ -26,7 +26,15 @@ mkdir -p "$LOG_DIR"
     echo "[warn] $AI_DAILY/build.py not found, skipping site build (data files are ready)"
   fi
 
-  echo "--- [3/3] pushing to GitHub ---"
+  echo "--- [3/4] rendering newsletter HTML (non-fatal) ---"
+  mkdir -p "$AI_DAILY/newsletters"
+  if python3 "$AI_DAILY/beehiiv_draft.py" --render-only --date "$YESTERDAY" --out "$AI_DAILY/newsletters/${YESTERDAY}.html"; then
+    echo "newsletter HTML ready: newsletters/${YESTERDAY}.html"
+  else
+    echo "[warn] newsletter render failed, continuing"
+  fi
+
+  echo "--- [4/4] pushing to GitHub ---"
   if [ -f "$AI_DAILY/.github-sync" ]; then
     cd "$AI_DAILY"
     export GIT_SSH_COMMAND="ssh -F /home/hatch/.ssh/config"
