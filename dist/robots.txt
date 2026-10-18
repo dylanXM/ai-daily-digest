@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ai-daily-digest-1.pages.dev/sitemap.xml
+Sitemap: https://ai-daily-news.sweetai.work/sitemap.xml

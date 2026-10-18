@@ -24,7 +24,7 @@ DIST_DIR = ROOT / "dist"
 
 # Replace with the real domain after deployment (no trailing slash).
 # Used for canonical / RSS / sitemap.
-BASE_URL = "https://ai-daily-digest-1.pages.dev"
+BASE_URL = "https://ai-daily-news.sweetai.work"
 SITE_NAME = "AI Daily Digest"
 SITE_DESC = "Every morning at 10:00 (Beijing time), a roundup of the previous day's AI news, trending AI projects on GitHub, and new AI products."
 
