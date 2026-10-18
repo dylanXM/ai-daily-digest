@@ -312,6 +312,11 @@ def render_robots():
     )
 
 
+def render_ads_txt():
+    # Google AdSense ads.txt (publisher ID verified from the user's AdSense account)
+    return "google.com, pub-1672880630267493, DIRECT, f3202a79876421ef\n"
+
+
 # ---------- main ----------
 
 def main():
@@ -332,6 +337,7 @@ def main():
         "feed.xml": render_feed(issues),
         "sitemap.xml": render_sitemap(issues),
         "robots.txt": render_robots(),
+        "ads.txt": render_ads_txt(),
     }
     for issue in issues:
         outputs[f"{issue['date']}.html"] = render_issue_page(template, css, js, issue)
