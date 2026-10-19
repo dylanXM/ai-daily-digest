@@ -33,6 +33,15 @@ mkdir -p "$LOG_DIR"
   else
     echo "[warn] newsletter render failed, continuing"
   fi
+  # SweetAI Weekly: every Monday (ET) also render the network-wide weekly edition.
+  if [ "$(TZ=America/New_York date +%u)" = "1" ]; then
+    WEEK_TAG="weekly-$(TZ=America/New_York date +%G-W%V)"
+    if python3 "$AI_DAILY/beehiiv_draft.py" --weekly --render-only --date "$YESTERDAY" --out "$AI_DAILY/newsletters/${WEEK_TAG}.html"; then
+      echo "SweetAI Weekly ready: newsletters/${WEEK_TAG}.html"
+    else
+      echo "[warn] weekly newsletter render failed, continuing"
+    fi
+  fi
 
   echo "--- [4/4] pushing to GitHub ---"
   if [ -f "$AI_DAILY/.github-sync" ]; then

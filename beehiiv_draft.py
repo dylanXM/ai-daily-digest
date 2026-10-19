@@ -136,6 +136,166 @@ def build_html(data: dict) -> tuple[str, str]:
     return title, "".join(parts)
 
 
+def _week_key(day: str) -> int:
+    """ISO week number for deterministic weekly rotation."""
+    from datetime import datetime
+    return datetime.strptime(day, "%Y-%m-%d").isocalendar()[1]
+
+
+def _pick(items: list, week: int):
+    return items[week % len(items)] if items else None
+
+
+def _week_news(day: str, limit: int = 6) -> list:
+    """Collect news items from the last 7 days of content JSONs, deduped by URL."""
+    from datetime import datetime, timedelta
+    seen, out = set(), []
+    try:
+        end = datetime.strptime(day, "%Y-%m-%d")
+    except ValueError:
+        end = datetime.today()
+    for i in range(7):
+        d = (end - timedelta(days=i)).strftime("%Y-%m-%d")
+        p = os.path.join(CONTENT_DIR, f"{d}.json")
+        if not os.path.exists(p):
+            continue
+        try:
+            data = json.load(open(p, encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        for n in data.get("news") or []:
+            url = n.get("url") or ""
+            if url and url not in seen:
+                seen.add(url)
+                out.append(n)
+                if len(out) >= limit:
+                    return out
+    return out
+
+
+def _load_json_list(path: str) -> list:
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+    except (OSError, ValueError):
+        return []
+    if isinstance(data, dict):
+        for key in ("tools", "wallpapers", "games"):
+            if isinstance(data.get(key), list):
+                return data[key]
+        return []
+    return data if isinstance(data, list) else []
+
+
+def build_weekly_html(day: str) -> tuple[str, str]:
+    """SweetAI Weekly: one email with the best of the whole SweetAI network."""
+    week = _week_key(day)
+    title = f"SweetAI Weekly \u2014 Week of {day}"
+    ws = os.path.expanduser("~/workspace")
+
+    parts = []
+    parts.append(
+        '<table width="100%" cellpadding="0" cellspacing="0">'
+        '<tr><td style="font-family:Arial,Helvetica,sans-serif;color:#111111;'
+        'font-size:16px;line-height:1.6;max-width:600px;margin:0 auto;display:block;">'
+    )
+    parts.append(
+        '<h1 style="font-size:24px;margin:0 0 4px;">\U0001f320 SweetAI Weekly</h1>'
+        f'<p style="color:#666666;font-size:14px;margin:0 0 24px;">Week of {esc(day)}'
+        " \u00b7 The best of the SweetAI network: AI news, tools, wallpapers &amp; games.</p>"
+    )
+    h2 = ('<h2 style="font-size:20px;border-bottom:2px solid #111111;'
+          'padding-bottom:6px;margin-top:28px;">')
+
+    # --- 1. This week in AI ---
+    news = _week_news(day)
+    if news:
+        parts.append(h2 + "\U0001f4f0 This Week in AI</h2>")
+        for item in news:
+            parts.append(
+                f'<h3 style="font-size:17px;margin:18px 0 6px;">'
+                f'<a href="{esc(item.get("url"))}" style="color:#1a56db;text-decoration:none;">'
+                f'{esc(item.get("title"))}</a></h3>'
+                f'<p style="margin:0 0 12px;">{esc(item.get("summary"))}</p>'
+            )
+
+    # --- 2. Tool spotlight (Tools Hub) ---
+    tools = _load_json_list(os.path.join(ws, "ai-tools", "content", "tools.json"))
+    tool = _pick(tools, week)
+    if tool:
+        parts.append(h2 + "\U0001f6e0\ufe0f Tool Spotlight</h2>")
+        tid = esc(tool.get("id"))
+        parts.append(
+            f'<h3 style="font-size:17px;margin:18px 0 6px;">'
+            f'<a href="https://tools-hub.sweetai.work/tool/{tid}" '
+            f'style="color:#1a56db;text-decoration:none;">{esc(tool.get("name"))}</a></h3>'
+            f'<p style="margin:0 0 4px;">{esc(tool.get("tagline"))}</p>'
+            f'<p style="margin:0 0 12px;color:#666666;font-size:14px;">'
+            f'From <a href="https://tools-hub.sweetai.work/" style="color:#1a56db;">Tools Hub</a>'
+            " \u00b7 200 curated tools, free directory.</p>"
+        )
+
+    # --- 3. Localcraft pick ---
+    lc_tools = _load_json_list(os.path.join(CONTENT_DIR, "localcraft_tools.json"))
+    lc = _pick(lc_tools, week)
+    if lc:
+        parts.append(h2 + "\U0001f9f0 From Localcraft</h2>")
+        parts.append(
+            f'<h3 style="font-size:17px;margin:18px 0 6px;">'
+            f'<a href="https://tools.sweetai.work/{esc(lc.get("route"))}/" '
+            f'style="color:#1a56db;text-decoration:none;">{esc(lc.get("name"))}</a></h3>'
+            '<p style="margin:0 0 12px;">Free, runs entirely in your browser '
+            "\u2014 your files never leave your device.</p>"
+        )
+
+    # --- 4. Wallpaper of the week ---
+    wps = _load_json_list(os.path.join(ws, "wallpapers", "content", "wallpapers.json"))
+    wp = _pick(wps, week)
+    if wp and wp.get("id"):
+        wid = esc(wp.get("id"))
+        parts.append(h2 + "\U0001f5bc\ufe0f Wallpaper of the Week</h2>")
+        if wp.get("image"):
+            parts.append(
+                f'<a href="https://wallpapers.sweetai.work/w/{wid}/">'
+                f'<img src="{esc(wp.get("image"))}" alt="Wallpaper of the week" '
+                'style="width:100%;max-width:600px;border-radius:8px;margin:12px 0 6px;" /></a>'
+            )
+        parts.append(
+            f'<p style="margin:0 0 12px;"><a href="https://wallpapers.sweetai.work/w/{wid}/" '
+            f'style="color:#1a56db;">Download this wallpaper</a> \u00b7 '
+            f'{esc(wp.get("resolution") or "")} \u00b7 from '
+            '<a href="https://wallpapers.sweetai.work/" style="color:#1a56db;">Sweet Wallpapers</a>.</p>'
+        )
+
+    # --- 5. Game of the week ---
+    games = _load_json_list(os.path.join(ws, "game-hub", "content", "games.json"))
+    game = _pick(games, week)
+    if game and game.get("id"):
+        gid = esc(game.get("id"))
+        parts.append(h2 + "\U0001f3ae Game of the Week</h2>")
+        if game.get("cover"):
+            parts.append(
+                f'<a href="https://games.sweetai.work/game/{gid}.html">'
+                f'<img src="{esc(game.get("cover"))}" alt="{esc(game.get("name"))}" '
+                'style="width:100%;max-width:600px;border-radius:8px;margin:12px 0 6px;" /></a>'
+            )
+        parts.append(
+            f'<h3 style="font-size:17px;margin:12px 0 6px;">'
+            f'<a href="https://games.sweetai.work/game/{gid}.html" '
+            f'style="color:#1a56db;text-decoration:none;">{esc(game.get("name"))}</a></h3>'
+            f'<p style="margin:0 0 12px;">{esc(game.get("tagline") or game.get("description") or "")}</p>'
+        )
+
+    parts.append(
+        '<p style="color:#888888;font-size:13px;margin-top:28px;border-top:1px solid #dddddd;'
+        'padding-top:12px;">You\u2019re reading SweetAI Weekly \u2014 one email with the best of '
+        '<a href="https://hub.sweetai.work/" style="color:#1a56db;">the SweetAI network</a>. '
+        "Reply with feedback \u2014 we read every reply.</p>"
+        "</td></tr></table>"
+    )
+    return title, "".join(parts)
+
+
 def create_draft_api(pub_id: str, api_key: str, title: str, body_html: str) -> dict:
     """POST a draft to Beehiiv. Returns the parsed response JSON."""
     url = f"{API_BASE}/publications/{pub_id}/posts"
@@ -176,12 +336,18 @@ def main() -> None:
                     help="content date YYYY-MM-DD (default: today; falls back to newest file)")
     ap.add_argument("--render-only", action="store_true",
                     help="only render HTML to a file for manual paste (no API call)")
+    ap.add_argument("--weekly", action="store_true",
+                    help="render the SweetAI Weekly network edition instead of the daily digest")
     ap.add_argument("--out", default="",
                     help="output path for --render-only (default: /tmp/ai-daily-newsletter-<date>.html)")
     args = ap.parse_args()
 
-    data = load_content(args.date)
-    title, body_html = build_html(data)
+    if args.weekly:
+        title, body_html = build_weekly_html(args.date)
+        data = {"date": args.date}
+    else:
+        data = load_content(args.date)
+        title, body_html = build_html(data)
 
     if args.render_only:
         out = args.out or f"/tmp/ai-daily-newsletter-{data.get('date', args.date)}.html"

@@ -1,0 +1,154 @@
+[
+ {
+  "route": "video-converter",
+  "name": "Video to MP4"
+ },
+ {
+  "route": "video-to-mp3",
+  "name": "Extract MP3 from video"
+ },
+ {
+  "route": "video-to-gif",
+  "name": "Video to GIF"
+ },
+ {
+  "route": "audio-to-mp3",
+  "name": "Audio to MP3"
+ },
+ {
+  "route": "data-converter",
+  "name": "JSON, CSV, YAML & Excel converter"
+ },
+ {
+  "route": "text-utilities",
+  "name": "JSON formatter, Base64 & URL codec"
+ },
+ {
+  "route": "markdown-converter",
+  "name": "Markdown ↔ HTML converter"
+ },
+ {
+  "route": "image-converter",
+  "name": "Image format converter"
+ },
+ {
+  "route": "compress-images",
+  "name": "JPG & PNG image compressor"
+ },
+ {
+  "route": "remove-image-metadata",
+  "name": "Remove image EXIF & GPS metadata"
+ },
+ {
+  "route": "pdf",
+  "name": "PDF merge, extract and image to PDF"
+ },
+ {
+  "route": "docx",
+  "name": "DOCX to text or Markdown"
+ },
+ {
+  "route": "subtitle-converter",
+  "name": "Subtitle converter & time shift"
+ },
+ {
+  "route": "compress-pdf",
+  "name": "Compress PDF"
+ },
+ {
+  "route": "split-pdf",
+  "name": "Split PDF"
+ },
+ {
+  "route": "pdf-to-word",
+  "name": "PDF to Word"
+ },
+ {
+  "route": "word-to-pdf",
+  "name": "Word to PDF"
+ },
+ {
+  "route": "heic-to-jpg",
+  "name": "HEIC to JPG"
+ },
+ {
+  "route": "webp-convert",
+  "name": "WebP converter"
+ },
+ {
+  "route": "trim-video",
+  "name": "Trim video"
+ },
+ {
+  "route": "audio-convert",
+  "name": "Audio converter"
+ },
+ {
+  "route": "password-generator",
+  "name": "Password generator"
+ },
+ {
+  "route": "qr-generator",
+  "name": "QR code generator"
+ },
+ {
+  "route": "word-counter",
+  "name": "Word counter"
+ },
+ {
+  "route": "uuid-generator",
+  "name": "UUID generator"
+ },
+ {
+  "route": "timestamp-converter",
+  "name": "Timestamp converter"
+ },
+ {
+  "route": "percentage-calculator",
+  "name": "Percentage calculator"
+ },
+ {
+  "route": "bmi-calculator",
+  "name": "BMI calculator"
+ },
+ {
+  "route": "ai-chat",
+  "name": "AI chat"
+ },
+ {
+  "route": "ai-summarizer",
+  "name": "AI summarizer"
+ },
+ {
+  "route": "ai-translator",
+  "name": "AI translator"
+ },
+ {
+  "route": "ai-writer",
+  "name": "AI writing assistant"
+ },
+ {
+  "route": "ai-code-explainer",
+  "name": "AI code explainer"
+ },
+ {
+  "route": "ai-pdf-chat",
+  "name": "AI PDF chat"
+ },
+ {
+  "route": "ai-image-analyzer",
+  "name": "AI image analyzer"
+ },
+ {
+  "route": "ai-voice",
+  "name": "AI voice generator"
+ },
+ {
+  "route": "ai-data-analyst",
+  "name": "AI data analyst"
+ },
+ {
+  "route": "bg-remover",
+  "name": "Background remover"
+ }
+]
