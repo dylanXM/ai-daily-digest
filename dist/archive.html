@@ -370,7 +370,7 @@ a:hover{text-decoration:underline}
       s.src =
         "https://www.paypal.com/sdk/js?client-id=" +
         encodeURIComponent(cfg.clientId) +
-        "&currency=USD&intent=capture";
+        "&currency=USD&intent=capture&disable-funding=card";
       s.onload = initButtons;
       document.head.appendChild(s);
     })
