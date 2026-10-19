@@ -257,6 +257,14 @@ a:hover{text-decoration:underline}
 .cross-promo p{margin:0;color:var(--text-secondary,#555);font-size:14px}
 .cross-promo a{font-weight:600;color:var(--text,#111);text-decoration:underline;text-underline-offset:3px}
 
+[data-theme="dark"] #auth-area iframe{color-scheme:dark}
+
+/* Dark-mode Google button: custom visual + invisible real button overlay */
+.gsi-dark-wrap{position:relative;display:inline-block;line-height:0}
+.gsi-visual{display:inline-flex;align-items:center;gap:10px;background:#000;color:#fff;border:1px solid transparent;border-radius:999px;height:40px;padding:0 18px;font-size:14px;font-weight:500;white-space:nowrap;line-height:1}
+.gsi-dark-wrap .gsi-real{position:absolute;inset:0;opacity:0;overflow:hidden;cursor:pointer}
+.gsi-dark-wrap .gsi-real iframe{width:100%!important;height:100%!important}
+
 /* Floating tip button — append after tip.css.
  * Bottom-right black gift button; click opens the tip card as a popover.
  * Black/white minimal to match the tip card. */
@@ -652,6 +660,7 @@ our curated directory across 10 categories, from chatbots to video generators.</
   function gsiTheme() {
     return document.documentElement.getAttribute("data-theme") === "dark" ? "filled_black" : "outline";
   }
+  var G_LOGO_SVG = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09C3.26 21.3 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.27 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.98-3.09z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75z"/></svg>';
   function renderGsiButton() {
     var el = document.getElementById("sweetai-gsi-btn");
     if (!el || !window.google || !google.accounts || !google.accounts.id || !gsiCfg || !gsiCfg.google_client_id) return false;
@@ -660,7 +669,21 @@ our curated directory across 10 categories, from chatbots to video generators.</
       callback: onCredential,
     });
     el.innerHTML = "";
-    google.accounts.id.renderButton(el, { theme: gsiTheme(), size: "medium", shape: "pill", locale: "en" });
+    if (gsiTheme() === "filled_black") {
+      el.className = "gsi-dark-wrap";
+      var visual = document.createElement("span");
+      visual.className = "gsi-visual";
+      visual.setAttribute("aria-hidden", "true");
+      visual.innerHTML = G_LOGO_SVG + "<span>Sign in with Google</span>";
+      el.appendChild(visual);
+      var real = document.createElement("div");
+      real.className = "gsi-real";
+      el.appendChild(real);
+      google.accounts.id.renderButton(real, { theme: "filled_black", size: "medium", shape: "pill", locale: "en", width: 220 });
+    } else {
+      el.className = "";
+      google.accounts.id.renderButton(el, { theme: "outline", size: "medium", shape: "pill", locale: "en", width: 220 });
+    }
     return true;
   }
   function initGsiButton() {

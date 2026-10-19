@@ -241,3 +241,11 @@ a:hover{text-decoration:underline}
 .cross-promo h3{margin:0 0 8px;font-size:16px;color:var(--text,#111)}
 .cross-promo p{margin:0;color:var(--text-secondary,#555);font-size:14px}
 .cross-promo a{font-weight:600;color:var(--text,#111);text-decoration:underline;text-underline-offset:3px}
+
+[data-theme="dark"] #auth-area iframe{color-scheme:dark}
+
+/* Dark-mode Google button: custom visual + invisible real button overlay */
+.gsi-dark-wrap{position:relative;display:inline-block;line-height:0}
+.gsi-visual{display:inline-flex;align-items:center;gap:10px;background:#000;color:#fff;border:1px solid transparent;border-radius:999px;height:40px;padding:0 18px;font-size:14px;font-weight:500;white-space:nowrap;line-height:1}
+.gsi-dark-wrap .gsi-real{position:absolute;inset:0;opacity:0;overflow:hidden;cursor:pointer}
+.gsi-dark-wrap .gsi-real iframe{width:100%!important;height:100%!important}
