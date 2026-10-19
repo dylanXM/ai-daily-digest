@@ -231,6 +231,7 @@ def fetch_github(target, want=8):
         f"llm in:name,description created:>={since}",
         f"topic:machine-learning created:>={since}",
     ]
+    cjk = re.compile(r"[\u4e00-\u9fff]")
     repos = {}
     for q in queries:
         path = "/search/repositories?" + urllib.parse.urlencode(
@@ -243,6 +244,8 @@ def fetch_github(target, want=8):
             blob = f"{r.get('name', '')} {r.get('description') or ''}"
             if not looks_ai(blob):
                 continue
+            if cjk.search(blob):
+                continue  # site is English-only; skip CJK repos
             repos[r["full_name"]] = r
         time.sleep(2)  # unauthenticated search API is limited to 10 req/min
 
