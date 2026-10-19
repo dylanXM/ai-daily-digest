@@ -81,21 +81,33 @@
   }
 
   var gsiTries = 0;
+  var gsiCfg = null;
+  function gsiTheme() {
+    return document.documentElement.getAttribute("data-theme") === "dark" ? "filled_black" : "outline";
+  }
+  function renderGsiButton() {
+    var el = document.getElementById("sweetai-gsi-btn");
+    if (!el || !window.google || !google.accounts || !google.accounts.id || !gsiCfg || !gsiCfg.google_client_id) return false;
+    google.accounts.id.initialize({
+      client_id: gsiCfg.google_client_id,
+      callback: onCredential,
+    });
+    el.innerHTML = "";
+    google.accounts.id.renderButton(el, { theme: gsiTheme(), size: "medium", shape: "pill", locale: "en" });
+    return true;
+  }
   function initGsiButton() {
-    var cfg;
-    S.api("/api/auth/config").then(function (c) { cfg = c; tryRender(); });
+    S.api("/api/auth/config").then(function (c) { gsiCfg = c; tryRender(); });
     function tryRender() {
-      var el = document.getElementById("sweetai-gsi-btn");
-      if (!el) return;
-      if (window.google && google.accounts && google.accounts.id && cfg && cfg.google_client_id) {
-        google.accounts.id.initialize({
-          client_id: cfg.google_client_id,
-          callback: onCredential,
-        });
-        google.accounts.id.renderButton(el, { theme: "outline", size: "medium", shape: "pill", locale: "en" });
-      } else if (++gsiTries < 40) {
+      if (renderGsiButton()) return;
+      if (++gsiTries < 40) {
         setTimeout(tryRender, 250);
       }
+    }
+    // Re-render the button when the site theme toggles (light/dark).
+    if (window.MutationObserver) {
+      new MutationObserver(function () { renderGsiButton(); })
+        .observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
     }
   }
 

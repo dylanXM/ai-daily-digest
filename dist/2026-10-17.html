@@ -251,11 +251,11 @@ a:hover{text-decoration:underline}
 #tip-paypal-btn { max-width: 320px; margin: 0 auto; }
 .tip-thanks { font-size: 15px; font-weight: 600; color: #111; margin: 14px 0 0; }
 
-/* Cross-site promo card */
-.cross-promo{border:1px solid #e5e5e5;border-radius:12px;padding:18px 20px;margin:28px 0;background:#fafafa}
-.cross-promo h3{margin:0 0 8px;font-size:16px}
-.cross-promo p{margin:0;color:#555;font-size:14px}
-.cross-promo a{font-weight:600;color:#111;text-decoration:underline;text-underline-offset:3px}
+/* Cross-site promo card (theme-aware via CSS variables) */
+.cross-promo{border:1px solid var(--border,#e5e5e5);border-radius:12px;padding:18px 20px;margin:28px 0;background:var(--bg-soft,#fafafa)}
+.cross-promo h3{margin:0 0 8px;font-size:16px;color:var(--text,#111)}
+.cross-promo p{margin:0;color:var(--text-secondary,#555);font-size:14px}
+.cross-promo a{font-weight:600;color:var(--text,#111);text-decoration:underline;text-underline-offset:3px}
 
 /* Floating tip button — append after tip.css.
  * Bottom-right black gift button; click opens the tip card as a popover.
@@ -637,21 +637,33 @@ our curated directory across 10 categories, from chatbots to video generators.</
   }
 
   var gsiTries = 0;
+  var gsiCfg = null;
+  function gsiTheme() {
+    return document.documentElement.getAttribute("data-theme") === "dark" ? "filled_black" : "outline";
+  }
+  function renderGsiButton() {
+    var el = document.getElementById("sweetai-gsi-btn");
+    if (!el || !window.google || !google.accounts || !google.accounts.id || !gsiCfg || !gsiCfg.google_client_id) return false;
+    google.accounts.id.initialize({
+      client_id: gsiCfg.google_client_id,
+      callback: onCredential,
+    });
+    el.innerHTML = "";
+    google.accounts.id.renderButton(el, { theme: gsiTheme(), size: "medium", shape: "pill", locale: "en" });
+    return true;
+  }
   function initGsiButton() {
-    var cfg;
-    S.api("/api/auth/config").then(function (c) { cfg = c; tryRender(); });
+    S.api("/api/auth/config").then(function (c) { gsiCfg = c; tryRender(); });
     function tryRender() {
-      var el = document.getElementById("sweetai-gsi-btn");
-      if (!el) return;
-      if (window.google && google.accounts && google.accounts.id && cfg && cfg.google_client_id) {
-        google.accounts.id.initialize({
-          client_id: cfg.google_client_id,
-          callback: onCredential,
-        });
-        google.accounts.id.renderButton(el, { theme: "outline", size: "medium", shape: "pill", locale: "en" });
-      } else if (++gsiTries < 40) {
+      if (renderGsiButton()) return;
+      if (++gsiTries < 40) {
         setTimeout(tryRender, 250);
       }
+    }
+    // Re-render the button when the site theme toggles (light/dark).
+    if (window.MutationObserver) {
+      new MutationObserver(function () { renderGsiButton(); })
+        .observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
     }
   }
 
@@ -725,6 +737,12 @@ our curated directory across 10 categories, from chatbots to video generators.</
 .sweetai-network-bar a{font-size:13px;color:#525252;text-decoration:none;padding:4px 10px;border-radius:999px;white-space:nowrap}
 .sweetai-network-bar a:hover{color:#000;background:#ececec}
 .sweetai-network-bar .nw-sep{color:#d4d4d4;align-self:center;font-size:12px}
+/* Dark mode (sites toggle data-theme="dark" on <html>) */
+[data-theme="dark"] .sweetai-network-bar{background:#111111;border-top-color:#262626}
+[data-theme="dark"] .sweetai-network-bar .nw-label{color:#6e6e6e}
+[data-theme="dark"] .sweetai-network-bar a{color:#d6d6d6}
+[data-theme="dark"] .sweetai-network-bar a:hover{color:#ffffff;background:#262626}
+[data-theme="dark"] .sweetai-network-bar .nw-sep{color:#3d3d3d}
 </style>
 <footer class="sweetai-network-bar" aria-label="SweetAI network">
   <span class="nw-label">Part of the SweetAI network</span>
