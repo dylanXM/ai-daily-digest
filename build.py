@@ -30,10 +30,10 @@ SITE_DESC = "Every morning at 9:00 AM Eastern Time, a roundup of the previous da
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
-# Shared Sweet Hub snippets (single source of truth lives in
-# ~/workspace/sweet-hub/snippets/). Loaded at import time.
+# Shared Sweet Hub snippets. Copied into site/snippets/ so Cloudflare Pages
+# builds work (the build server has no access to ~/workspace).
 def _read_snippet(name):
-    p = Path.home() / "workspace" / "sweet-hub" / "snippets" / name
+    p = Path(__file__).parent / "site" / "snippets" / name
     try:
         return p.read_text(encoding="utf-8")
     except OSError:

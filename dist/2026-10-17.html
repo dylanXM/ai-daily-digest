@@ -254,14 +254,14 @@ a:hover{text-decoration:underline}
 #tip-fab {
   position: fixed; right: 24px; bottom: 24px; z-index: 9000;
   width: 52px; height: 52px; border-radius: 50%;
-  background: #111; border: 1px solid #111; color: #fff;
-  box-shadow: 0 4px 20px rgba(0,0,0,.18);
+  background: #fff; border: 1px solid #e5e5e5; color: #111;
+  box-shadow: 0 4px 20px rgba(0,0,0,.12);
   cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  transition: transform .15s, box-shadow .15s, background .15s;
+  transition: transform .15s, box-shadow .15s;
   font-family: inherit; padding: 0;
 }
-#tip-fab:hover { transform: scale(1.06); box-shadow: 0 6px 24px rgba(0,0,0,.24); background: #000; }
+#tip-fab:hover { transform: scale(1.06); box-shadow: 0 6px 24px rgba(0,0,0,.18); }
 #tip-fab svg { display: block; }
 #tip-popover {
   position: fixed; right: 24px; bottom: 88px; z-index: 9001;

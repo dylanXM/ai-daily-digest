@@ -1,0 +1,14 @@
+/* SweetAI shared auth styles — append to site stylesheet. */
+#auth-area { display: flex; align-items: center; }
+.sweetai-user { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.sweetai-avatar { width: 28px; height: 28px; border-radius: 50%; }
+.sweetai-name { max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sweetai-link { background: none; border: none; color: var(--muted, #6e6e73); font-size: 13px; cursor: pointer; font-family: inherit; padding: 4px; }
+.sweetai-link:hover { color: #111; }
+#sweetai-toast {
+  position: fixed; left: 50%; bottom: 32px; transform: translateX(-50%) translateY(20px);
+  background: #111; color: #fff; padding: 12px 20px; border-radius: 999px; font-size: 14px;
+  opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 9999;
+  max-width: 90vw; text-align: center;
+}
+#sweetai-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
