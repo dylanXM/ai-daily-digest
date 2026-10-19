@@ -48,6 +48,8 @@ _TIP_FAB_JS = _read_snippet("tip-fab.js")
 # SweetAI shared Google login.
 _AUTH_CSS = _read_snippet("sweetai-auth.css")
 _AUTH_JS = _read_snippet("sweetai-auth.js")
+# SweetAI network bar (cross-site footer links).
+_NETWORK_BAR_HTML = _read_snippet("network-bar.html")
 
 
 # ---------- data loading ----------
@@ -188,6 +190,7 @@ def fill_template(template, title, meta_desc, canonical, content, css, js):
         .replace("{{JS}}", js)
         .replace("{{CONTENT}}", content)
         .replace("{{TIP_FAB}}", _TIP_FAB_HTML)
+        .replace("{{NETWORK_BAR}}", _NETWORK_BAR_HTML)
     )
 
 

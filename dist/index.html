@@ -709,5 +709,28 @@ a:hover{text-decoration:underline}
   </div>
 </div>
 
+<!-- SweetAI network bar: include once per page, just before </body>.
+     Self-contained (inline styles). Fixed light strip so it stays legible
+     on both light and dark site themes. -->
+<style>
+.sweetai-network-bar{border-top:1px solid #e8e8e8;background:#fafafa;padding:22px 16px 26px;text-align:center;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.sweetai-network-bar .nw-label{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#a3a3a3;margin:0 0 10px}
+.sweetai-network-bar .nw-links{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 2px;max-width:720px;margin:0 auto}
+.sweetai-network-bar a{font-size:13px;color:#525252;text-decoration:none;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.sweetai-network-bar a:hover{color:#000;background:#ececec}
+.sweetai-network-bar .nw-sep{color:#d4d4d4;align-self:center;font-size:12px}
+</style>
+<footer class="sweetai-network-bar" aria-label="SweetAI network">
+  <span class="nw-label">Part of the SweetAI network</span>
+  <nav class="nw-links">
+    <a href="https://hub.sweetai.work">SweetAI</a><span class="nw-sep">·</span>
+    <a href="https://ai-daily-news.sweetai.work">AI Daily</a><span class="nw-sep">·</span>
+    <a href="https://tools-hub.sweetai.work">Tools Hub</a><span class="nw-sep">·</span>
+    <a href="https://tools.sweetai.work">Localcraft</a><span class="nw-sep">·</span>
+    <a href="https://wallpapers.sweetai.work">Wallpapers</a><span class="nw-sep">·</span>
+    <a href="https://games.sweetai.work">Game Hub</a>
+  </nav>
+</footer>
+
 </body>
 </html>
