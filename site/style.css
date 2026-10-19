@@ -205,3 +205,19 @@ a:hover{text-decoration:underline}
 @media print{
   .site-header,.theme-toggle,.more-link,.ad-slot{display:none}
 }
+/* Sweet Hub tip jar styles — append to the site's stylesheet */
+.tip-jar {
+  max-width: 420px; margin: 36px auto; padding: 24px;
+  border: 1px solid var(--border, #e5e5e7); border-radius: 14px;
+  text-align: center; background: var(--bg-soft, #f7f7f8);
+}
+.tip-title { font-size: 19px; font-weight: 700; margin: 0 0 4px; }
+.tip-sub { font-size: 14px; color: var(--muted, #6e6e73); margin: 0 0 14px; }
+.tip-row { display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 14px; }
+.tip-cur { font-size: 18px; font-weight: 600; }
+.tip-amount {
+  width: 110px; padding: 8px 10px; font-size: 17px; text-align: center;
+  border: 1px solid var(--border, #e5e5e7); border-radius: 8px;
+}
+#tip-paypal-btn { max-width: 300px; margin: 0 auto; }
+.tip-thanks { font-size: 16px; font-weight: 600; color: var(--accent, #10a37f); margin: 12px 0 0; }

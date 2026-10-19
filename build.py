@@ -30,6 +30,22 @@ SITE_DESC = "Every morning at 9:00 AM Eastern Time, a roundup of the previous da
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
+# Sweet Hub tip jar ("Buy me a coffee"). The box stays hidden until a PayPal
+# Client ID is configured; the JS in theme.js handles the rest.
+TIP_BOX = """
+<div class="tip-jar" id="tip-jar" style="display:none">
+  <p class="tip-title">☕ Buy me a coffee</p>
+  <p class="tip-sub">Enjoying this? A small tip keeps it free for everyone.</p>
+  <div class="tip-row">
+    <span class="tip-cur">$</span>
+    <input class="tip-amount" id="tip-amount" type="number" value="1.99"
+           min="0.50" max="500" step="0.50" aria-label="Tip amount in USD">
+  </div>
+  <div id="tip-paypal-btn"></div>
+  <p class="tip-thanks" id="tip-thanks" style="display:none">Thank you so much! 🎉</p>
+</div>
+"""
+
 
 # ---------- data loading ----------
 
@@ -205,6 +221,7 @@ def render_index(template, css, js, latest, issues):
             f'<div class="more-link">'
             f'<a class="btn" href="{BASE_URL}/archive.html">Browse the full archive →</a></div>'
         )
+    content += TIP_BOX
     # Homepage sidebar ad slot
     content += "\n<!-- ADSENSE: sidebar -->\n<div class=\"ad-slot\"></div>"
     title = f"{en_date(latest['date'])} AI Digest | {SITE_NAME}"
@@ -222,6 +239,7 @@ def render_issue_page(template, css, js, issue):
         f"</div>"
     )
     content = hero + issue_sections(issue)
+    content += TIP_BOX
     content += "\n<!-- ADSENSE: sidebar -->\n<div class=\"ad-slot\"></div>"
     title = f"{en_date(date_str)} AI Digest | {SITE_NAME}"
     desc = f"AI news, trending GitHub AI projects, and new AI products for {en_date(date_str)}."

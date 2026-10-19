@@ -26,3 +26,94 @@
     });
   });
 })();
+/* Sweet Hub stats beacon — include on every page.
+ * Requires: <meta name="hub-site" content="ai-daily|tools-hub|localcraft|wallpapers">
+ * 1 write per pageview in D1; no cookies, no personal data.
+ */
+(function () {
+  try {
+    var m = document.querySelector('meta[name="hub-site"]');
+    if (!m || !m.content) return;
+    var url = "https://sweet-hub-api.dylan-xm.workers.dev/api/collect";
+    var payload = JSON.stringify({ site: m.content, event: "pv" });
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(url, payload);
+    } else {
+      fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+        keepalive: true,
+      }).catch(function () {});
+    }
+  } catch (e) { /* never break the page */ }
+})();
+/* Sweet Hub tip jar — PayPal "Buy me a coffee".
+ * Requires: <div class="tip-jar" id="tip-jar">…</div> on the page (see tip.html).
+ * The jar stays hidden until the PayPal Client ID is configured server-side.
+ */
+(function () {
+  var jar = document.getElementById("tip-jar");
+  if (!jar) return;
+  var API = "https://sweet-hub-api.dylan-xm.workers.dev";
+
+  function amount() {
+    var v = parseFloat(document.getElementById("tip-amount").value);
+    if (!isFinite(v) || v < 0.5) v = 0.5;
+    if (v > 500) v = 500;
+    return v.toFixed(2);
+  }
+
+  fetch(API + "/api/paypal/config")
+    .then(function (r) { return r.json(); })
+    .then(function (cfg) {
+      if (!cfg || !cfg.clientId) return; // PayPal not configured yet
+      jar.style.display = "block";
+      var s = document.createElement("script");
+      s.src =
+        "https://www.paypal.com/sdk/js?client-id=" +
+        encodeURIComponent(cfg.clientId) +
+        "&currency=USD&intent=capture";
+      s.onload = initButtons;
+      document.head.appendChild(s);
+    })
+    .catch(function () {});
+
+  function initButtons() {
+    if (!window.paypal) return;
+    paypal
+      .Buttons({
+        style: { layout: "horizontal", color: "gold", shape: "pill", label: "paypal", height: 38 },
+        createOrder: function (data, actions) {
+          return actions.order.create({
+            purchase_units: [
+              {
+                description: "Tip — Buy me a coffee",
+                amount: { currency_code: "USD", value: amount() },
+              },
+            ],
+          });
+        },
+        onApprove: function (data, actions) {
+          return actions.order.capture().then(function (details) {
+            var cap = details.purchase_units[0].payments.captures[0];
+            return fetch(API + "/api/tip/record", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                orderID: data.orderID,
+                captureID: cap.id,
+                amount: cap.amount.value,
+                page_url: location.href,
+              }),
+            }).then(function () {
+              document.getElementById("tip-thanks").style.display = "block";
+              document.getElementById("tip-paypal-btn").style.display = "none";
+            });
+          });
+        },
+        onError: function (err) { console.error("tip error", err); },
+      })
+      .render("#tip-paypal-btn");
+  }
+})();
