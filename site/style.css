@@ -55,8 +55,8 @@ a:hover{text-decoration:underline}
   backdrop-filter:blur(12px);
   border-bottom:1px solid var(--border);
 }
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
-.brand{font-size:19px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px}
+.header-inner{display:flex;align-items:center;gap:16px;height:60px}
+.brand{font-size:19px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;white-space:nowrap;flex:none}
 .brand:hover{text-decoration:none}
 .brand-mark{
   display:inline-flex;align-items:center;justify-content:center;
@@ -64,9 +64,10 @@ a:hover{text-decoration:underline}
   background:linear-gradient(135deg,#2563eb,#7c3aed);
   color:#fff;font-size:16px;
 }
-.site-nav{display:flex;align-items:center;gap:18px}
-.site-nav a{color:var(--text-secondary);font-size:15px}
-.site-nav a:hover{color:var(--accent);text-decoration:none}
+.nav-links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1;-webkit-overflow-scrolling:touch}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{color:var(--text-secondary);font-size:15px;padding:8px 12px;border-radius:8px;white-space:nowrap;flex:none}
+.nav-links a:hover{color:var(--accent);text-decoration:none}
 .theme-toggle{
   border:1px solid var(--border);background:var(--bg-soft);
   color:var(--text-secondary);font-size:16px;cursor:pointer;
@@ -75,6 +76,8 @@ a:hover{text-decoration:underline}
   transition:all .2s;
 }
 .theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.theme-toggle{flex:none}
+#auth-area{flex:none;display:flex;align-items:center;min-height:40px}
 
 /* ===== Hero ===== */
 .hero{padding:44px 0 8px}
@@ -195,8 +198,8 @@ a:hover{text-decoration:underline}
 @media (max-width:640px){
   body{font-size:15px}
   .hero{padding:32px 0 4px}
-  .site-nav{gap:12px}
-  .site-nav a{font-size:14px}
+  .header-inner{gap:12px}
+  .nav-links a{font-size:14px}
   .card{padding:16px 18px}
   .repo-card{padding:14px 16px}
   .product-grid{grid-template-columns:1fr}
