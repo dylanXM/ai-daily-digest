@@ -11,6 +11,7 @@
 <meta property="og:description" content="Every morning at 9:00 AM Eastern Time, a roundup of the previous day&#x27;s AI news, trending AI projects on GitHub, and new AI products.">
 <meta property="og:type" content="article">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1672880630267493" crossorigin="anonymous"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 <style>
 /* AI Daily Digest - modern minimalist style (light theme first, dark mode supported) */
 :root{
@@ -247,6 +248,55 @@ a:hover{text-decoration:underline}
 #tip-paypal-btn { max-width: 320px; margin: 0 auto; }
 .tip-thanks { font-size: 15px; font-weight: 600; color: #111; margin: 14px 0 0; }
 
+/* Floating tip button — append after tip.css.
+ * Bottom-right gift FAB; click opens the tip card as a popover. */
+#tip-fab {
+  position: fixed; right: 24px; bottom: 24px; z-index: 9000;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #fff; border: 1px solid var(--border, #e5e5e5);
+  box-shadow: 0 4px 20px rgba(0,0,0,.12);
+  font-size: 26px; line-height: 1; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .15s, box-shadow .15s;
+  font-family: inherit;
+}
+#tip-fab:hover { transform: scale(1.06); box-shadow: 0 6px 24px rgba(0,0,0,.16); }
+#tip-popover {
+  position: fixed; right: 24px; bottom: 92px; z-index: 9001;
+  width: 340px; max-width: calc(100vw - 48px);
+  background: #fff; border: 1px solid var(--border, #e5e5e5);
+  border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,.18);
+  padding: 8px 8px 4px;
+}
+#tip-popover[hidden] { display: none; }
+#tip-popover .tip-jar { margin: 0; border: none; box-shadow: none; max-width: none; }
+#tip-popover-close {
+  position: absolute; top: 6px; right: 10px; z-index: 2;
+  background: none; border: none; font-size: 22px; line-height: 1;
+  color: var(--muted, #6e6e73); cursor: pointer; padding: 4px;
+  font-family: inherit;
+}
+#tip-popover-close:hover { color: #111; }
+@media (max-width: 480px) {
+  #tip-fab { right: 16px; bottom: 16px; width: 52px; height: 52px; }
+  #tip-popover { right: 16px; bottom: 80px; }
+}
+
+/* SweetAI shared auth styles — append to site stylesheet. */
+#auth-area { display: flex; align-items: center; }
+.sweetai-user { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.sweetai-avatar { width: 28px; height: 28px; border-radius: 50%; }
+.sweetai-name { max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sweetai-link { background: none; border: none; color: var(--muted, #6e6e73); font-size: 13px; cursor: pointer; font-family: inherit; padding: 4px; }
+.sweetai-link:hover { color: #111; }
+#sweetai-toast {
+  position: fixed; left: 50%; bottom: 32px; transform: translateX(-50%) translateY(20px);
+  background: #111; color: #fff; padding: 12px 20px; border-radius: 999px; font-size: 14px;
+  opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 9999;
+  max-width: 90vw; text-align: center;
+}
+#sweetai-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
 </style>
 </head>
 <body>
@@ -258,6 +308,7 @@ a:hover{text-decoration:underline}
       <a href="https://ai-daily-news.sweetai.work/archive.html">Archive</a>
       <a href="https://ai-daily-news.sweetai.work/feed.xml">RSS</a>
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">◐</button>
+      <div id="auth-area"></div>
     </nav>
   </div>
 </header>
@@ -416,6 +467,193 @@ a:hover{text-decoration:underline}
       .render("#tip-paypal-btn");
   }
 })();
+/* Floating tip button toggle — load after tip.js.
+ * Opens/closes the tip popover; tip.js handles PayPal inside #tip-jar. */
+(function () {
+  var fab = document.getElementById("tip-fab");
+  var pop = document.getElementById("tip-popover");
+  if (!fab || !pop) return;
+  var closeBtn = document.getElementById("tip-popover-close");
+
+  // Hide the FAB entirely if PayPal isn't configured (tip.js leaves #tip-jar hidden)
+  var jar = document.getElementById("tip-jar");
+  var checkTimer = setInterval(function () {
+    if (jar && jar.style.display === "block") {
+      fab.style.display = "flex";
+      clearInterval(checkTimer);
+    }
+  }, 500);
+  // Give up after 10s — keep hidden
+  setTimeout(function () { clearInterval(checkTimer); }, 10000);
+  fab.style.display = "none";
+
+  function open() { pop.hidden = false; }
+  function close() { pop.hidden = true; }
+  fab.addEventListener("click", function (e) {
+    e.stopPropagation();
+    pop.hidden ? open() : close();
+  });
+  if (closeBtn) closeBtn.addEventListener("click", close);
+  document.addEventListener("click", function (e) {
+    if (!pop.hidden && !pop.contains(e.target)) close();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") close();
+  });
+})();
+
+/* SweetAI shared auth — Google one-click login for all sites.
+ * Requires: <div id="auth-area"></div> in header, GSI script loaded.
+ * API: https://game-hub-api.dylan-xm.workers.dev
+ * Token stored in localStorage('sweetai_token').
+ */
+(function () {
+  var API = "https://game-hub-api.dylan-xm.workers.dev";
+  var TOKEN_KEY = "sweetai_token";
+
+  window.SweetAI = window.SweetAI || {};
+  var S = window.SweetAI;
+
+  S.token = function () { return localStorage.getItem(TOKEN_KEY); };
+  S.user = null;
+
+  S.api = function (path, opts) {
+    opts = opts || {};
+    var headers = { "Content-Type": "application/json" };
+    var t = S.token();
+    if (t) headers["Authorization"] = "Bearer " + t;
+    return fetch(API + path, {
+      method: opts.method || "GET",
+      headers: headers,
+      body: opts.body ? JSON.stringify(opts.body) : undefined,
+    }).then(function (r) {
+      if (r.status === 401) { S.logout(true); }
+      return r.json().catch(function () { return {}; });
+    });
+  };
+
+  S.requireLogin = function () {
+    if (!S.token() || !S.user) {
+      S.toast("Please sign in with Google to continue");
+      var a = document.getElementById("auth-area");
+      if (a) a.scrollIntoView({ behavior: "smooth", block: "center" });
+      return false;
+    }
+    return true;
+  };
+
+  S.toast = function (msg) {
+    var t = document.getElementById("sweetai-toast");
+    if (!t) {
+      t = document.createElement("div");
+      t.id = "sweetai-toast";
+      document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    t.classList.add("show");
+    clearTimeout(t._h);
+    t._h = setTimeout(function () { t.classList.remove("show"); }, 3200);
+  };
+
+  S.logout = function (silent) {
+    localStorage.removeItem(TOKEN_KEY);
+    S.user = null;
+    if (!silent) renderAuth();
+  };
+
+  function renderAuth() {
+    var area = document.getElementById("auth-area");
+    if (!area) return;
+    if (S.user) {
+      area.innerHTML =
+        '<span class="sweetai-user">' +
+        (S.user.avatar ? '<img src="' + S.user.avatar.replace(/"/g, "") + '" alt="" class="sweetai-avatar">' : "") +
+        '<span class="sweetai-name">' + escapeHtml(S.user.name || S.user.email) + "</span>" +
+        '<button type="button" id="sweetai-logout" class="sweetai-link">Sign out</button></span>';
+      var out = document.getElementById("sweetai-logout");
+      if (out) out.addEventListener("click", function () { S.logout(); });
+    } else {
+      area.innerHTML = '<div id="sweetai-gsi-btn"></div>';
+      initGsiButton();
+    }
+  }
+
+  function escapeHtml(s) {
+    return String(s || "").replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  var gsiTries = 0;
+  function initGsiButton() {
+    var cfg;
+    S.api("/api/auth/config").then(function (c) { cfg = c; tryRender(); });
+    function tryRender() {
+      var el = document.getElementById("sweetai-gsi-btn");
+      if (!el) return;
+      if (window.google && google.accounts && google.accounts.id && cfg && cfg.google_client_id) {
+        google.accounts.id.initialize({
+          client_id: cfg.google_client_id,
+          callback: onCredential,
+        });
+        google.accounts.id.renderButton(el, { theme: "outline", size: "medium", shape: "pill" });
+      } else if (++gsiTries < 40) {
+        setTimeout(tryRender, 250);
+      }
+    }
+  }
+
+  function onCredential(resp) {
+    S.api("/api/auth/google", { method: "POST", body: { id_token: resp.credential } })
+      .then(function (d) {
+        if (d && d.ok) {
+          localStorage.setItem(TOKEN_KEY, d.token);
+          S.user = d.user;
+          renderAuth();
+          document.dispatchEvent(new CustomEvent("sweetai:login"));
+        } else {
+          S.toast("Sign-in failed. Please try again.");
+        }
+      })
+      .catch(function () { S.toast("Sign-in failed. Please try again."); });
+  }
+
+  // Validate existing token on load
+  document.addEventListener("DOMContentLoaded", function () {
+    var t = S.token();
+    if (t) {
+      S.api("/api/auth/me").then(function (d) {
+        S.user = d && d.user ? d.user : null;
+        if (!S.user) localStorage.removeItem(TOKEN_KEY);
+        renderAuth();
+      });
+    } else {
+      renderAuth();
+    }
+  });
+})();
+
 </script>
+<button id="tip-fab" aria-label="Buy me a coffee" title="Buy me a coffee">🎁</button>
+<div id="tip-popover" hidden>
+  <button id="tip-popover-close" aria-label="Close">×</button>
+  <div class="tip-jar" id="tip-jar" style="display:none">
+    <p class="tip-title">☕ Buy me a coffee</p>
+    <p class="tip-sub">Enjoying this? A small tip keeps it free for everyone.</p>
+    <div class="tip-amounts" id="tip-amounts">
+      <button type="button" class="tip-pill" data-amount="1">$1</button>
+      <button type="button" class="tip-pill on" data-amount="1.99">$1.99</button>
+      <button type="button" class="tip-pill" data-amount="5">$5</button>
+      <button type="button" class="tip-pill" data-amount="custom">Custom</button>
+    </div>
+    <div class="tip-custom" id="tip-custom" style="display:none">
+      <span class="tip-cur">$</span>
+      <input class="tip-amount" id="tip-amount" type="text" inputmode="decimal" value="1.99" aria-label="Custom tip amount in USD">
+    </div>
+    <div id="tip-paypal-btn"></div>
+    <p class="tip-thanks" id="tip-thanks" style="display:none">Thank you so much! 🎉</p>
+  </div>
+</div>
+
 </body>
 </html>
