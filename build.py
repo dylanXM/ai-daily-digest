@@ -211,6 +211,14 @@ def fmt_published(published_at, fallback_date):
         return fallback_date
 
 
+# Cross-site promo: Tools Hub directory.
+TOOLSHUB_PROMO = """
+<div class="cross-promo"><h3>&#x1F6E0;&#xFE0F; Looking for AI tools?</h3>
+<p>Browse <a href="https://tools-hub.sweetai.work/">200+ AI tools on Tools Hub</a> &mdash;
+our curated directory across 10 categories, from chatbots to video generators.</p></div>
+"""
+
+
 def render_index(template, css, js, latest, issues):
     published = fmt_published(latest.get("published_at", ""), latest["date"])
     hero = (
@@ -222,7 +230,7 @@ def render_index(template, css, js, latest, issues):
         f'<span class="publish-time">Published: {escape(published)}</span></div>'
         f"</div>"
     )
-    content = hero + issue_sections(latest)
+    content = hero + issue_sections(latest) + TOOLSHUB_PROMO
     if len(issues) > 1:
         content += (
             f'<div class="more-link">'
@@ -244,7 +252,7 @@ def render_issue_page(template, css, js, issue):
         f'<div class="hero-meta"><span class="publish-time">Published: {escape(published)}</span></div>'
         f"</div>"
     )
-    content = hero + issue_sections(issue)
+    content = hero + issue_sections(issue) + TOOLSHUB_PROMO
     content += "\n<!-- ADSENSE: sidebar -->\n<div class=\"ad-slot\"></div>"
     title = f"{en_date(date_str)} AI Digest | {SITE_NAME}"
     desc = f"AI news, trending GitHub AI projects, and new AI products for {en_date(date_str)}."
