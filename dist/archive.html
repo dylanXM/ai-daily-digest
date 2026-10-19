@@ -249,20 +249,22 @@ a:hover{text-decoration:underline}
 .tip-thanks { font-size: 15px; font-weight: 600; color: #111; margin: 14px 0 0; }
 
 /* Floating tip button — append after tip.css.
- * Bottom-right gift FAB; click opens the tip card as a popover. */
+ * Bottom-right black gift button; click opens the tip card as a popover.
+ * Black/white minimal to match the tip card. */
 #tip-fab {
   position: fixed; right: 24px; bottom: 24px; z-index: 9000;
-  width: 56px; height: 56px; border-radius: 50%;
-  background: #fff; border: 1px solid var(--border, #e5e5e5);
-  box-shadow: 0 4px 20px rgba(0,0,0,.12);
-  font-size: 26px; line-height: 1; cursor: pointer;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: #111; border: 1px solid #111; color: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,.18);
+  cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  transition: transform .15s, box-shadow .15s;
-  font-family: inherit;
+  transition: transform .15s, box-shadow .15s, background .15s;
+  font-family: inherit; padding: 0;
 }
-#tip-fab:hover { transform: scale(1.06); box-shadow: 0 6px 24px rgba(0,0,0,.16); }
+#tip-fab:hover { transform: scale(1.06); box-shadow: 0 6px 24px rgba(0,0,0,.24); background: #000; }
+#tip-fab svg { display: block; }
 #tip-popover {
-  position: fixed; right: 24px; bottom: 92px; z-index: 9001;
+  position: fixed; right: 24px; bottom: 88px; z-index: 9001;
   width: 340px; max-width: calc(100vw - 48px);
   background: #fff; border: 1px solid var(--border, #e5e5e5);
   border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,.18);
@@ -278,8 +280,8 @@ a:hover{text-decoration:underline}
 }
 #tip-popover-close:hover { color: #111; }
 @media (max-width: 480px) {
-  #tip-fab { right: 16px; bottom: 16px; width: 52px; height: 52px; }
-  #tip-popover { right: 16px; bottom: 80px; }
+  #tip-fab { right: 16px; bottom: 16px; width: 48px; height: 48px; }
+  #tip-popover { right: 16px; bottom: 76px; }
 }
 
 /* SweetAI shared auth styles — append to site stylesheet. */
@@ -468,38 +470,46 @@ a:hover{text-decoration:underline}
   }
 })();
 /* Floating tip button toggle — load after tip.js.
- * Opens/closes the tip popover; tip.js handles PayPal inside #tip-jar. */
+ * Opens/closes the tip popover; tip.js handles PayPal inside #tip-jar.
+ * Black/white minimal style to match the tip card. */
 (function () {
-  var fab = document.getElementById("tip-fab");
-  var pop = document.getElementById("tip-popover");
-  if (!fab || !pop) return;
-  var closeBtn = document.getElementById("tip-popover-close");
+  function init() {
+    var fab = document.getElementById("tip-fab");
+    var pop = document.getElementById("tip-popover");
+    if (!fab || !pop) return;
+    var closeBtn = document.getElementById("tip-popover-close");
 
-  // Hide the FAB entirely if PayPal isn't configured (tip.js leaves #tip-jar hidden)
-  var jar = document.getElementById("tip-jar");
-  var checkTimer = setInterval(function () {
-    if (jar && jar.style.display === "block") {
-      fab.style.display = "flex";
-      clearInterval(checkTimer);
-    }
-  }, 500);
-  // Give up after 10s — keep hidden
-  setTimeout(function () { clearInterval(checkTimer); }, 10000);
-  fab.style.display = "none";
+    // Hide the FAB entirely if PayPal isn't configured (tip.js leaves #tip-jar hidden)
+    var jar = document.getElementById("tip-jar");
+    var checkTimer = setInterval(function () {
+      if (jar && jar.style.display === "block") {
+        fab.style.display = "flex";
+        clearInterval(checkTimer);
+      }
+    }, 500);
+    // Give up after 10s — keep hidden
+    setTimeout(function () { clearInterval(checkTimer); }, 10000);
+    fab.style.display = "none";
 
-  function open() { pop.hidden = false; }
-  function close() { pop.hidden = true; }
-  fab.addEventListener("click", function (e) {
-    e.stopPropagation();
-    pop.hidden ? open() : close();
-  });
-  if (closeBtn) closeBtn.addEventListener("click", close);
-  document.addEventListener("click", function (e) {
-    if (!pop.hidden && !pop.contains(e.target)) close();
-  });
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") close();
-  });
+    function open() { pop.hidden = false; }
+    function close() { pop.hidden = true; }
+    fab.addEventListener("click", function (e) {
+      e.stopPropagation();
+      pop.hidden ? open() : close();
+    });
+    if (closeBtn) closeBtn.addEventListener("click", close);
+    document.addEventListener("click", function (e) {
+      if (!pop.hidden && !pop.contains(e.target)) close();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") close();
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();
 
 /* SweetAI shared auth — Google one-click login for all sites.
@@ -634,7 +644,15 @@ a:hover{text-decoration:underline}
 })();
 
 </script>
-<button id="tip-fab" aria-label="Buy me a coffee" title="Buy me a coffee">🎁</button>
+<button id="tip-fab" aria-label="Buy me a coffee" title="Buy me a coffee">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="3" y="8" width="18" height="4" rx="1"/>
+    <path d="M12 8v13"/>
+    <path d="M5 12v9h14v-9"/>
+    <path d="M12 8s-1.5-5-4.5-5S5 8 12 8z"/>
+    <path d="M12 8s1.5-5 4.5-5S19 8 12 8z"/>
+  </svg>
+</button>
 <div id="tip-popover" hidden>
   <button id="tip-popover-close" aria-label="Close">×</button>
   <div class="tip-jar" id="tip-jar" style="display:none">
