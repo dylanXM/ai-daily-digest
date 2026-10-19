@@ -92,7 +92,7 @@
           client_id: cfg.google_client_id,
           callback: onCredential,
         });
-        google.accounts.id.renderButton(el, { theme: "outline", size: "medium", shape: "pill" });
+        google.accounts.id.renderButton(el, { theme: "outline", size: "medium", shape: "pill", locale: "en" });
       } else if (++gsiTries < 40) {
         setTimeout(tryRender, 250);
       }
