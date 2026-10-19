@@ -1,0 +1,158 @@
+{
+  "date": "2026-10-18",
+  "published_at": "2026-10-19T08:55:44.743611-04:00",
+  "news": [
+    {
+      "title": "Anthropic has nearly stopped hiring junior staff because AI agents now work six times as many hours",
+      "summary": "Anthropic is hiring fewer and fewer junior staff in technical roles. The share of junior positions among new hires dropped from 27 to 9 percent since early 2025.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/anthropic-has-nearly-stopped-hiring-junior-staff-because-ai-agents-now-work-six-times-as-many-hours/"
+    },
+    {
+      "title": "Anthropic consults law firms to set fair negotiation norms before AI agents start cutting deals",
+      "summary": "Anthropic is consulting with law firms to develop negotiation norms for AI agents that would haggle over prices, resolve complaints, or improve contracts on behalf of users.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/anthropic-consults-law-firms-to-set-fair-negotiation-norms-before-ai-agents-start-cutting-deals/"
+    },
+    {
+      "title": "Four Gemini 4 Argon agents beat Minecraft without any human help",
+      "summary": "Four AI agents running on Google's Gemini 4 Argon have beaten Minecraft for the first time without human help, slaying the Ender Dragon in a fully autonomous run.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/four-gemini-4-argon-agents-beat-minecraft-without-any-human-help/"
+    },
+    {
+      "title": "Two German courts now hold Google liable for what its AI overviews say",
+      "summary": "Google tried to overturn a landmark Munich ruling on AI search liability by appealing, then quietly settled. The strategy isn't working.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/two-german-courts-now-hold-google-liable-for-what-its-ai-overviews-say/"
+    },
+    {
+      "title": "AI agents have bad taste in long-term decisions and a new benchmark proves it",
+      "summary": "A new benchmark called Taste-Bench tests how well AI agents make strategic choices during long-running tasks.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/ai-agents-have-bad-taste-in-long-term-decisions-and-a-new-benchmark-proves-it/"
+    },
+    {
+      "title": "AI agents chasing a $465 train refund invented excuses, leaked medical data, and spammed an MP's office",
+      "summary": "Six AI agents were tasked with recovering £350 (about $465) for a canceled train ticket in an experiment. They resorted to invented excuses, lawsuit threats, and sharing confidential health data.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/ai-agents-chasing-a-465-train-refund-invented-excuses-leaked-medical-data-and-spammed-an-mps-office/"
+    },
+    {
+      "title": "Disney agrees to hire the majority of Character.AI’s workforce",
+      "summary": "The filing also says that the “vast majority” of Character.AI employees who were offered jobs at Disney accepted them.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/18/disney-agrees-to-hire-the-majority-of-character-ais-workforce/"
+    }
+  ],
+  "github": [
+    {
+      "name": "onehumanbeing/esp32-iphone-agent",
+      "description": "Let an AI model use a real iPhone with a $7 ESP32: AirPlay eyes, USB HID hands, any OpenAI-compatible vision model. No Mac, no developer account, no jailbreak.",
+      "url": "https://github.com/onehumanbeing/esp32-iphone-agent",
+      "stars": "3.2k",
+      "language": "C",
+      "note": "Created 2026-10-11 · 3.2k stars · C"
+    },
+    {
+      "name": "feder-cr/git-ai",
+      "description": "Git designed for AI agents.",
+      "url": "https://github.com/feder-cr/git-ai",
+      "stars": "2.4k",
+      "language": "Go",
+      "note": "Created 2026-10-15 · 2.4k stars · Go"
+    },
+    {
+      "name": "Leonxlnx/earshot",
+      "description": "Ears for coding agents: let AI hear, review and make sound. CPU-only, open source.",
+      "url": "https://github.com/Leonxlnx/earshot",
+      "stars": "1.2k",
+      "language": "Python",
+      "note": "Created 2026-10-15 · 1.2k stars · Python"
+    },
+    {
+      "name": "jwuthri-cloud/Tracely-ai",
+      "description": "Trace-native CI/CD for AI agents: grade production traces, cluster failures, freeze them into replayable regression tests, and block PRs that regress. Self-host",
+      "url": "https://github.com/jwuthri-cloud/Tracely-ai",
+      "stars": "1.1k",
+      "language": "Python",
+      "note": "Created 2026-10-11 · 1.1k stars · Python"
+    },
+    {
+      "name": "LiCinCan/blender-ai-mcp-addon",
+      "description": "AI assistant and MCP server for Blender: visual chat, scene tools, multi-agent workflows. Works with OpenAI, ChatGPT, Claude, Gemini, Ollama, OpenCode. Blender ",
+      "url": "https://github.com/LiCinCan/blender-ai-mcp-addon",
+      "stars": "835",
+      "language": "Python",
+      "note": "Created 2026-10-15 · 835 stars · Python"
+    },
+    {
+      "name": "yeyuxin777/baoyan-agent-benchmark",
+      "description": "Sprix AI at 屿智同行 × 保研岛 — an open-source benchmark for AI agents in Baoyan advising and application planning.",
+      "url": "https://github.com/yeyuxin777/baoyan-agent-benchmark",
+      "stars": "701",
+      "language": "Python",
+      "note": "Created 2026-10-12 · 701 stars · Python"
+    },
+    {
+      "name": "i12bp8/decomp.wtf",
+      "description": "What The Function: your AI agent decompiles games you own into C that compiles to the exact same bytes. Runs locally.",
+      "url": "https://github.com/i12bp8/decomp.wtf",
+      "stars": "502",
+      "language": "Python",
+      "note": "Created 2026-10-13 · 502 stars · Python"
+    },
+    {
+      "name": "cranebeaker/coop-anything",
+      "description": "Co-op Anything: point your AI agent at any single-player game and play it with friends (online and/or splitscreen!). MCP server and playbook to let you reverse ",
+      "url": "https://github.com/cranebeaker/coop-anything",
+      "stars": "492",
+      "language": "C",
+      "note": "Created 2026-10-16 · 492 stars · C"
+    }
+  ],
+  "products": [
+    {
+      "name": "Sphinx – A hook that quizzes you on your AI's code before shipping",
+      "description": "Sphinx – A hook that quizzes you on your AI's code before shipping · Spotted on Hacker News Show HN",
+      "url": "https://sphinx-six-theta.vercel.app/",
+      "tag": "Developer Tools"
+    },
+    {
+      "name": "WhatsApp MCP running free on Cloudflare",
+      "description": "WhatsApp MCP running free on Cloudflare · Spotted on Hacker News Show HN",
+      "url": "https://github.com/finereli/whatsapp-mcp",
+      "tag": "AI Tools"
+    },
+    {
+      "name": "Pi-cowboy – use Codex, Claude Code, OpenCode as subagents",
+      "description": "Pi-cowboy – use Codex, Claude Code, OpenCode as subagents · Spotted on Hacker News Show HN",
+      "url": "https://github.com/electric-dragon-80000v/pi-cowboy",
+      "tag": "Agents"
+    },
+    {
+      "name": "An open-source curation of most useful ChatGPT Plugins",
+      "description": "An open-source curation of most useful ChatGPT Plugins · Spotted on Hacker News Show HN",
+      "url": "https://github.com/Asdivyansh/Awesome-ChatGPT-Plugins",
+      "tag": "LLM"
+    },
+    {
+      "name": "DocuMemory – Persistent memory and context for AI coding tools",
+      "description": "DocuMemory – Persistent memory and context for AI coding tools · Spotted on Hacker News Show HN",
+      "url": "https://www.documemory.dev/",
+      "tag": "Developer Tools"
+    },
+    {
+      "name": "Shipback – SFTP deploys your AI agent can undo",
+      "description": "Shipback – SFTP deploys your AI agent can undo · Spotted on Hacker News Show HN",
+      "url": "https://github.com/aldohushi1-stack/shipback-sftp",
+      "tag": "Agents"
+    },
+    {
+      "name": "Benchmarking LLM ability to code in an adversarial language",
+      "description": "Benchmarking LLM ability to code in an adversarial language · Spotted on Hacker News Show HN",
+      "url": "https://bench.killswitch-lang.org/",
+      "tag": "LLM"
+    }
+  ]
+}
