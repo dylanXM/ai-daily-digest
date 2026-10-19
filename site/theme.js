@@ -56,12 +56,31 @@
   var jar = document.getElementById("tip-jar");
   if (!jar) return;
   var API = "https://sweet-hub-api.dylan-xm.workers.dev";
+  var selected = "1.99";
 
   function amount() {
-    var v = parseFloat(document.getElementById("tip-amount").value);
+    var v;
+    if (selected === "custom") {
+      v = parseFloat(document.getElementById("tip-amount").value);
+    } else {
+      v = parseFloat(selected);
+    }
     if (!isFinite(v) || v < 0.5) v = 0.5;
     if (v > 500) v = 500;
     return v.toFixed(2);
+  }
+
+  function initPills() {
+    var pills = jar.querySelectorAll(".tip-pill");
+    var customRow = document.getElementById("tip-custom");
+    pills.forEach(function (p) {
+      p.addEventListener("click", function () {
+        pills.forEach(function (x) { x.classList.remove("on"); });
+        p.classList.add("on");
+        selected = p.getAttribute("data-amount");
+        customRow.style.display = selected === "custom" ? "flex" : "none";
+      });
+    });
   }
 
   fetch(API + "/api/paypal/config")
@@ -69,6 +88,7 @@
     .then(function (cfg) {
       if (!cfg || !cfg.clientId) return; // PayPal not configured yet
       jar.style.display = "block";
+      initPills();
       var s = document.createElement("script");
       s.src =
         "https://www.paypal.com/sdk/js?client-id=" +
@@ -83,7 +103,7 @@
     if (!window.paypal) return;
     paypal
       .Buttons({
-        style: { layout: "horizontal", color: "gold", shape: "pill", label: "paypal", height: 38 },
+        style: { layout: "vertical", color: "black", shape: "pill", label: "paypal", tagline: false, height: 40 },
         createOrder: function (data, actions) {
           return actions.order.create({
             purchase_units: [
@@ -109,6 +129,8 @@
             }).then(function () {
               document.getElementById("tip-thanks").style.display = "block";
               document.getElementById("tip-paypal-btn").style.display = "none";
+              document.getElementById("tip-amounts").style.display = "none";
+              document.getElementById("tip-custom").style.display = "none";
             });
           });
         },

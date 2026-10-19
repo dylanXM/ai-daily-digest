@@ -36,10 +36,15 @@ TIP_BOX = """
 <div class="tip-jar" id="tip-jar" style="display:none">
   <p class="tip-title">☕ Buy me a coffee</p>
   <p class="tip-sub">Enjoying this? A small tip keeps it free for everyone.</p>
-  <div class="tip-row">
+  <div class="tip-amounts" id="tip-amounts">
+    <button type="button" class="tip-pill" data-amount="1">$1</button>
+    <button type="button" class="tip-pill on" data-amount="1.99">$1.99</button>
+    <button type="button" class="tip-pill" data-amount="5">$5</button>
+    <button type="button" class="tip-pill" data-amount="custom">Custom</button>
+  </div>
+  <div class="tip-custom" id="tip-custom" style="display:none">
     <span class="tip-cur">$</span>
-    <input class="tip-amount" id="tip-amount" type="number" value="1.99"
-           min="0.50" max="500" step="0.50" aria-label="Tip amount in USD">
+    <input class="tip-amount" id="tip-amount" type="text" inputmode="decimal" value="1.99" aria-label="Custom tip amount in USD">
   </div>
   <div id="tip-paypal-btn"></div>
   <p class="tip-thanks" id="tip-thanks" style="display:none">Thank you so much! 🎉</p>

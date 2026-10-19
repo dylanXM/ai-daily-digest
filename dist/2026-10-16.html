@@ -219,22 +219,33 @@ a:hover{text-decoration:underline}
 @media print{
   .site-header,.theme-toggle,.more-link,.ad-slot{display:none}
 }
-/* Sweet Hub tip jar styles — append to the site's stylesheet */
+/* Sweet Hub tip jar styles — append to the site's stylesheet.
+ * OpenAI-style minimal: white card, hairline border, black accents. */
 .tip-jar {
-  max-width: 420px; margin: 36px auto; padding: 24px;
-  border: 1px solid var(--border, #e5e5e7); border-radius: 14px;
-  text-align: center; background: var(--bg-soft, #f7f7f8);
+  max-width: 440px; margin: 40px auto; padding: 28px 28px 24px;
+  border: 1px solid var(--border, #e5e5e5); border-radius: 16px;
+  text-align: center; background: #fff;
 }
-.tip-title { font-size: 19px; font-weight: 700; margin: 0 0 4px; }
-.tip-sub { font-size: 14px; color: var(--muted, #6e6e73); margin: 0 0 14px; }
-.tip-row { display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 14px; }
-.tip-cur { font-size: 18px; font-weight: 600; }
+.tip-title { font-size: 18px; font-weight: 650; margin: 0 0 6px; color: #111; }
+.tip-sub { font-size: 14px; color: var(--muted, #6e6e73); margin: 0 0 18px; line-height: 1.5; }
+.tip-amounts { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+.tip-pill {
+  border: 1px solid var(--border, #e5e5e5); background: #fff; border-radius: 999px;
+  padding: 8px 18px; font-size: 14px; font-weight: 600; color: #333;
+  cursor: pointer; font-family: inherit; transition: border-color .15s, background .15s, color .15s;
+}
+.tip-pill:hover { border-color: #111; }
+.tip-pill.on { background: #111; border-color: #111; color: #fff; }
+.tip-custom { display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 18px; }
+.tip-cur { font-size: 16px; font-weight: 600; color: #111; }
 .tip-amount {
-  width: 110px; padding: 8px 10px; font-size: 17px; text-align: center;
-  border: 1px solid var(--border, #e5e5e7); border-radius: 8px;
+  width: 100px; padding: 9px 12px; font-size: 16px; text-align: center;
+  border: 1px solid var(--border, #e5e5e5); border-radius: 10px;
+  font-family: inherit; color: #111; background: #fff;
 }
-#tip-paypal-btn { max-width: 300px; margin: 0 auto; }
-.tip-thanks { font-size: 16px; font-weight: 600; color: var(--accent, #10a37f); margin: 12px 0 0; }
+.tip-amount:focus { outline: none; border-color: #111; }
+#tip-paypal-btn { max-width: 320px; margin: 0 auto; }
+.tip-thanks { font-size: 15px; font-weight: 600; color: #111; margin: 14px 0 0; }
 
 </style>
 </head>
@@ -297,10 +308,15 @@ a:hover{text-decoration:underline}
 <div class="tip-jar" id="tip-jar" style="display:none">
   <p class="tip-title">☕ Buy me a coffee</p>
   <p class="tip-sub">Enjoying this? A small tip keeps it free for everyone.</p>
-  <div class="tip-row">
+  <div class="tip-amounts" id="tip-amounts">
+    <button type="button" class="tip-pill" data-amount="1">$1</button>
+    <button type="button" class="tip-pill on" data-amount="1.99">$1.99</button>
+    <button type="button" class="tip-pill" data-amount="5">$5</button>
+    <button type="button" class="tip-pill" data-amount="custom">Custom</button>
+  </div>
+  <div class="tip-custom" id="tip-custom" style="display:none">
     <span class="tip-cur">$</span>
-    <input class="tip-amount" id="tip-amount" type="number" value="1.99"
-           min="0.50" max="500" step="0.50" aria-label="Tip amount in USD">
+    <input class="tip-amount" id="tip-amount" type="text" inputmode="decimal" value="1.99" aria-label="Custom tip amount in USD">
   </div>
   <div id="tip-paypal-btn"></div>
   <p class="tip-thanks" id="tip-thanks" style="display:none">Thank you so much! 🎉</p>
@@ -375,12 +391,31 @@ a:hover{text-decoration:underline}
   var jar = document.getElementById("tip-jar");
   if (!jar) return;
   var API = "https://sweet-hub-api.dylan-xm.workers.dev";
+  var selected = "1.99";
 
   function amount() {
-    var v = parseFloat(document.getElementById("tip-amount").value);
+    var v;
+    if (selected === "custom") {
+      v = parseFloat(document.getElementById("tip-amount").value);
+    } else {
+      v = parseFloat(selected);
+    }
     if (!isFinite(v) || v < 0.5) v = 0.5;
     if (v > 500) v = 500;
     return v.toFixed(2);
+  }
+
+  function initPills() {
+    var pills = jar.querySelectorAll(".tip-pill");
+    var customRow = document.getElementById("tip-custom");
+    pills.forEach(function (p) {
+      p.addEventListener("click", function () {
+        pills.forEach(function (x) { x.classList.remove("on"); });
+        p.classList.add("on");
+        selected = p.getAttribute("data-amount");
+        customRow.style.display = selected === "custom" ? "flex" : "none";
+      });
+    });
   }
 
   fetch(API + "/api/paypal/config")
@@ -388,6 +423,7 @@ a:hover{text-decoration:underline}
     .then(function (cfg) {
       if (!cfg || !cfg.clientId) return; // PayPal not configured yet
       jar.style.display = "block";
+      initPills();
       var s = document.createElement("script");
       s.src =
         "https://www.paypal.com/sdk/js?client-id=" +
@@ -402,7 +438,7 @@ a:hover{text-decoration:underline}
     if (!window.paypal) return;
     paypal
       .Buttons({
-        style: { layout: "horizontal", color: "gold", shape: "pill", label: "paypal", height: 38 },
+        style: { layout: "vertical", color: "black", shape: "pill", label: "paypal", tagline: false, height: 40 },
         createOrder: function (data, actions) {
           return actions.order.create({
             purchase_units: [
@@ -428,6 +464,8 @@ a:hover{text-decoration:underline}
             }).then(function () {
               document.getElementById("tip-thanks").style.display = "block";
               document.getElementById("tip-paypal-btn").style.display = "none";
+              document.getElementById("tip-amounts").style.display = "none";
+              document.getElementById("tip-custom").style.display = "none";
             });
           });
         },
@@ -436,7 +474,6 @@ a:hover{text-decoration:underline}
       .render("#tip-paypal-btn");
   }
 })();
-
 </script>
 </body>
 </html>
