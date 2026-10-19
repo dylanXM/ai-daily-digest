@@ -1,6 +1,8 @@
 /* Sweet Hub tip jar — PayPal "Buy me a coffee".
  * Requires: <div class="tip-jar" id="tip-jar">…</div> on the page (see tip.html).
  * The jar stays hidden until the PayPal Client ID is configured server-side.
+ * PayPal buttons render lazily when the popover first opens (SDK can't
+ * initialize buttons inside a hidden container).
  */
 (function () {
   function init() {
@@ -8,6 +10,8 @@
   if (!jar) return;
   var API = "https://sweet-hub-api.dylan-xm.workers.dev";
   var selected = "1.99";
+  var buttonsRendered = false;
+  var sdkReady = false;
 
   function amount() {
     var v;
@@ -45,10 +49,34 @@
         "https://www.paypal.com/sdk/js?client-id=" +
         encodeURIComponent(cfg.clientId) +
         "&currency=USD&intent=capture&disable-funding=card";
-      s.onload = initButtons;
+      s.onload = function () { sdkReady = true; tryRender(); };
+      s.onerror = function () { console.error("tip: paypal sdk failed to load"); };
       document.head.appendChild(s);
+      // If popover is already open (inline layout), render now
+      tryRender();
     })
     .catch(function () {});
+
+  function tryRender() {
+    if (buttonsRendered || !sdkReady || !window.paypal) return;
+    var pop = document.getElementById("tip-popover");
+    // Only render when the popover is visible (SDK fails in hidden containers)
+    var visible = !pop || !pop.hidden;
+    if (!visible) return;
+    buttonsRendered = true;
+    initButtons();
+  }
+
+  // Exposed for tip-fab.js to call when the popover opens
+  window.SweetTip = window.SweetTip || {};
+  window.SweetTip.renderButtons = tryRender;
+
+  // Also watch for popover visibility changes
+  var popEl = document.getElementById("tip-popover");
+  if (popEl && window.MutationObserver) {
+    new MutationObserver(function () { tryRender(); })
+      .observe(popEl, { attributes: true, attributeFilter: ["hidden"] });
+  }
 
   function initButtons() {
     if (!window.paypal) return;
@@ -86,6 +114,7 @@
           });
         },
         onError: function (err) { console.error("tip error", err); },
+        onCancel: function () { /* user closed popup */ },
       })
       .render("#tip-paypal-btn");
   }

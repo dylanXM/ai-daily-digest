@@ -527,7 +527,14 @@ a:hover{text-decoration:underline}
     // tip.js reveals the tip card content once PayPal is ready.
     fab.style.display = "flex";
 
-    function open() { pop.hidden = false; }
+    function open() {
+      pop.hidden = false;
+      // Render PayPal buttons now that the popover is visible
+      if (window.SweetTip && window.SweetTip.renderButtons) {
+        // Small delay to ensure layout is done
+        setTimeout(function () { window.SweetTip.renderButtons(); }, 50);
+      }
+    }
     function close() { pop.hidden = true; }
     fab.addEventListener("click", function (e) {
       e.stopPropagation();
