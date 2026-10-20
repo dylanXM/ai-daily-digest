@@ -1,0 +1,188 @@
+{
+  "date": "2026-10-19",
+  "published_at": "2026-10-20T08:56:08.627941-04:00",
+  "news": [
+    {
+      "title": "Nvidia launches new open models to run agents in the enterprise and on PCs",
+      "summary": "Nvidia is leaning hard into the trend of enterprise companies wanting to run their own open models in their own data centers and also trying to make on-device, private AI agents a thing.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/19/nvidia-launches-new-open-models-to-run-agents-in-the-enterprise-and-on-pcs/"
+    },
+    {
+      "title": "Microsoft says AI agents are like insider threats as ‘frontier models can’t be trusted’",
+      "summary": "Microsoft wants enterprises to closely watch the agents that employees use with systems not controlled by AI labs like OpenAI and Anthropic.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/19/microsoft-says-ai-agents-are-like-insider-threats-as-frontier-models-cant-be-trusted/"
+    },
+    {
+      "title": "Amazon is taking its biggest shot at Nvidia yet with new TorchNeuron dev tool",
+      "summary": "Amazon wants to break Nvidia’s hold on PyTorch, the free toolkit used to build most AI apps, so that more developers run their apps on alternative chips like its own.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/19/amazon-is-taking-its-biggest-shot-at-nvidia-yet-with-new-torchneuron-dev-tool/"
+    },
+    {
+      "title": "Two German courts now hold Google liable for what its AI overviews say",
+      "summary": "Google tried to overturn a landmark Munich ruling on AI search liability by appealing, then quietly settled. The strategy isn't working.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/two-german-courts-now-hold-google-liable-for-what-its-ai-overviews-say/"
+    },
+    {
+      "title": "Stripe says AI agent purchases are adding up, but it won't share the numbers",
+      "summary": "AI agents are increasingly using Stripe's payment service Link to shop for their users, Upstarts Media reports.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/stripe-says-ai-agent-purchases-are-adding-up-but-it-wont-share-the-numbers/"
+    },
+    {
+      "title": "The neocloud shakeout is coming, and Nvidia has the most to lose",
+      "summary": "After stock crashes and Firmus's scrapped IPO, industry executives expect only seven to ten of the hundreds of AI cloud providers to survive.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/the-neocloud-shakeout-is-coming-and-nvidia-has-the-most-to-lose/"
+    },
+    {
+      "title": "Anthropic plans fund for workers threatened by AI, Musk counters with SpaceX shares for children",
+      "summary": "Anthropic wants to put five percent of its shares into a new public benefit fund that will also look into direct payments to workers at risk of losing their jobs.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/anthropic-plans-fund-for-workers-threatened-by-ai-musk-counters-with-spacex-shares-for-children/"
+    },
+    {
+      "title": "Making the internet better for AI agents might make it worse for everyone else",
+      "summary": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here.",
+      "source": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/2026/10/19/1147186/making-the-internet-better-for-ai-agents-might-make-it-worse-for-everyone-else/"
+    },
+    {
+      "title": "Embedded AI evaluators won’t be an easy solution, Hugging Face’s policy chief says",
+      "summary": "The idea of embedded evaluators — in which supposedly \"neutral\" third-party observers are placed inside AI organizations — has been popularized over the last several months, as AI labs grapple with a...",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/19/embedded-ai-evaluators-wont-be-an-easy-solution-hugging-faces-policy-chief-says/"
+    },
+    {
+      "title": "Hackers hit AI coding tool OpenCode, running up charges on users’ AI accounts",
+      "summary": "OpenCode is an open source AI coding agent that's become a popular alternative to Claude Code and Cursor.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/"
+    },
+    {
+      "title": "Tolan snags $30M for its AI companion that helps users navigate life",
+      "summary": "AI companion app Tolan has raised another $30 million after attracting more than 250,000 active users.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/19/tolan-snags-30m-for-its-ai-companion-that-helps-users-navigate-life/"
+    },
+    {
+      "title": "Replika’s founder built the AI assistant she pitched at Disrupt 12 years ago",
+      "summary": "Eugenia Kuyda's newest startup Wabi is positioned to take advantage of an idea she had more than a decade ago. Wabi offers a personal AI assistant with a twist, free and downloadable to anyone today.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/19/replikas-founder-built-the-ai-assistant-she-pitched-at-disrupt-12-years-ago/"
+    }
+  ],
+  "github": [
+    {
+      "name": "feder-cr/git-ai",
+      "description": "Git designed for AI agents.",
+      "url": "https://github.com/feder-cr/git-ai",
+      "stars": "2.5k",
+      "language": "Go",
+      "note": "Created 2026-10-15 · 2.5k stars · Go"
+    },
+    {
+      "name": "Leonxlnx/earshot",
+      "description": "Ears for coding agents: let AI hear, review and make sound. CPU-only, open source.",
+      "url": "https://github.com/Leonxlnx/earshot",
+      "stars": "1.8k",
+      "language": "Python",
+      "note": "Created 2026-10-15 · 1.8k stars · Python"
+    },
+    {
+      "name": "LiCinCan/blender-ai-mcp-addon",
+      "description": "AI assistant and MCP server for Blender: visual chat, scene tools, multi-agent workflows. Works with OpenAI, ChatGPT, Claude, Gemini, Ollama, OpenCode. Blender ",
+      "url": "https://github.com/LiCinCan/blender-ai-mcp-addon",
+      "stars": "932",
+      "language": "Python",
+      "note": "Created 2026-10-15 · 932 stars · Python"
+    },
+    {
+      "name": "yeyuxin777/baoyan-agent-benchmark",
+      "description": "Sprix AI at 屿智同行 × 保研岛 — an open-source benchmark for AI agents in Baoyan advising and application planning.",
+      "url": "https://github.com/yeyuxin777/baoyan-agent-benchmark",
+      "stars": "701",
+      "language": "Python",
+      "note": "Created 2026-10-12 · 701 stars · Python"
+    },
+    {
+      "name": "cranebeaker/coop-anything",
+      "description": "Co-op Anything: point your AI agent at any single-player game and play it with friends (online and/or splitscreen!). MCP server and playbook to let you reverse ",
+      "url": "https://github.com/cranebeaker/coop-anything",
+      "stars": "645",
+      "language": "C",
+      "note": "Created 2026-10-16 · 645 stars · C"
+    },
+    {
+      "name": "i12bp8/decomp.wtf",
+      "description": "What The Function: your AI agent decompiles games you own into C that compiles to the exact same bytes. Runs locally.",
+      "url": "https://github.com/i12bp8/decomp.wtf",
+      "stars": "515",
+      "language": "Python",
+      "note": "Created 2026-10-13 · 515 stars · Python"
+    },
+    {
+      "name": "VITASID57/bluntcore-intimacy-lab",
+      "description": "🧬 钝核｜人机亲密实验室 · Bluntcore Intimacy Lab｜人机恋、成人 AI、Prompt、Memory、Agent、模型床测与实验记录。",
+      "url": "https://github.com/VITASID57/bluntcore-intimacy-lab",
+      "stars": "510",
+      "language": "Unknown",
+      "note": "Created 2026-10-16 · 510 stars · Unknown"
+    },
+    {
+      "name": "heqiangdiao-wq/AI-Cross-Border-Ecommerce-Agent-Toolkit",
+      "description": "AI 跨境电商运营智能体工具箱 · 把运营 SOP 拆成 7 个可复用的 AI Agent 工作流，含 Prompt、模板与真实案例",
+      "url": "https://github.com/heqiangdiao-wq/AI-Cross-Border-Ecommerce-Agent-Toolkit",
+      "stars": "456",
+      "language": "Python",
+      "note": "Created 2026-10-13 · 456 stars · Python"
+    }
+  ],
+  "products": [
+    {
+      "name": "Kling AI drops version 4.0 with stereo audio, multilingual lip sync, and a light",
+      "description": "Kling AI has released version 4.0 of its video generator with support for clips up to 30 seconds, ten keyframe images as input, and prompt comprehension expande",
+      "url": "https://the-decoder.com/kling-ai-drops-version-4-0-with-stereo-audio-multilingual-lip-sync-and-a-lighter-flash-variant/",
+      "tag": "LLM"
+    },
+    {
+      "name": "Qwen3-4B with the AI writing tics trained out",
+      "description": "Qwen3-4B with the AI writing tics trained out · Spotted on Hacker News Show HN",
+      "url": "https://100toolkit.com/blog/deslop-model/",
+      "tag": "LLM"
+    },
+    {
+      "name": "Strot – Compile an LLM's intent once, run decisions locally",
+      "description": "Strot – Compile an LLM's intent once, run decisions locally · Spotted on Hacker News Show HN",
+      "url": "https://github.com/strot-ai/Project-STROT",
+      "tag": "LLM"
+    },
+    {
+      "name": "Spotnote – Vite plugin for UI feedback to coding agents",
+      "description": "Spotnote – Vite plugin for UI feedback to coding agents · Spotted on Hacker News Show HN",
+      "url": "https://github.com/harukikuri/spotnote",
+      "tag": "Agents"
+    },
+    {
+      "name": "MCP for Ordering Assembled PCBs",
+      "description": "MCP for Ordering Assembled PCBs · Spotted on Hacker News Show HN",
+      "url": "https://provenmetal.com/mcp",
+      "tag": "AI Tools"
+    },
+    {
+      "name": "Maali – Privacy-first personal finance app with a local AI analyst",
+      "description": "Maali – Privacy-first personal finance app with a local AI analyst · Spotted on Hacker News Show HN",
+      "url": "https://maali.app/",
+      "tag": "AI Tools"
+    },
+    {
+      "name": "Free design canvas for your AI (open source)",
+      "description": "Free design canvas for your AI (open source) · Spotted on Hacker News Show HN",
+      "url": "https://uidesigneditor.com/",
+      "tag": "AI Tools"
+    }
+  ]
+}

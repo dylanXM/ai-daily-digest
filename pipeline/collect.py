@@ -232,6 +232,7 @@ def fetch_github(target, want=8):
         f"topic:machine-learning created:>={since}",
     ]
     repos = {}
+    for q in queries:
         path = "/search/repositories?" + urllib.parse.urlencode(
             {"q": q, "sort": "stars", "order": "desc", "per_page": 15}
         )
