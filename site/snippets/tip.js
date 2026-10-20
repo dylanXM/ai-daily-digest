@@ -48,7 +48,7 @@
       s.src =
         "https://www.paypal.com/sdk/js?client-id=" +
         encodeURIComponent(cfg.clientId) +
-        "&currency=USD&intent=capture&disable-funding=card";
+        "&currency=USD&intent=capture";
       s.onload = function () { sdkReady = true; tryRender(); };
       s.onerror = function () { console.error("tip: paypal sdk failed to load"); };
       document.head.appendChild(s);

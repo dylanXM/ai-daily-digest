@@ -478,7 +478,7 @@ our curated directory across 10 categories, from chatbots to video generators.</
       s.src =
         "https://www.paypal.com/sdk/js?client-id=" +
         encodeURIComponent(cfg.clientId) +
-        "&currency=USD&intent=capture&disable-funding=card";
+        "&currency=USD&intent=capture";
       s.onload = initButtons;
       document.head.appendChild(s);
     })

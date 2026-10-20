@@ -93,7 +93,7 @@
       s.src =
         "https://www.paypal.com/sdk/js?client-id=" +
         encodeURIComponent(cfg.clientId) +
-        "&currency=USD&intent=capture&disable-funding=card";
+        "&currency=USD&intent=capture";
       s.onload = initButtons;
       document.head.appendChild(s);
     })
