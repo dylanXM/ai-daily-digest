@@ -1,0 +1,188 @@
+{
+  "date": "2026-10-20",
+  "published_at": "2026-10-21T08:55:47.094832-04:00",
+  "news": [
+    {
+      "title": "Deepseek open-sources the inference engine that powers its fastest and cheapest AI model",
+      "summary": "Deepseek is open-sourcing DeepInfer, the inference framework behind its fast V4.1-Flash model. The vLLM-based system cuts compute costs and energy use when running AI models.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/deepseek-open-sources-the-inference-engine-that-powers-its-fastest-and-cheapest-ai-model/"
+    },
+    {
+      "title": "Anthropic pitches AI safety bill that may block a model if 50+ people could be killed",
+      "summary": "The proposed policy seems to offer protections against AI running amok but actually forbids federal agencies from blocking a model's release without the permission of a judge.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/20/anthropic-pitches-ai-safety-bill-that-may-block-a-model-if-50-people-could-be-killed/"
+    },
+    {
+      "title": "Google has joined Amazon in attacking Nvidia’s stronghold with AI app developers",
+      "summary": "Google has joined Amazon in releasing a developer tool that makes it easy for PyTorch users to move their apps off Nvidia GPUs.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/20/google-has-joined-amazon-in-attacking-nvidias-stronghold-with-ai-app-developers/"
+    },
+    {
+      "title": "Elevenlabs releases two new speech-to-speech models designed for real-time AI conversations",
+      "summary": "Elevenlabs' new Eleven Realtime speech-to-speech models combine speed and accuracy. The v1 Max variant scores 98.8 percent on the Big Bench Audio benchmark with a 0.57-second response time.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/elevenlabs-releases-two-new-speech-to-speech-models-designed-for-real-time-ai-conversations/"
+    },
+    {
+      "title": "Mistral AI launches Voxtral 3, a full voice agent stack that listens, thinks, and talks in real time",
+      "summary": "Mistral AI launched Voxtral 3, a new family of language models built for real-time voice agents.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/mistral-ai-launches-voxtral-3-a-full-voice-agent-stack-that-listens-thinks-and-talks-in-real-time/"
+    },
+    {
+      "title": "Hugging Face CEO warns that Netflix’s OpenAI hack documentary isn’t accurate",
+      "summary": "Before you share the Netflix documentary \"AI Gone Rogue,\" take note. Clem Delangue, Hugging Face's co-founder who is featured in the film, says it went \"full doomer mode\" and isn't accurate.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/20/hugging-face-ceo-warns-that-netflixs-openai-hack-documentary-isnt-accurate/"
+    },
+    {
+      "title": "OpenAI acquires startup Orchestra Bio⁠ to beef up its biotech business",
+      "summary": "OpenAI says it's adding Orchestra's team and technology to work on Rosalind, its AI model for life sciences research, and to its related Rosalind Workbench tool, a harness that aims to help researcher...",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/20/openai-acquires-startup-orchestra-bio%e2%81%a0-to-beef-up-its-biotech-business/"
+    },
+    {
+      "title": "Meta’s Muse hits 10M US downloads in 40 days, a milestone reached by only 11 other apps",
+      "summary": "New data also shows Muse is retaining users at higher rates than its AI rivals.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/20/metas-muse-hits-10m-u-s-downloads-in-40-days-a-milestone-reached-by-only-11-other-apps/"
+    },
+    {
+      "title": "Ex-Nvidia-turned-VC Amulya Vishwanath: ‘Physical AI is in its LEGO era’",
+      "summary": "It’s the moment everyone is waiting for — the ChatGPT moment for robotics, Amulya Vishwanath explained to TechCrunch’s Equity.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/20/ex-nvidia-turned-vc-amulya-vishwanath-physical-ai-is-in-its-lego-era/"
+    },
+    {
+      "title": "Plants can speak using electricity, so this startup built an AI model to decipher their language",
+      "summary": "Electric Plant has built an AI-powered translator to help humans listen to what plants are saying with the subtle electricity coursing through their stems.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/20/plants-can-speak-using-electricity-so-this-startup-built-an-ai-model-to-decipher-their-language/"
+    },
+    {
+      "title": "US orders federal agencies to remove China’s DeepSeek AI from their systems",
+      "summary": "The U.S. has ordered federal civilian agencies to remove DeepSeek products and third-party services built using its technology, citing national security concerns.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/20/us-orders-federal-agencies-to-remove-chinas-deepseek-ai-from-their-systems/"
+    },
+    {
+      "title": "Eka is worth $1.45B thanks to a physical AI model that has experts raving",
+      "summary": "Eka Robotics may be the first robotic arm that is actually good at picking up a wide range of objects, and it is so smooth and human-like, it is wowing the industry.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/20/eka-is-worth-1-45-billion-thanks-to-a-physical-ai-model-that-has-experts-raving/"
+    }
+  ],
+  "github": [
+    {
+      "name": "Leonxlnx/earshot",
+      "description": "Ears for coding agents: let AI hear, review and make sound. CPU-only, open source.",
+      "url": "https://github.com/Leonxlnx/earshot",
+      "stars": "2k",
+      "language": "Python",
+      "note": "Created 2026-10-15 · 2k stars · Python"
+    },
+    {
+      "name": "LiCinCan/blender-ai-mcp-addon",
+      "description": "AI assistant and MCP server for Blender: visual chat, scene tools, multi-agent workflows. Works with OpenAI, ChatGPT, Claude, Gemini, Ollama, OpenCode. Blender ",
+      "url": "https://github.com/LiCinCan/blender-ai-mcp-addon",
+      "stars": "959",
+      "language": "Python",
+      "note": "Created 2026-10-15 · 959 stars · Python"
+    },
+    {
+      "name": "feder-cr/git-ai",
+      "description": "Git designed for AI agents.",
+      "url": "https://github.com/feder-cr/git-ai",
+      "stars": "901",
+      "language": "Go",
+      "note": "Created 2026-10-15 · 901 stars · Go"
+    },
+    {
+      "name": "cranebeaker/coop-anything",
+      "description": "Co-op Anything: point your AI agent at any single-player game and play it with friends (online and/or splitscreen!). MCP server and playbook to let you reverse ",
+      "url": "https://github.com/cranebeaker/coop-anything",
+      "stars": "753",
+      "language": "Python",
+      "note": "Created 2026-10-16 · 753 stars · Python"
+    },
+    {
+      "name": "UnderleveledBuilder/awesome-short-drama-skills",
+      "description": "AI 短剧 · 漫剧 Skill（技能包）精选：剧本、改编、分镜、Seedance / 可灵 / MiniMax 视频提示词，千问、豆包、龙虾 OpenClaw、WorkBuddy、Claude Code、Codex 等智能体可用 | Curated agent skills for AI short drama, m",
+      "url": "https://github.com/UnderleveledBuilder/awesome-short-drama-skills",
+      "stars": "576",
+      "language": "HTML",
+      "note": "Created 2026-10-13 · 576 stars · HTML"
+    },
+    {
+      "name": "VITASID57/bluntcore-intimacy-lab",
+      "description": "🧬 钝核｜人机亲密实验室 · Bluntcore Intimacy Lab｜人机恋、成人 AI、Prompt、Memory、Agent、模型床测与实验记录。",
+      "url": "https://github.com/VITASID57/bluntcore-intimacy-lab",
+      "stars": "552",
+      "language": "Unknown",
+      "note": "Created 2026-10-16 · 552 stars · Unknown"
+    },
+    {
+      "name": "i12bp8/decomp.wtf",
+      "description": "What The Function: your AI agent decompiles games you own into C that compiles to the exact same bytes. Runs locally.",
+      "url": "https://github.com/i12bp8/decomp.wtf",
+      "stars": "531",
+      "language": "Python",
+      "note": "Created 2026-10-13 · 531 stars · Python"
+    },
+    {
+      "name": "heqiangdiao-wq/AI-Cross-Border-Ecommerce-Agent-Toolkit",
+      "description": "AI 跨境电商运营智能体工具箱 · 把运营 SOP 拆成 7 个可复用的 AI Agent 工作流，含 Prompt、模板与真实案例",
+      "url": "https://github.com/heqiangdiao-wq/AI-Cross-Border-Ecommerce-Agent-Toolkit",
+      "stars": "482",
+      "language": "Python",
+      "note": "Created 2026-10-13 · 482 stars · Python"
+    }
+  ],
+  "products": [
+    {
+      "name": "Cloudflare's Clairic pulls data from documents faster and cheaper than LLMs",
+      "description": "Cloudflare has released an AI model it says pulls data from documents faster and more cheaply than large language models. The article Cloudflare's Clairic pulls",
+      "url": "https://the-decoder.com/cloudflares-clairic-pulls-data-from-documents-faster-and-cheaper-than-llms/",
+      "tag": "LLM"
+    },
+    {
+      "name": "Make AI coding agents verify its own work",
+      "description": "Make AI coding agents verify its own work · Spotted on Hacker News Show HN",
+      "url": "https://github.com/reticlehq/reticle",
+      "tag": "Agents"
+    },
+    {
+      "name": "Shazam but for AI Slop Music",
+      "description": "Shazam but for AI Slop Music · Spotted on Hacker News Show HN",
+      "url": "https://apps.apple.com/de/app/daft-slop-ai-music-detector/id6811013099",
+      "tag": "Audio"
+    },
+    {
+      "name": "Yana – A local-first, human-governed AI runtime and IDE in Rust",
+      "description": "Yana – A local-first, human-governed AI runtime and IDE in Rust · Spotted on Hacker News Show HN",
+      "url": "https://github.com/yanacuti1121/yana-ai",
+      "tag": "Developer Tools"
+    },
+    {
+      "name": "Worklicant – Lightweight ATS. Pay per Vacancy. AI Enabled",
+      "description": "Worklicant – Lightweight ATS. Pay per Vacancy. AI Enabled · Spotted on Hacker News Show HN",
+      "url": "https://worklicant.com/",
+      "tag": "AI Tools"
+    },
+    {
+      "name": "Tori by TalkJS. AI support that's actually good",
+      "description": "Tori by TalkJS. AI support that's actually good · Spotted on Hacker News Show HN",
+      "url": "https://asktori.ai",
+      "tag": "AI Tools"
+    },
+    {
+      "name": "OpenFlow – AI Agent Workflow Builder",
+      "description": "OpenFlow – AI Agent Workflow Builder · Spotted on Hacker News Show HN",
+      "url": "https://github.com/SeeRay11/OpenFlow",
+      "tag": "Agents"
+    }
+  ]
+}

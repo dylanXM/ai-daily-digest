@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="hub-site" content="ai-daily">
+<title>October 20, 2026 AI Digest | AI Daily Digest</title>
+<meta name="description" content="AI news, trending GitHub AI projects, and new AI products for October 20, 2026.">
+<link rel="canonical" href="https://ai-daily-news.sweetai.work/2026-10-20.html">
+<meta property="og:title" content="October 20, 2026 AI Digest | AI Daily Digest">
+<meta property="og:description" content="AI news, trending GitHub AI projects, and new AI products for October 20, 2026.">
+<meta property="og:type" content="article">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1672880630267493" crossorigin="anonymous"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<style>
+/* AI Daily Digest - modern minimalist style (light theme first, dark mode supported) */
+:root{
+  --bg:#ffffff;
+  --bg-soft:#f7f8fa;
+  --bg-card:#ffffff;
+  --text:#1a1d23;
+  --text-secondary:#5c6470;
+  --text-muted:#8a93a0;
+  --border:#e9edf1;
+  --accent:#2563eb;
+  --accent-soft:#eff4ff;
+  --accent-hover:#1d4ed8;
+  --badge-bg:#eef2ff;
+  --badge-text:#4338ca;
+  --star:#b45309;
+  --header-bg:rgba(255,255,255,.92);
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 1px 3px rgba(16,24,40,.08);
+  --radius:12px;
+}
+html[data-theme="dark"]{
+  --bg:#0f1216;
+  --bg-soft:#161b22;
+  --bg-card:#161b22;
+  --text:#e8ebef;
+  --text-secondary:#a9b2bd;
+  --text-muted:#6b7480;
+  --border:#232a34;
+  --accent:#6ea8fe;
+  --accent-soft:#16202e;
+  --accent-hover:#9ec1fe;
+  --badge-bg:#1c2440;
+  --badge-text:#b6bffc;
+  --star:#f5b04c;
+  --header-bg:rgba(15,18,22,.92);
+  --shadow:0 1px 2px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  transition:background .2s ease,color .2s ease;
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:880px;margin:0 auto;padding:0 20px}
+
+/* ===== Top navigation ===== */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:var(--header-bg);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.header-inner{display:flex;align-items:center;gap:16px;height:60px}
+.brand{font-size:19px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;white-space:nowrap;flex:none}
+.brand:hover{text-decoration:none}
+.brand-mark{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:10px;
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  color:#fff;font-size:16px;
+}
+.nav-links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1;-webkit-overflow-scrolling:touch}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{color:var(--text-secondary);font-size:15px;padding:8px 12px;border-radius:8px;white-space:nowrap;flex:none}
+.nav-links a:hover{color:var(--accent);text-decoration:none}
+.theme-toggle{
+  border:1px solid var(--border);background:var(--bg-soft);
+  color:var(--text-secondary);font-size:16px;cursor:pointer;
+  width:36px;height:36px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.theme-toggle{flex:none}
+#auth-area{flex:none;display:flex;align-items:center;min-height:40px}
+
+/* ===== Hero ===== */
+.hero{padding:44px 0 8px}
+.hero-eyebrow{
+  display:inline-block;font-size:13px;font-weight:600;letter-spacing:.08em;
+  color:var(--accent);background:var(--accent-soft);
+  padding:4px 12px;border-radius:999px;margin-bottom:14px;
+}
+.hero h1{font-size:clamp(28px,5vw,40px);line-height:1.3;font-weight:800;letter-spacing:-.01em}
+.hero p{color:var(--text-secondary);margin-top:10px;font-size:16px}
+.hero-meta{display:flex;gap:14px;align-items:center;margin-top:14px;font-size:14px;color:var(--text-muted);flex-wrap:wrap}
+.publish-time{background:var(--bg-soft);border:1px solid var(--border);padding:3px 12px;border-radius:999px}
+
+/* ===== Sections ===== */
+.section{margin:40px 0}
+.section-head{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--border);
+}
+.section-head h2{font-size:21px;font-weight:700}
+.section-head .count{
+  font-size:13px;color:var(--text-muted);
+  background:var(--bg-soft);border:1px solid var(--border);
+  padding:2px 10px;border-radius:999px;
+}
+
+/* News cards */
+.card{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px 22px;margin-bottom:16px;
+  box-shadow:var(--shadow);
+  transition:transform .15s ease,box-shadow .15s ease;
+}
+.card:hover{transform:translateY(-2px)}
+.card-title{font-size:18px;font-weight:700;line-height:1.5;margin-bottom:8px}
+.card-title a{color:var(--text)}
+.card-title a:hover{color:var(--accent);text-decoration:none}
+.card-summary{color:var(--text-secondary);font-size:15px;margin-bottom:12px}
+.card-meta{display:flex;gap:12px;align-items:center;font-size:13px;color:var(--text-muted);flex-wrap:wrap}
+.source{font-weight:600;color:var(--text-secondary)}
+.ext-link{font-size:13px}
+
+/* GitHub cards */
+.repo-card{
+  display:flex;gap:14px;align-items:flex-start;
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:18px 20px;margin-bottom:14px;
+  box-shadow:var(--shadow);
+}
+.repo-rank{
+  flex-shrink:0;width:34px;height:34px;border-radius:10px;
+  background:var(--bg-soft);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:15px;color:var(--text-secondary);
+}
+.repo-body{flex:1;min-width:0}
+.repo-name{font-size:17px;font-weight:700;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;word-break:break-all}
+.repo-desc{color:var(--text-secondary);font-size:14.5px;margin:6px 0}
+.repo-note{color:var(--text-muted);font-size:13.5px;border-left:3px solid var(--border);padding-left:10px;margin:8px 0 4px}
+.repo-meta{display:flex;gap:14px;font-size:13px;color:var(--text-muted);margin-top:8px;flex-wrap:wrap}
+.repo-stars{color:var(--star);font-weight:600}
+.lang-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--accent);margin-right:5px}
+
+/* Product cards */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.product-card{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px;
+  box-shadow:var(--shadow);
+  display:flex;flex-direction:column;gap:8px;
+  transition:transform .15s ease;
+}
+.product-card:hover{transform:translateY(-2px)}
+.product-tag{
+  align-self:flex-start;font-size:12.5px;font-weight:600;
+  background:var(--badge-bg);color:var(--badge-text);
+  padding:3px 12px;border-radius:999px;
+}
+.product-name{font-size:17px;font-weight:700}
+.product-name a{color:var(--text)}
+.product-name a:hover{color:var(--accent);text-decoration:none}
+.product-desc{color:var(--text-secondary);font-size:14.5px;flex:1}
+
+/* Archive */
+.archive-item{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:16px 20px;border:1px solid var(--border);border-radius:var(--radius);
+  margin-bottom:12px;background:var(--bg-card);box-shadow:var(--shadow);
+}
+.archive-item:hover{border-color:var(--accent)}
+.archive-date{font-size:17px;font-weight:700;color:var(--text)}
+.archive-stats{font-size:13.5px;color:var(--text-muted)}
+.archive-arrow{color:var(--text-muted);font-size:18px}
+
+/* Empty state */
+.empty{color:var(--text-muted);text-align:center;padding:32px 0}
+
+/* Archive entry link */
+.more-link{display:block;text-align:center;margin:36px 0}
+.btn{
+  display:inline-block;background:var(--accent);color:#fff;
+  padding:12px 32px;border-radius:999px;font-weight:600;font-size:15px;
+  box-shadow:var(--shadow);
+}
+.btn:hover{background:var(--accent-hover);text-decoration:none;color:#fff}
+
+/* Ad slot placeholder (layout-neutral) */
+.ad-slot{display:none}
+
+/* ===== Footer ===== */
+.site-footer{border-top:1px solid var(--border);margin-top:56px;padding:32px 0 40px;background:var(--bg-soft)}
+.footer-inner p{font-size:14px;color:var(--text-secondary);margin-bottom:8px}
+.footer-meta{font-size:13px;color:var(--text-muted)}
+
+/* ===== Responsive ===== */
+@media (max-width:640px){
+  body{font-size:15px}
+  .hero{padding:32px 0 4px}
+  .header-inner{gap:12px}
+  .nav-links a{font-size:14px}
+  .card{padding:16px 18px}
+  .repo-card{padding:14px 16px}
+  .product-grid{grid-template-columns:1fr}
+  .archive-item{padding:14px 16px}
+}
+@media print{
+  .site-header,.theme-toggle,.more-link,.ad-slot{display:none}
+}
+/* Sweet Hub tip jar styles — append to the site's stylesheet.
+ * OpenAI-style minimal: white card, hairline border, black accents. */
+.tip-jar {
+  max-width: 440px; margin: 40px auto; padding: 28px 28px 24px;
+  border: 1px solid var(--border, #e5e5e5); border-radius: 16px;
+  text-align: center; background: #fff;
+}
+.tip-title { font-size: 18px; font-weight: 650; margin: 0 0 6px; color: #111; }
+.tip-sub { font-size: 14px; color: var(--muted, #6e6e73); margin: 0 0 18px; line-height: 1.5; }
+.tip-amounts { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+.tip-pill {
+  border: 1px solid var(--border, #e5e5e5); background: #fff; border-radius: 999px;
+  padding: 8px 18px; font-size: 14px; font-weight: 600; color: #333;
+  cursor: pointer; font-family: inherit; transition: border-color .15s, background .15s, color .15s;
+}
+.tip-pill:hover { border-color: #111; }
+.tip-pill.on { background: #111; border-color: #111; color: #fff; }
+.tip-custom { display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 18px; }
+.tip-cur { font-size: 16px; font-weight: 600; color: #111; }
+.tip-amount {
+  width: 100px; padding: 9px 12px; font-size: 16px; text-align: center;
+  border: 1px solid var(--border, #e5e5e5); border-radius: 10px;
+  font-family: inherit; color: #111; background: #fff;
+}
+.tip-amount:focus { outline: none; border-color: #111; }
+#tip-paypal-btn { max-width: 320px; margin: 0 auto; }
+.tip-thanks { font-size: 15px; font-weight: 600; color: #111; margin: 14px 0 0; }
+
+/* Cross-site promo card (theme-aware via CSS variables) */
+.cross-promo{border:1px solid var(--border,#e5e5e5);border-radius:12px;padding:18px 20px;margin:28px 0;background:var(--bg-soft,#fafafa)}
+.cross-promo h3{margin:0 0 8px;font-size:16px;color:var(--text,#111)}
+.cross-promo p{margin:0;color:var(--text-secondary,#555);font-size:14px}
+.cross-promo a{font-weight:600;color:var(--text,#111);text-decoration:underline;text-underline-offset:3px}
+
+[data-theme="dark"] #auth-area iframe{color-scheme:dark}
+
+/* Dark-mode Google button: custom visual + invisible real button overlay */
+.gsi-dark-wrap{position:relative;display:inline-block;line-height:0}
+.gsi-visual{display:inline-flex;align-items:center;gap:10px;background:#000;color:#fff;border:1px solid transparent;border-radius:999px;height:40px;padding:0 18px;font-size:14px;font-weight:500;white-space:nowrap;line-height:1}
+.gsi-dark-wrap .gsi-real{position:absolute;inset:0;opacity:0;overflow:hidden;cursor:pointer}
+.gsi-dark-wrap .gsi-real iframe{width:100%!important;height:100%!important}
+
+/* Floating tip button — append after tip.css.
+ * Bottom-right black gift button; click opens the tip card as a popover.
+ * Black/white minimal to match the tip card. */
+#tip-fab {
+  position: fixed; right: 24px; bottom: 24px; z-index: 9000;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: #fff; border: 1px solid #e5e5e5; color: #111;
+  box-shadow: 0 4px 20px rgba(0,0,0,.12);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .15s, box-shadow .15s;
+  font-family: inherit; padding: 0;
+}
+#tip-fab:hover { transform: scale(1.06); box-shadow: 0 6px 24px rgba(0,0,0,.18); }
+#tip-fab svg { display: block; }
+#tip-popover {
+  position: fixed; right: 24px; bottom: 88px; z-index: 9001;
+  width: 340px; max-width: calc(100vw - 48px);
+  background: #fff; border: 1px solid var(--border, #e5e5e5);
+  border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,.18);
+  padding: 8px 8px 4px;
+}
+#tip-popover[hidden] { display: none; }
+#tip-popover .tip-jar { margin: 0; border: none; box-shadow: none; max-width: none; }
+#tip-popover-close {
+  position: absolute; top: 6px; right: 10px; z-index: 2;
+  background: none; border: none; font-size: 22px; line-height: 1;
+  color: var(--muted, #6e6e73); cursor: pointer; padding: 4px;
+  font-family: inherit;
+}
+#tip-popover-close:hover { color: #111; }
+@media (max-width: 480px) {
+  #tip-fab { right: 16px; bottom: 16px; width: 48px; height: 48px; }
+  #tip-popover { right: 16px; bottom: 76px; }
+}
+/* Tip card is ALWAYS light — pin the light-theme tokens inside the card so
+ * the dark site theme can never leak in. The PayPal button area is white by
+ * design; the card around it now stays white in both site themes. */
+#tip-popover, .tip-jar {
+  color-scheme: light;
+  --border: #e9edf1;
+  --muted: #6e6e73;
+}
+
+/* SweetAI shared auth styles — append to site stylesheet. */
+#auth-area { display: flex; align-items: center; }
+.sweetai-user { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.sweetai-avatar { width: 28px; height: 28px; border-radius: 50%; }
+.sweetai-name { max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sweetai-link { background: none; border: none; color: var(--muted, #6e6e73); font-size: 13px; cursor: pointer; font-family: inherit; padding: 4px; }
+.sweetai-link:hover { color: #111; }
+#sweetai-toast {
+  position: fixed; left: 50%; bottom: 32px; transform: translateX(-50%) translateY(20px);
+  background: #111; color: #fff; padding: 12px 20px; border-radius: 999px; font-size: 14px;
+  opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 9999;
+  max-width: 90vw; text-align: center;
+}
+#sweetai-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="https://ai-daily-news.sweetai.work/"><span class="brand-mark">✦</span> AI Daily Digest</a>
+    <div class="nav-links">
+      <a href="https://ai-daily-news.sweetai.work/">Today</a>
+      <a href="https://ai-daily-news.sweetai.work/archive.html">Archive</a>
+      <a href="https://ai-daily-news.sweetai.work/feed.xml">RSS</a>
+    </div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">◐</button>
+    <div id="auth-area"></div>
+  </div>
+</header>
+<main class="container">
+<div class="hero"><span class="hero-eyebrow">From the archive</span><h1>October 20, 2026 · AI Digest</h1><div class="hero-meta"><span class="publish-time">Published: Oct 21, 2026, 8:55 AM (UTC-0400)</span></div></div><section class="section"><div class="section-head"><h2>📰 AI News</h2><span class="count">12 items</span></div>
+<article class="card"><h3 class="card-title"><a href="https://the-decoder.com/deepseek-open-sources-the-inference-engine-that-powers-its-fastest-and-cheapest-ai-model/" target="_blank" rel="noopener">Deepseek open-sources the inference engine that powers its fastest and cheapest AI model</a></h3><p class="card-summary">Deepseek is open-sourcing DeepInfer, the inference framework behind its fast V4.1-Flash model. The vLLM-based system cuts compute costs and energy use when running AI models.</p><div class="card-meta"><span class="source">The Decoder</span><a class="ext-link" href="https://the-decoder.com/deepseek-open-sources-the-inference-engine-that-powers-its-fastest-and-cheapest-ai-model/" target="_blank" rel="noopener">Read original ↗</a></div></article>
+<article class="card"><h3 class="card-title"><a href="https://techcrunch.com/2026/10/20/anthropic-pitches-ai-safety-bill-that-may-block-a-model-if-50-people-could-be-killed/" target="_blank" rel="noopener">Anthropic pitches AI safety bill that may block a model if 50+ people could be killed</a></h3><p class="card-summary">The proposed policy seems to offer protections against AI running amok but actually forbids federal agencies from blocking a model&#x27;s release without the permission of a judge.</p><div class="card-meta"><span class="source">TechCrunch</span><a class="ext-link" href="https://techcrunch.com/2026/10/20/anthropic-pitches-ai-safety-bill-that-may-block-a-model-if-50-people-could-be-killed/" target="_blank" rel="noopener">Read original ↗</a></div></article>
+<article class="card"><h3 class="card-title"><a href="https://techcrunch.com/2026/10/20/google-has-joined-amazon-in-attacking-nvidias-stronghold-with-ai-app-developers/" target="_blank" rel="noopener">Google has joined Amazon in attacking Nvidia’s stronghold with AI app developers</a></h3><p class="card-summary">Google has joined Amazon in releasing a developer tool that makes it easy for PyTorch users to move their apps off Nvidia GPUs.</p><div class="card-meta"><span class="source">TechCrunch</span><a class="ext-link" href="https://techcrunch.com/2026/10/20/google-has-joined-amazon-in-attacking-nvidias-stronghold-with-ai-app-developers/" target="_blank" rel="noopener">Read original ↗</a></div></article>
+<!-- ADSENSE: in-feed -->
+<div class="ad-slot"></div>
+<article class="card"><h3 class="card-title"><a href="https://the-decoder.com/elevenlabs-releases-two-new-speech-to-speech-models-designed-for-real-time-ai-conversations/" target="_blank" rel="noopener">Elevenlabs releases two new speech-to-speech models designed for real-time AI conversations</a></h3><p class="card-summary">Elevenlabs&#x27; new Eleven Realtime speech-to-speech models combine speed and accuracy. The v1 Max variant scores 98.8 percent on the Big Bench Audio benchmark with a 0.57-second response time.</p><div class="card-meta"><span class="source">The Decoder</span><a class="ext-link" href="https://the-decoder.com/elevenlabs-releases-two-new-speech-to-speech-models-designed-for-real-time-ai-conversations/" target="_blank" rel="noopener">Read original ↗</a></div></article>
+<article class="card"><h3 class="card-title"><a href="https://the-decoder.com/mistral-ai-launches-voxtral-3-a-full-voice-agent-stack-that-listens-thinks-and-talks-in-real-time/" target="_blank" rel="noopener">Mistral AI launches Voxtral 3, a full voice agent stack that listens, thinks, and talks in real time</a></h3><p class="card-summary">Mistral AI launched Voxtral 3, a new family of language models built for real-time voice agents.</p><div class="card-meta"><span class="source">The Decoder</span><a class="ext-link" href="https://the-decoder.com/mistral-ai-launches-voxtral-3-a-full-voice-agent-stack-that-listens-thinks-and-talks-in-real-time/" target="_blank" rel="noopener">Read original ↗</a></div></article>
+<article class="card"><h3 class="card-title"><a href="https://techcrunch.com/2026/10/20/hugging-face-ceo-warns-that-netflixs-openai-hack-documentary-isnt-accurate/" target="_blank" rel="noopener">Hugging Face CEO warns that Netflix’s OpenAI hack documentary isn’t accurate</a></h3><p class="card-summary">Before you share the Netflix documentary &quot;AI Gone Rogue,&quot; take note. Clem Delangue, Hugging Face&#x27;s co-founder who is featured in the film, says it went &quot;full doomer mode&quot; and isn&#x27;t accurate.</p><div class="card-meta"><span class="source">TechCrunch</span><a class="ext-link" href="https://techcrunch.com/2026/10/20/hugging-face-ceo-warns-that-netflixs-openai-hack-documentary-isnt-accurate/" target="_blank" rel="noopener">Read original ↗</a></div></article>
+<!-- ADSENSE: in-feed -->
+<div class="ad-slot"></div>
+<article class="card"><h3 class="card-title"><a href="https://techcrunch.com/2026/10/20/openai-acquires-startup-orchestra-bio%e2%81%a0-to-beef-up-its-biotech-business/" target="_blank" rel="noopener">OpenAI acquires startup Orchestra Bio⁠ to beef up its biotech business</a></h3><p class="card-summary">OpenAI says it&#x27;s adding Orchestra&#x27;s team and technology to work on Rosalind, its AI model for life sciences research, and to its related Rosalind Workbench tool, a harness that aims to help researcher...</p><div class="card-meta"><span class="source">TechCrunch</span><a class="ext-link" href="https://techcrunch.com/2026/10/20/openai-acquires-startup-orchestra-bio%e2%81%a0-to-beef-up-its-biotech-business/" target="_blank" rel="noopener">Read original ↗</a></div></article>
+<article class="card"><h3 class="card-title"><a href="https://techcrunch.com/2026/10/20/metas-muse-hits-10m-u-s-downloads-in-40-days-a-milestone-reached-by-only-11-other-apps/" target="_blank" rel="noopener">Meta’s Muse hits 10M US downloads in 40 days, a milestone reached by only 11 other apps</a></h3><p class="card-summary">New data also shows Muse is retaining users at higher rates than its AI rivals.</p><div class="card-meta"><span class="source">TechCrunch</span><a class="ext-link" href="https://techcrunch.com/2026/10/20/metas-muse-hits-10m-u-s-downloads-in-40-days-a-milestone-reached-by-only-11-other-apps/" target="_blank" rel="noopener">Read original ↗</a></div></article>
+<article class="card"><h3 class="card-title"><a href="https://techcrunch.com/2026/10/20/ex-nvidia-turned-vc-amulya-vishwanath-physical-ai-is-in-its-lego-era/" target="_blank" rel="noopener">Ex-Nvidia-turned-VC Amulya Vishwanath: ‘Physical AI is in its LEGO era’</a></h3><p class="card-summary">It’s the moment everyone is waiting for — the ChatGPT moment for robotics, Amulya Vishwanath explained to TechCrunch’s Equity.</p><div class="card-meta"><span class="source">TechCrunch</span><a class="ext-link" href="https://techcrunch.com/2026/10/20/ex-nvidia-turned-vc-amulya-vishwanath-physical-ai-is-in-its-lego-era/" target="_blank" rel="noopener">Read original ↗</a></div></article>
+<!-- ADSENSE: in-feed -->
+<div class="ad-slot"></div>
+<article class="card"><h3 class="card-title"><a href="https://techcrunch.com/2026/10/20/plants-can-speak-using-electricity-so-this-startup-built-an-ai-model-to-decipher-their-language/" target="_blank" rel="noopener">Plants can speak using electricity, so this startup built an AI model to decipher their language</a></h3><p class="card-summary">Electric Plant has built an AI-powered translator to help humans listen to what plants are saying with the subtle electricity coursing through their stems.</p><div class="card-meta"><span class="source">TechCrunch</span><a class="ext-link" href="https://techcrunch.com/2026/10/20/plants-can-speak-using-electricity-so-this-startup-built-an-ai-model-to-decipher-their-language/" target="_blank" rel="noopener">Read original ↗</a></div></article>
+<article class="card"><h3 class="card-title"><a href="https://techcrunch.com/2026/10/20/us-orders-federal-agencies-to-remove-chinas-deepseek-ai-from-their-systems/" target="_blank" rel="noopener">US orders federal agencies to remove China’s DeepSeek AI from their systems</a></h3><p class="card-summary">The U.S. has ordered federal civilian agencies to remove DeepSeek products and third-party services built using its technology, citing national security concerns.</p><div class="card-meta"><span class="source">TechCrunch</span><a class="ext-link" href="https://techcrunch.com/2026/10/20/us-orders-federal-agencies-to-remove-chinas-deepseek-ai-from-their-systems/" target="_blank" rel="noopener">Read original ↗</a></div></article>
+<article class="card"><h3 class="card-title"><a href="https://techcrunch.com/2026/10/20/eka-is-worth-1-45-billion-thanks-to-a-physical-ai-model-that-has-experts-raving/" target="_blank" rel="noopener">Eka is worth $1.45B thanks to a physical AI model that has experts raving</a></h3><p class="card-summary">Eka Robotics may be the first robotic arm that is actually good at picking up a wide range of objects, and it is so smooth and human-like, it is wowing the industry.</p><div class="card-meta"><span class="source">TechCrunch</span><a class="ext-link" href="https://techcrunch.com/2026/10/20/eka-is-worth-1-45-billion-thanks-to-a-physical-ai-model-that-has-experts-raving/" target="_blank" rel="noopener">Read original ↗</a></div></article>
+</section>
+<!-- ADSENSE: in-article -->
+<section class="section"><div class="section-head"><h2>💻 Trending on GitHub</h2><span class="count">8 items</span></div>
+<article class="repo-card"><div class="repo-rank">1</div><div class="repo-body"><div class="repo-name"><a href="https://github.com/Leonxlnx/earshot" target="_blank" rel="noopener">Leonxlnx/earshot</a></div><p class="repo-desc">Ears for coding agents: let AI hear, review and make sound. CPU-only, open source.</p><p class="repo-note">Created 2026-10-15 · 2k stars · Python</p><div class="repo-meta"><span><span class="lang-dot"></span>Python</span><span class="repo-stars">★ 2k</span></div></div></article>
+<article class="repo-card"><div class="repo-rank">2</div><div class="repo-body"><div class="repo-name"><a href="https://github.com/LiCinCan/blender-ai-mcp-addon" target="_blank" rel="noopener">LiCinCan/blender-ai-mcp-addon</a></div><p class="repo-desc">AI assistant and MCP server for Blender: visual chat, scene tools, multi-agent workflows. Works with OpenAI, ChatGPT, Claude, Gemini, Ollama, OpenCode. Blender </p><p class="repo-note">Created 2026-10-15 · 959 stars · Python</p><div class="repo-meta"><span><span class="lang-dot"></span>Python</span><span class="repo-stars">★ 959</span></div></div></article>
+<article class="repo-card"><div class="repo-rank">3</div><div class="repo-body"><div class="repo-name"><a href="https://github.com/feder-cr/git-ai" target="_blank" rel="noopener">feder-cr/git-ai</a></div><p class="repo-desc">Git designed for AI agents.</p><p class="repo-note">Created 2026-10-15 · 901 stars · Go</p><div class="repo-meta"><span><span class="lang-dot"></span>Go</span><span class="repo-stars">★ 901</span></div></div></article>
+<article class="repo-card"><div class="repo-rank">4</div><div class="repo-body"><div class="repo-name"><a href="https://github.com/cranebeaker/coop-anything" target="_blank" rel="noopener">cranebeaker/coop-anything</a></div><p class="repo-desc">Co-op Anything: point your AI agent at any single-player game and play it with friends (online and/or splitscreen!). MCP server and playbook to let you reverse </p><p class="repo-note">Created 2026-10-16 · 753 stars · Python</p><div class="repo-meta"><span><span class="lang-dot"></span>Python</span><span class="repo-stars">★ 753</span></div></div></article>
+<article class="repo-card"><div class="repo-rank">5</div><div class="repo-body"><div class="repo-name"><a href="https://github.com/UnderleveledBuilder/awesome-short-drama-skills" target="_blank" rel="noopener">UnderleveledBuilder/awesome-short-drama-skills</a></div><p class="repo-desc">AI 短剧 · 漫剧 Skill（技能包）精选：剧本、改编、分镜、Seedance / 可灵 / MiniMax 视频提示词，千问、豆包、龙虾 OpenClaw、WorkBuddy、Claude Code、Codex 等智能体可用 | Curated agent skills for AI short drama, m</p><p class="repo-note">Created 2026-10-13 · 576 stars · HTML</p><div class="repo-meta"><span><span class="lang-dot"></span>HTML</span><span class="repo-stars">★ 576</span></div></div></article>
+<article class="repo-card"><div class="repo-rank">6</div><div class="repo-body"><div class="repo-name"><a href="https://github.com/VITASID57/bluntcore-intimacy-lab" target="_blank" rel="noopener">VITASID57/bluntcore-intimacy-lab</a></div><p class="repo-desc">🧬 钝核｜人机亲密实验室 · Bluntcore Intimacy Lab｜人机恋、成人 AI、Prompt、Memory、Agent、模型床测与实验记录。</p><p class="repo-note">Created 2026-10-16 · 552 stars · Unknown</p><div class="repo-meta"><span><span class="lang-dot"></span>Unknown</span><span class="repo-stars">★ 552</span></div></div></article>
+<article class="repo-card"><div class="repo-rank">7</div><div class="repo-body"><div class="repo-name"><a href="https://github.com/i12bp8/decomp.wtf" target="_blank" rel="noopener">i12bp8/decomp.wtf</a></div><p class="repo-desc">What The Function: your AI agent decompiles games you own into C that compiles to the exact same bytes. Runs locally.</p><p class="repo-note">Created 2026-10-13 · 531 stars · Python</p><div class="repo-meta"><span><span class="lang-dot"></span>Python</span><span class="repo-stars">★ 531</span></div></div></article>
+<article class="repo-card"><div class="repo-rank">8</div><div class="repo-body"><div class="repo-name"><a href="https://github.com/heqiangdiao-wq/AI-Cross-Border-Ecommerce-Agent-Toolkit" target="_blank" rel="noopener">heqiangdiao-wq/AI-Cross-Border-Ecommerce-Agent-Toolkit</a></div><p class="repo-desc">AI 跨境电商运营智能体工具箱 · 把运营 SOP 拆成 7 个可复用的 AI Agent 工作流，含 Prompt、模板与真实案例</p><p class="repo-note">Created 2026-10-13 · 482 stars · Python</p><div class="repo-meta"><span><span class="lang-dot"></span>Python</span><span class="repo-stars">★ 482</span></div></div></article>
+</section>
+<!-- ADSENSE: in-article -->
+<section class="section"><div class="section-head"><h2>🚀 New AI Products</h2><span class="count">7 items</span></div>
+<div class="product-grid">
+<article class="product-card"><span class="product-tag">LLM</span><div class="product-name"><a href="https://the-decoder.com/cloudflares-clairic-pulls-data-from-documents-faster-and-cheaper-than-llms/" target="_blank" rel="noopener">Cloudflare&#x27;s Clairic pulls data from documents faster and cheaper than LLMs</a></div><p class="product-desc">Cloudflare has released an AI model it says pulls data from documents faster and more cheaply than large language models. The article Cloudflare&#x27;s Clairic pulls</p></article>
+<article class="product-card"><span class="product-tag">Agents</span><div class="product-name"><a href="https://github.com/reticlehq/reticle" target="_blank" rel="noopener">Make AI coding agents verify its own work</a></div><p class="product-desc">Make AI coding agents verify its own work · Spotted on Hacker News Show HN</p></article>
+<article class="product-card"><span class="product-tag">Audio</span><div class="product-name"><a href="https://apps.apple.com/de/app/daft-slop-ai-music-detector/id6811013099" target="_blank" rel="noopener">Shazam but for AI Slop Music</a></div><p class="product-desc">Shazam but for AI Slop Music · Spotted on Hacker News Show HN</p></article>
+<article class="product-card"><span class="product-tag">Developer Tools</span><div class="product-name"><a href="https://github.com/yanacuti1121/yana-ai" target="_blank" rel="noopener">Yana – A local-first, human-governed AI runtime and IDE in Rust</a></div><p class="product-desc">Yana – A local-first, human-governed AI runtime and IDE in Rust · Spotted on Hacker News Show HN</p></article>
+<article class="product-card"><span class="product-tag">AI Tools</span><div class="product-name"><a href="https://worklicant.com/" target="_blank" rel="noopener">Worklicant – Lightweight ATS. Pay per Vacancy. AI Enabled</a></div><p class="product-desc">Worklicant – Lightweight ATS. Pay per Vacancy. AI Enabled · Spotted on Hacker News Show HN</p></article>
+<article class="product-card"><span class="product-tag">AI Tools</span><div class="product-name"><a href="https://asktori.ai" target="_blank" rel="noopener">Tori by TalkJS. AI support that&#x27;s actually good</a></div><p class="product-desc">Tori by TalkJS. AI support that&#x27;s actually good · Spotted on Hacker News Show HN</p></article>
+<article class="product-card"><span class="product-tag">Agents</span><div class="product-name"><a href="https://github.com/SeeRay11/OpenFlow" target="_blank" rel="noopener">OpenFlow – AI Agent Workflow Builder</a></div><p class="product-desc">OpenFlow – AI Agent Workflow Builder · Spotted on Hacker News Show HN</p></article>
+</div>
+</section>
+<div class="cross-promo"><h3>&#x1F6E0;&#xFE0F; Looking for AI tools?</h3>
+<p>Browse <a href="https://tools-hub.sweetai.work/">200+ AI tools on Tools Hub</a> &mdash;
+our curated directory across 10 categories, from chatbots to video generators.</p></div>
+
+<!-- ADSENSE: sidebar -->
+<div class="ad-slot"></div>
+</main>
+<footer class="site-footer">
+  <!-- ADSENSE: footer-ad -->
+  <div class="container footer-inner">
+    <p><strong>AI Daily Digest</strong> · Every morning at 9:00 AM Eastern Time, a roundup of the previous day's AI news, trending AI projects on GitHub, and new AI products.</p>
+    <p class="footer-meta">Content is for informational purposes only; all rights belong to the original authors · <a href="https://ai-daily-news.sweetai.work/archive.html">Archive</a> · <a href="https://ai-daily-news.sweetai.work/feed.xml">RSS</a></p>
+  </div>
+</footer>
+<script>
+/* Dark mode toggle: follows system by default, manual choice saved to localStorage */
+(function(){
+  var KEY = "ai-daily-theme";
+  var root = document.documentElement;
+  function systemTheme(){
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  function current(){
+    try { return localStorage.getItem(KEY) || systemTheme(); }
+    catch(e){ return systemTheme(); }
+  }
+  function apply(t){ root.setAttribute("data-theme", t); }
+  apply(current());
+  try {
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function(e){
+      if (!localStorage.getItem(KEY)) apply(e.matches ? "dark" : "light");
+    });
+  } catch(e){}
+  document.addEventListener("DOMContentLoaded", function(){
+    var btn = document.getElementById("theme-toggle");
+    if (!btn) return;
+    btn.addEventListener("click", function(){
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      apply(next);
+      try { localStorage.setItem(KEY, next); } catch(e){}
+    });
+  });
+})();
+/* Sweet Hub stats beacon — include on every page.
+ * Requires: <meta name="hub-site" content="ai-daily|tools-hub|localcraft|wallpapers">
+ * 1 write per pageview in D1; no cookies, no personal data.
+ */
+(function () {
+  try {
+    var m = document.querySelector('meta[name="hub-site"]');
+    if (!m || !m.content) return;
+    var url = "https://sweet-hub-api.dylan-xm.workers.dev/api/collect";
+    var payload = JSON.stringify({ site: m.content, event: "pv" });
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(url, payload);
+    } else {
+      fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+        keepalive: true,
+      }).catch(function () {});
+    }
+  } catch (e) { /* never break the page */ }
+})();
+/* Sweet Hub tip jar — PayPal "Buy me a coffee".
+ * Requires: <div class="tip-jar" id="tip-jar">…</div> on the page (see tip.html).
+ * The jar stays hidden until the PayPal Client ID is configured server-side.
+ */
+(function () {
+  var jar = document.getElementById("tip-jar");
+  if (!jar) return;
+  var API = "https://sweet-hub-api.dylan-xm.workers.dev";
+  var selected = "1.99";
+
+  function amount() {
+    var v;
+    if (selected === "custom") {
+      v = parseFloat(document.getElementById("tip-amount").value);
+    } else {
+      v = parseFloat(selected);
+    }
+    if (!isFinite(v) || v < 0.5) v = 0.5;
+    if (v > 500) v = 500;
+    return v.toFixed(2);
+  }
+
+  function initPills() {
+    var pills = jar.querySelectorAll(".tip-pill");
+    var customRow = document.getElementById("tip-custom");
+    pills.forEach(function (p) {
+      p.addEventListener("click", function () {
+        pills.forEach(function (x) { x.classList.remove("on"); });
+        p.classList.add("on");
+        selected = p.getAttribute("data-amount");
+        customRow.style.display = selected === "custom" ? "flex" : "none";
+      });
+    });
+  }
+
+  fetch(API + "/api/paypal/config")
+    .then(function (r) { return r.json(); })
+    .then(function (cfg) {
+      if (!cfg || !cfg.clientId) return; // PayPal not configured yet
+      jar.style.display = "block";
+      initPills();
+      var s = document.createElement("script");
+      s.src =
+        "https://www.paypal.com/sdk/js?client-id=" +
+        encodeURIComponent(cfg.clientId) +
+        "&currency=USD&intent=capture";
+      s.onload = initButtons;
+      document.head.appendChild(s);
+    })
+    .catch(function () {});
+
+  function initButtons() {
+    if (!window.paypal) return;
+    paypal
+      .Buttons({
+        style: { layout: "vertical", color: "black", shape: "pill", label: "paypal", tagline: false, height: 40 },
+        createOrder: function (data, actions) {
+          return actions.order.create({
+            purchase_units: [
+              {
+                description: "Tip — Buy me a coffee",
+                amount: { currency_code: "USD", value: amount() },
+              },
+            ],
+          });
+        },
+        onApprove: function (data, actions) {
+          return actions.order.capture().then(function (details) {
+            var cap = details.purchase_units[0].payments.captures[0];
+            return fetch(API + "/api/tip/record", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                orderID: data.orderID,
+                captureID: cap.id,
+                amount: cap.amount.value,
+                page_url: location.href,
+              }),
+            }).then(function () {
+              document.getElementById("tip-thanks").style.display = "block";
+              document.getElementById("tip-paypal-btn").style.display = "none";
+              document.getElementById("tip-amounts").style.display = "none";
+              document.getElementById("tip-custom").style.display = "none";
+            });
+          });
+        },
+        onError: function (err) { console.error("tip error", err); },
+      })
+      .render("#tip-paypal-btn");
+  }
+})();
+/* Floating tip button toggle — load after tip.js.
+ * Opens/closes the tip popover; tip.js handles PayPal inside #tip-jar.
+ * The FAB shows immediately; PayPal loads in the background via tip.js. */
+(function () {
+  function init() {
+    var fab = document.getElementById("tip-fab");
+    var pop = document.getElementById("tip-popover");
+    if (!fab || !pop) return;
+    var closeBtn = document.getElementById("tip-popover-close");
+
+    // Show the button right away — don't wait for PayPal config.
+    // tip.js reveals the tip card content once PayPal is ready.
+    fab.style.display = "flex";
+
+    function open() {
+      pop.hidden = false;
+      // Render PayPal buttons now that the popover is visible
+      if (window.SweetTip && window.SweetTip.renderButtons) {
+        // Small delay to ensure layout is done
+        setTimeout(function () { window.SweetTip.renderButtons(); }, 50);
+      }
+    }
+    function close() { pop.hidden = true; }
+    fab.addEventListener("click", function (e) {
+      e.stopPropagation();
+      pop.hidden ? open() : close();
+    });
+    if (closeBtn) closeBtn.addEventListener("click", close);
+    document.addEventListener("click", function (e) {
+      if (!pop.hidden && !pop.contains(e.target)) close();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") close();
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+
+/* SweetAI shared auth — Google one-click login for all sites.
+ * Requires: <div id="auth-area"></div> in header, GSI script loaded.
+ * API: https://game-hub-api.dylan-xm.workers.dev
+ * Token stored in localStorage('sweetai_token').
+ */
+(function () {
+  var API = "https://game-hub-api.dylan-xm.workers.dev";
+  var TOKEN_KEY = "sweetai_token";
+
+  window.SweetAI = window.SweetAI || {};
+  var S = window.SweetAI;
+
+  S.token = function () { return localStorage.getItem(TOKEN_KEY); };
+  S.user = null;
+
+  S.api = function (path, opts) {
+    opts = opts || {};
+    var headers = { "Content-Type": "application/json" };
+    var t = S.token();
+    if (t) headers["Authorization"] = "Bearer " + t;
+    return fetch(API + path, {
+      method: opts.method || "GET",
+      headers: headers,
+      body: opts.body ? JSON.stringify(opts.body) : undefined,
+    }).then(function (r) {
+      if (r.status === 401) { S.logout(true); }
+      return r.json().catch(function () { return {}; });
+    });
+  };
+
+  S.requireLogin = function () {
+    if (!S.token() || !S.user) {
+      S.toast("Please sign in with Google to continue");
+      var a = document.getElementById("auth-area");
+      if (a) a.scrollIntoView({ behavior: "smooth", block: "center" });
+      return false;
+    }
+    return true;
+  };
+
+  S.toast = function (msg) {
+    var t = document.getElementById("sweetai-toast");
+    if (!t) {
+      t = document.createElement("div");
+      t.id = "sweetai-toast";
+      document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    t.classList.add("show");
+    clearTimeout(t._h);
+    t._h = setTimeout(function () { t.classList.remove("show"); }, 3200);
+  };
+
+  S.logout = function (silent) {
+    localStorage.removeItem(TOKEN_KEY);
+    S.user = null;
+    if (!silent) renderAuth();
+  };
+
+  function renderAuth() {
+    var area = document.getElementById("auth-area");
+    if (!area) return;
+    if (S.user) {
+      area.innerHTML =
+        '<span class="sweetai-user">' +
+        (S.user.avatar ? '<img src="' + S.user.avatar.replace(/"/g, "") + '" alt="" class="sweetai-avatar">' : "") +
+        '<span class="sweetai-name">' + escapeHtml(S.user.name || S.user.email) + "</span>" +
+        '<button type="button" id="sweetai-logout" class="sweetai-link">Sign out</button></span>';
+      var out = document.getElementById("sweetai-logout");
+      if (out) out.addEventListener("click", function () { S.logout(); });
+    } else {
+      area.innerHTML = '<div id="sweetai-gsi-btn"></div>';
+      initGsiButton();
+    }
+  }
+
+  function escapeHtml(s) {
+    return String(s || "").replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  var gsiTries = 0;
+  var gsiCfg = null;
+  function gsiTheme() {
+    return document.documentElement.getAttribute("data-theme") === "dark" ? "filled_black" : "outline";
+  }
+  var G_LOGO_SVG = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09C3.26 21.3 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.27 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.98-3.09z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75z"/></svg>';
+  function renderGsiButton() {
+    var el = document.getElementById("sweetai-gsi-btn");
+    if (!el || !window.google || !google.accounts || !google.accounts.id || !gsiCfg || !gsiCfg.google_client_id) return false;
+    google.accounts.id.initialize({
+      client_id: gsiCfg.google_client_id,
+      callback: onCredential,
+    });
+    el.innerHTML = "";
+    if (gsiTheme() === "filled_black") {
+      el.className = "gsi-dark-wrap";
+      var visual = document.createElement("span");
+      visual.className = "gsi-visual";
+      visual.setAttribute("aria-hidden", "true");
+      visual.innerHTML = G_LOGO_SVG + "<span>Sign in with Google</span>";
+      el.appendChild(visual);
+      var real = document.createElement("div");
+      real.className = "gsi-real";
+      el.appendChild(real);
+      google.accounts.id.renderButton(real, { theme: "filled_black", size: "medium", shape: "pill", locale: "en", width: 220 });
+    } else {
+      el.className = "";
+      google.accounts.id.renderButton(el, { theme: "outline", size: "medium", shape: "pill", locale: "en", width: 220 });
+    }
+    return true;
+  }
+  function initGsiButton() {
+    S.api("/api/auth/config").then(function (c) { gsiCfg = c; tryRender(); });
+    function tryRender() {
+      if (renderGsiButton()) return;
+      if (++gsiTries < 40) {
+        setTimeout(tryRender, 250);
+      }
+    }
+    // Re-render the button when the site theme toggles (light/dark).
+    if (window.MutationObserver) {
+      new MutationObserver(function () { renderGsiButton(); })
+        .observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    }
+  }
+
+  function onCredential(resp) {
+    S.api("/api/auth/google", { method: "POST", body: { id_token: resp.credential } })
+      .then(function (d) {
+        if (d && d.ok) {
+          localStorage.setItem(TOKEN_KEY, d.token);
+          S.user = d.user;
+          renderAuth();
+          document.dispatchEvent(new CustomEvent("sweetai:login"));
+        } else {
+          S.toast("Sign-in failed. Please try again.");
+        }
+      })
+      .catch(function () { S.toast("Sign-in failed. Please try again."); });
+  }
+
+  // Validate existing token on load
+  document.addEventListener("DOMContentLoaded", function () {
+    var t = S.token();
+    if (t) {
+      S.api("/api/auth/me").then(function (d) {
+        S.user = d && d.user ? d.user : null;
+        if (!S.user) localStorage.removeItem(TOKEN_KEY);
+        renderAuth();
+      });
+    } else {
+      renderAuth();
+    }
+  });
+})();
+
+</script>
+<button id="tip-fab" aria-label="Buy me a coffee" title="Buy me a coffee">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="3" y="8" width="18" height="4" rx="1"/>
+    <path d="M12 8v13"/>
+    <path d="M5 12v9h14v-9"/>
+    <path d="M12 8s-1.5-5-4.5-5S5 8 12 8z"/>
+    <path d="M12 8s1.5-5 4.5-5S19 8 12 8z"/>
+  </svg>
+</button>
+<div id="tip-popover" hidden>
+  <button id="tip-popover-close" aria-label="Close">×</button>
+  <div class="tip-jar" id="tip-jar" style="display:none">
+    <p class="tip-title">☕ Buy me a coffee</p>
+    <p class="tip-sub">Enjoying this? A small tip keeps it free for everyone.</p>
+    <div class="tip-amounts" id="tip-amounts">
+      <button type="button" class="tip-pill" data-amount="1">$1</button>
+      <button type="button" class="tip-pill on" data-amount="1.99">$1.99</button>
+      <button type="button" class="tip-pill" data-amount="5">$5</button>
+      <button type="button" class="tip-pill" data-amount="custom">Custom</button>
+    </div>
+    <div class="tip-custom" id="tip-custom" style="display:none">
+      <span class="tip-cur">$</span>
+      <input class="tip-amount" id="tip-amount" type="text" inputmode="decimal" value="1.99" aria-label="Custom tip amount in USD">
+    </div>
+    <div id="tip-paypal-btn"></div>
+    <p class="tip-thanks" id="tip-thanks" style="display:none">Thank you so much! 🎉</p>
+  </div>
+</div>
+
+<!-- SweetAI network bar: include once per page, just before </body>.
+     Self-contained (inline styles). Fixed light strip so it stays legible
+     on both light and dark site themes. -->
+<style>
+.sweetai-network-bar{border-top:1px solid #e8e8e8;background:#fafafa;padding:22px 16px 26px;text-align:center;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.sweetai-network-bar .nw-label{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#a3a3a3;margin:0 0 10px}
+.sweetai-network-bar .nw-links{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 2px;max-width:720px;margin:0 auto}
+.sweetai-network-bar a{font-size:13px;color:#525252;text-decoration:none;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.sweetai-network-bar a:hover{color:#000;background:#ececec}
+.sweetai-network-bar .nw-sep{color:#d4d4d4;align-self:center;font-size:12px}
+/* Dark mode (sites toggle data-theme="dark" on <html>) */
+[data-theme="dark"] .sweetai-network-bar{background:#111111;border-top-color:#262626}
+[data-theme="dark"] .sweetai-network-bar .nw-label{color:#6e6e6e}
+[data-theme="dark"] .sweetai-network-bar a{color:#d6d6d6}
+[data-theme="dark"] .sweetai-network-bar a:hover{color:#ffffff;background:#262626}
+[data-theme="dark"] .sweetai-network-bar .nw-sep{color:#3d3d3d}
+</style>
+<footer class="sweetai-network-bar" aria-label="SweetAI network">
+  <span class="nw-label">Part of the SweetAI network</span>
+  <nav class="nw-links">
+    <a href="https://hub.sweetai.work">SweetAI</a><span class="nw-sep">·</span>
+    <a href="https://ai-daily-news.sweetai.work">AI Daily</a><span class="nw-sep">·</span>
+    <a href="https://tools-hub.sweetai.work">Tools Hub</a><span class="nw-sep">·</span>
+    <a href="https://tools.sweetai.work">Localcraft</a><span class="nw-sep">·</span>
+    <a href="https://wallpapers.sweetai.work">Wallpapers</a><span class="nw-sep">·</span>
+    <a href="https://games.sweetai.work">Game Hub</a>
+  </nav>
+</footer>
+
+</body>
+</html>
