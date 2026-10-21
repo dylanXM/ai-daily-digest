@@ -300,6 +300,14 @@ a:hover{text-decoration:underline}
   #tip-fab { right: 16px; bottom: 16px; width: 48px; height: 48px; }
   #tip-popover { right: 16px; bottom: 76px; }
 }
+/* Tip card is ALWAYS light — pin the light-theme tokens inside the card so
+ * the dark site theme can never leak in. The PayPal button area is white by
+ * design; the card around it now stays white in both site themes. */
+#tip-popover, .tip-jar {
+  color-scheme: light;
+  --border: #e9edf1;
+  --muted: #6e6e73;
+}
 
 /* SweetAI shared auth styles — append to site stylesheet. */
 #auth-area { display: flex; align-items: center; }
