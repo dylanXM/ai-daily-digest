@@ -1,0 +1,188 @@
+{
+  "date": "2026-10-21",
+  "published_at": "2026-10-22T08:56:04.291818-04:00",
+  "news": [
+    {
+      "title": "Google Cloud now offers OpenAI models alongside Gemini and Claude, becoming the only major provider with all three",
+      "summary": "Google Cloud is the first major cloud provider to offer Gemini, Claude, and OpenAI's GPTs on a single platform.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/google-cloud-now-offers-openai-models-alongside-gemini-and-claude-becoming-the-only-major-provider-with-all-three/"
+    },
+    {
+      "title": "Recursive launches Flint, a laptop coding model it says was largely built by AI",
+      "summary": "Startup Recursive has released Flint, a free, laptop-sized coding model built largely by its own AI research system, as an early test of AI that improves itself.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/21/recursive-launches-flint-a-laptop-coding-model-it-says-was-largely-built-by-ai/"
+    },
+    {
+      "title": "PHP Armageddon: OpenAI, Google’s Wiz find ancient holes, panicking the internet",
+      "summary": "This is the kind of security issue that was found and prevented by AI, but is also a high risk because of AI.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/21/php-armageddon-openai-googles-wiz-find-ancient-holes-panicking-the-internet/"
+    },
+    {
+      "title": "OpenAI's GPT-5.6 Sol and Google's Gemini 4 Argon found critical PHP flaw affecting millions of websites",
+      "summary": "OpenAI's GPT-5.6 Sol discovered a critical PHP vulnerability as part of the Patch the Planet initiative that could affect millions of websites.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/openais-gpt-5-6-sol-and-gemini-4-argon-discovered-the-critical-php-vulnerability-affecting-millions-of-websites/"
+    },
+    {
+      "title": "Meta says Muse has over 10M users, with shopping a top activity",
+      "summary": "Meta Muse users are adopting the app for shopping and personal productivity, the company said during its Q3 earnings call. The AI app now has over 10M users.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/21/meta-says-muse-has-over-10m-users-with-shopping-a-top-activity/"
+    },
+    {
+      "title": "While Amazon blocks AI agents, Walmart rolls out the welcome mat",
+      "summary": "As Amazon blocks AI agents from shopping on its site, Walmart is taking the opposite approach, introducing new technology that lets AI agents make purchases on customers' behalf, with controls over sp...",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/21/while-amazon-blocks-ai-agents-walmart-rolls-out-the-welcome-mat/"
+    },
+    {
+      "title": "Inception's Mercury 3 diffusion model claims to beat GPT-6 Luna and Claude Haiku 5.5 at a fraction of the wait",
+      "summary": "Inception says Mercury 3 is the most capable diffusion language model released so far.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/inceptions-mercury-3-diffusion-model-claims-to-beat-gpt-6-luna-and-claude-haiku-5-5-at-a-fraction-of-the-wait/"
+    },
+    {
+      "title": "Mistral and Nvidia want to speed up industrial design with physics AI",
+      "summary": "Mistral and Nvidia are teaming up to speed up engineering simulations and industrial product design with AI.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/mistral-and-nvidia-want-to-speed-up-industrial-design-with-physics-ai/"
+    },
+    {
+      "title": "Nvidia's DSX POD could cut AI data center setup from six months to as little as 14 days",
+      "summary": "Nvidia wants AI data centers to ship fully preassembled in containers. The article Nvidia's DSX POD could cut AI data center setup from six months to as little as 14 days appeared first on The Decoder...",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/nvidias-dsx-pod-could-cut-ai-data-center-setup-from-six-months-to-as-little-as-14-days/"
+    },
+    {
+      "title": "China protests the US Deepseek ban while blocking ChatGPT, Claude, and Gemini at home",
+      "summary": "The US has banned Deepseek from its government systems, and China is protesting sharply and demanding the ban be lifted.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/china-protests-the-us-deepseek-ban-while-blocking-chatgpt-claude-and-gemini-at-home/"
+    },
+    {
+      "title": "Blackstone’s Jas Khaira says fears over AI-buildout debt are overblown",
+      "summary": "Blackstone’s AI head on why the PE giant isn't panicked by market jitters.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/21/blackstones-jas-khaira-says-fears-over-ai-buildout-debt-are-overblown/"
+    },
+    {
+      "title": "Blacksmith hits unicorn valuation after Sequoia leads Series C",
+      "summary": "Blacksmith, a platform that lets companies build and test AI code more effectively, just announced a $66 million Series C round led by Sequoia that values the company at $1 billion.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/21/blacksmith-hits-unicorn-valuation-after-sequoia-leads-series-c/"
+    }
+  ],
+  "github": [
+    {
+      "name": "Leonxlnx/earshot",
+      "description": "Ears for coding agents: let AI hear, review and make sound. CPU-only, open source.",
+      "url": "https://github.com/Leonxlnx/earshot",
+      "stars": "2.1k",
+      "language": "Python",
+      "note": "Created 2026-10-15 · 2.1k stars · Python"
+    },
+    {
+      "name": "feder-cr/git-ai",
+      "description": "Git designed for AI agents.",
+      "url": "https://github.com/feder-cr/git-ai",
+      "stars": "941",
+      "language": "Go",
+      "note": "Created 2026-10-15 · 941 stars · Go"
+    },
+    {
+      "name": "cranebeaker/coop-anything",
+      "description": "Co-op Anything: point your AI agent at any single-player game and play it with friends (online and/or splitscreen!). MCP server and playbook to let you reverse ",
+      "url": "https://github.com/cranebeaker/coop-anything",
+      "stars": "820",
+      "language": "Python",
+      "note": "Created 2026-10-16 · 820 stars · Python"
+    },
+    {
+      "name": "VITASID57/bluntcore-intimacy-lab",
+      "description": "🧬 钝核｜人机亲密实验室 · Bluntcore Intimacy Lab｜人机恋、成人 AI、Prompt、Memory、Agent、模型床测与实验记录。",
+      "url": "https://github.com/VITASID57/bluntcore-intimacy-lab",
+      "stars": "564",
+      "language": "Unknown",
+      "note": "Created 2026-10-16 · 564 stars · Unknown"
+    },
+    {
+      "name": "Graphicle-AI/graphicle",
+      "description": "Code graph and memory for your coding agents, in one Rust program. For Claude Code, Codex, Cursor and any MCP client.",
+      "url": "https://github.com/Graphicle-AI/graphicle",
+      "stars": "340",
+      "language": "Rust",
+      "note": "Created 2026-10-14 · 340 stars · Rust"
+    },
+    {
+      "name": "finereli/whatsapp-mcp",
+      "description": "A read-only MCP server that lets your AI agent search and read your own WhatsApp messages. Runs on Cloudflare Workers.",
+      "url": "https://github.com/finereli/whatsapp-mcp",
+      "stars": "322",
+      "language": "TypeScript",
+      "note": "Created 2026-10-18 · 322 stars · TypeScript"
+    },
+    {
+      "name": "Entelligence-AI/agentplay",
+      "description": "Replay your coding agent sessions as a map and a timeline",
+      "url": "https://github.com/Entelligence-AI/agentplay",
+      "stars": "286",
+      "language": "Python",
+      "note": "Created 2026-10-14 · 286 stars · Python"
+    },
+    {
+      "name": "ctoldigital/axuse",
+      "description": "Accessibility-first browser & computer use for AI agents — one MCP server for every harness (Codex, Claude Code, OpenCode, Antigravity). Instruments the DOM/acc",
+      "url": "https://github.com/ctoldigital/axuse",
+      "stars": "260",
+      "language": "JavaScript",
+      "note": "Created 2026-10-14 · 260 stars · JavaScript"
+    }
+  ],
+  "products": [
+    {
+      "name": "Omnara – Open-source alternative to Claude Managed Agents",
+      "description": "Omnara – Open-source alternative to Claude Managed Agents · Spotted on Hacker News Show HN",
+      "url": "https://github.com/omnara-ai/omnara",
+      "tag": "Agents"
+    },
+    {
+      "name": "Linkit – AI bookmark manager, 100% free and open source",
+      "description": "Linkit – AI bookmark manager, 100% free and open source · Spotted on Hacker News Show HN",
+      "url": "https://github.com/blue-idea/linkit",
+      "tag": "AI Tools"
+    },
+    {
+      "name": "Multiplayer AI",
+      "description": "Multiplayer AI · Spotted on Hacker News Show HN",
+      "url": "https://synteny.vercel.app/",
+      "tag": "AI Tools"
+    },
+    {
+      "name": "Simulate 1M+ agents to predict pmf",
+      "description": "Simulate 1M+ agents to predict pmf · Spotted on Hacker News Show HN",
+      "url": "https://github.com/fm882/jahan",
+      "tag": "Agents"
+    },
+    {
+      "name": "ReviewerAgent and StopContinue, for CC and Codex with Pi",
+      "description": "ReviewerAgent and StopContinue, for CC and Codex with Pi · Spotted on Hacker News Show HN",
+      "url": "https://github.com/rladr-org/reviewer-agent",
+      "tag": "Agents"
+    },
+    {
+      "name": "MCP for Dubbing Video and Audio Files from ChatGPT, by Kapwing",
+      "description": "MCP for Dubbing Video and Audio Files from ChatGPT, by Kapwing · Spotted on Hacker News Show HN",
+      "url": "https://chatgpt.com/plugins/kapwing",
+      "tag": "LLM"
+    },
+    {
+      "name": "Grafista – AI graphic designer built to fight slop",
+      "description": "Grafista – AI graphic designer built to fight slop · Spotted on Hacker News Show HN",
+      "url": "https://grafista.io/",
+      "tag": "AI Tools"
+    }
+  ]
+}
