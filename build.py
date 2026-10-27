@@ -212,6 +212,73 @@ def fmt_published(published_at, fallback_date):
         return fallback_date
 
 
+# ---------- SEO helpers (search-traffic: long-tail issue titles/descriptions) ----------
+
+def _trim_words(text, limit):
+    text = " ".join(str(text).split())
+    if len(text) <= limit:
+        return text
+    cut = text[:limit].rsplit(" ", 1)[0].rstrip(",;:.\u2014- ")
+    return cut + "\u2026"
+
+
+def issue_headline(issue):
+    """The issue's headline entity: first news title, else top repo / product."""
+    for item in issue.get("news", []):
+        if item.get("title"):
+            return item["title"].strip()
+    for repo in issue.get("github", []):
+        if repo.get("name"):
+            return repo["name"].strip()
+    for prod in issue.get("products", []):
+        if prod.get("name"):
+            return prod["name"].strip()
+    return "Daily AI Digest"
+
+
+def issue_title(issue):
+    """Long-tail title, e.g. 'AI News October 26, 2026: <headline> \u2014 AI Daily Digest'."""
+    return f"AI News {en_date(issue['date'])}: {_trim_words(issue_headline(issue), 90)} \u2014 {SITE_NAME}"
+
+
+def issue_desc(issue):
+    """Meta description spliced from the issue's real news titles (no invented copy)."""
+    titles = [n["title"].strip() for n in issue.get("news", []) if n.get("title")]
+    parts = []
+    if titles:
+        parts.append("AI news: " + "; ".join(titles[:3]))
+    repos = [r["name"].strip() for r in issue.get("github", []) if r.get("name")]
+    if repos:
+        parts.append("Trending on GitHub: " + ", ".join(repos[:3]))
+    prods = [x["name"].strip() for x in issue.get("products", []) if x.get("name")]
+    if prods:
+        parts.append("New AI products: " + ", ".join(prods[:2]))
+    desc = ". ".join(parts)
+    if desc:
+        desc += f". Daily AI digest for {en_date(issue['date'])}."
+    else:
+        desc = SITE_DESC
+    return _trim_words(desc, 320)
+
+
+def render_recent_index(issues):
+    """Homepage index block: latest 7 issues with date + headline, for search/internal discovery."""
+    items = []
+    for issue in issues[:7]:
+        date_str = issue["date"]
+        items.append(
+            f'<a class="archive-item" href="{BASE_URL}/{date_str}.html">'
+            f'<span class="archive-date">\U0001F4C5 {en_date(date_str)}</span>'
+            f'<span class="archive-stats">{escape(_trim_words(issue_headline(issue), 110))}</span>'
+            f'<span class="archive-arrow">\u2192</span></a>'
+        )
+    return (
+        '<section class="section"><div class="section-head"><h2>Recent Issues</h2>'
+        f'<span class="count">{min(len(issues), 7)} issues</span></div>\n'
+        + "\n".join(items) + "\n</section>"
+    )
+
+
 SUBSCRIBE_ENDPOINT = "https://ai-daily-subscribe.dylan-xm.workers.dev/subscribe"
 
 SUBSCRIBE_BLOCK = """
@@ -311,7 +378,7 @@ def render_index(template, css, js, latest, issues):
         f'<span class="publish-time">Published: {escape(published)}</span></div>'
         f"</div>"
     )
-    content = hero + SUBSCRIBE_BLOCK + issue_sections(latest) + TOOLSHUB_PROMO
+    content = hero + SUBSCRIBE_BLOCK + issue_sections(latest) + render_recent_index(issues) + TOOLSHUB_PROMO
     if len(issues) > 1:
         content += (
             f'<div class="more-link">'
@@ -319,8 +386,7 @@ def render_index(template, css, js, latest, issues):
         )
     # Homepage sidebar ad slot
     content += "\n<!-- ADSENSE: sidebar -->\n<div class=\"ad-slot\"></div>"
-    title = f"{en_date(latest['date'])} AI Digest | {SITE_NAME}"
-    return fill_template(template, title, SITE_DESC, f"{BASE_URL}/", content, css, js)
+    return fill_template(template, issue_title(latest), issue_desc(latest), f"{BASE_URL}/", content, css, js)
 
 
 def render_issue_page(template, css, js, issue):
@@ -335,31 +401,84 @@ def render_issue_page(template, css, js, issue):
     )
     content = hero + SUBSCRIBE_BLOCK + issue_sections(issue) + TOOLSHUB_PROMO
     content += "\n<!-- ADSENSE: sidebar -->\n<div class=\"ad-slot\"></div>"
-    title = f"{en_date(date_str)} AI Digest | {SITE_NAME}"
-    desc = f"AI news, trending GitHub AI projects, and new AI products for {en_date(date_str)}."
-    return fill_template(template, title, desc, f"{BASE_URL}/{date_str}.html", content, css, js)
+    return fill_template(template, issue_title(issue), issue_desc(issue), f"{BASE_URL}/{date_str}.html", content, css, js)
 
 
 def render_archive(template, css, js, issues):
-    items = []
+    # Group by month (issues arrive newest-first).
+    months = []
+    by_month = {}
     for issue in issues:
+        key = issue["date"][:7]
+        if key not in by_month:
+            by_month[key] = []
+            months.append(key)
+        by_month[key].append(issue)
+
+    def archive_row(issue, label):
         date_str = issue["date"]
-        n = len(issue.get("news", []))
-        g = len(issue.get("github", []))
-        p = len(issue.get("products", []))
-        items.append(
+        return (
             f'<a class="archive-item" href="{BASE_URL}/{date_str}.html">'
-            f'<span class="archive-date">🗓 {en_date(date_str)}</span>'
-            f'<span class="archive-stats">📰 {n} · 💻 {g} · 🚀 {p}</span>'
-            f'<span class="archive-arrow">→</span></a>'
+            f'<span class="archive-date">\U0001F4C5 {en_date(date_str)}</span>'
+            f'<span class="archive-stats">{escape(_trim_words(label, 120))}</span>'
+            f'<span class="archive-arrow">\u2192</span></a>'
         )
+
+    def topic_section(anchor, emoji, title, pick):
+        rows = []
+        for issue in issues:
+            label = pick(issue)
+            if label:
+                rows.append(archive_row(issue, label))
+        return (
+            f'<section class="section" id="{anchor}"><div class="section-head">'
+            f'<h2>{emoji} {title}</h2><span class="count">{len(rows)} issues</span></div>\n'
+            + "\n".join(rows) + "\n</section>"
+        )
+
+    month_blocks = []
+    month_links = []
+    for key in months:
+        try:
+            mlabel = datetime.strptime(key + "-01", "%Y-%m-%d").strftime("%B %Y")
+        except ValueError:
+            mlabel = key
+        month_links.append(f'<a href="#archive-{key}">{mlabel}</a>')
+        rows = []
+        for issue in by_month[key]:
+            n = len(issue.get("news", []))
+            g = len(issue.get("github", []))
+            pr = len(issue.get("products", []))
+            rows.append(archive_row(issue, f"{issue_headline(issue)}  \u00b7  \U0001F4F0 {n} \u00b7 \U0001F4BB {g} \u00b7 \U0001F680 {pr}"))
+        month_blocks.append(
+            f'<section class="section" id="archive-{key}"><div class="section-head">'
+            f'<h2>{mlabel}</h2><span class="count">{len(rows)} issues</span></div>\n'
+            + "\n".join(rows) + "\n</section>"
+        )
+
+    topics_nav = (
+        '<nav class="section"><div class="section-head"><h2>Browse by Topic</h2></div>'
+        '<p><a href="#ai-news">AI News</a> \u00b7 <a href="#github-trending">GitHub Trending</a> \u00b7 '
+        '<a href="#new-products">New Products</a> \u00b7 ' + " \u00b7 ".join(month_links) + "</p></nav>"
+    )
     content = (
         '<div class="hero"><span class="hero-eyebrow">All issues</span>'
-        "<h1>Archive</h1><p>Browse every daily AI digest by date.</p></div>"
-        '<section class="section">\n' + "\n".join(items) + "\n</section>"
+        "<h1>Archive \u2014 Daily AI News, GitHub Trending &amp; New AI Products</h1>"
+        "<p>Browse every daily AI digest by month and topic: the day's top AI news story, "
+        "trending GitHub AI projects, and new AI product launches.</p></div>"
+        + topics_nav
+        + "\n".join(month_blocks)
+        + topic_section("ai-news", "\U0001F4F0", "AI News \u2014 Top Story by Issue",
+                        lambda i: i["news"][0]["title"] if i.get("news") else "")
+        + topic_section("github-trending", "\U0001F4BB", "GitHub Trending \u2014 Top Project by Issue",
+                        lambda i: i["github"][0]["name"] if i.get("github") else "")
+        + topic_section("new-products", "\U0001F680", "New Products \u2014 Top Launch by Issue",
+                        lambda i: i["products"][0]["name"] if i.get("products") else "")
     )
+    desc = ("Archive of AI Daily Digest: daily AI news, trending GitHub AI projects, and new AI products, "
+            "grouped by month with top stories for every issue.")
     return fill_template(
-        template, f"Archive | {SITE_NAME}", SITE_DESC, f"{BASE_URL}/archive.html", content, css, js
+        template, f"Archive \u2014 AI News by Date & Topic | {SITE_NAME}", desc, f"{BASE_URL}/archive.html", content, css, js
     )
 
 
