@@ -1,0 +1,176 @@
+{
+  "date": "2026-10-26",
+  "published_at": "2026-10-27T00:23:28.574704-04:00",
+  "news": [
+    {
+      "title": "GPT-6.1 Terra halves OpenAI's API prices and still gains ground on its larger models",
+      "summary": "OpenAI has released GPT-6.1 Terra, a mid-range model that cuts API prices in half compared to its predecessor.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/gpt-6-1-terra-halves-openais-api-prices-and-still-gains-ground-on-its-larger-models/"
+    },
+    {
+      "title": "Anthropic officially files for its public debut",
+      "summary": "Anthropic has officially filed for an IPO, revealing soaring revenue, mounting losses, major enterprise adoption, and an unusual governance structure designed to preserve founder control and its AI sa...",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/26/anthropic-officially-files-for-its-public-debut/"
+    },
+    {
+      "title": "Anthropic opens its books for Wall Street, showing record revenue and mounting obligations",
+      "summary": "Anthropic is the first major AI lab to file an S-1 with the SEC, planning to list on the Nasdaq under the ticker \"ANT.\" The numbers are strong, with $11.6 billion in quarterly revenue, a first-ever op...",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/anthropic-opens-its-books-for-wall-street-showing-record-revenue-and-mounting-obligations/"
+    },
+    {
+      "title": "Meta plans up to $95 billion in stock sales to fund its AI buildout",
+      "summary": "Meta plans to sell new stock to raise money for its AI infrastructure buildout. The article Meta plans up to $95 billion in stock sales to fund its AI buildout appeared first on The Decoder.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/meta-plans-up-to-95-billion-in-stock-sales-to-fund-its-ai-buildout/"
+    },
+    {
+      "title": "Will the real Anthropic please stand up",
+      "summary": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here.",
+      "source": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/2026/10/26/1147672/will-the-real-anthropic-please-stand-up/"
+    },
+    {
+      "title": "SpaceX locks in $40B GPU financing deal with Apollo",
+      "summary": "The financing gives SpaceX another way to fund its rapidly expanding AI ambitions without relying solely on traditional debt markets.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/26/spacex-locks-in-40b-gpu-financing-deal-with-apollo/"
+    },
+    {
+      "title": "Researchers find six patterns that make AI text so exhausting to read",
+      "summary": "A study from New York University and the University of Texas at Austin shows that frontier language models systematically overuse linguistic patterns that are hard for humans to parse.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/researchers-find-six-patterns-that-make-ai-text-so-exhausting-to-read/"
+    },
+    {
+      "title": "Reddit's r/opensource bans all AI-related projects, sparking backlash and a rival subreddit",
+      "summary": "The Reddit forum r/opensource has banned all posts about AI projects, whether built with AI, AI-powered, or designed for AI.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/reddits-r-opensource-bans-all-ai-related-projects-sparking-backlash-and-a-rival-subreddit/"
+    },
+    {
+      "title": "Wall Street's fastest traders are building data centers and backing chip startups to stay ahead in AI",
+      "summary": "High-frequency traders like Jane Street and Hudson River Trading are now racing each other for AI computing power.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/wall-streets-fastest-traders-are-building-data-centers-and-backing-chip-startups-to-stay-ahead-in-ai/"
+    },
+    {
+      "title": "The focus on AI safety disasters ignores everyday harms",
+      "summary": "Consider what passes for success in technology policy. An AI company promises that its chatbot will not encourage suicide.",
+      "source": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/2026/10/26/1147645/the-focus-on-ai-safety-disasters-ignores-everyday-harms/"
+    }
+  ],
+  "github": [
+    {
+      "name": "andyhuo520/digital-human-koubo",
+      "description": "AI digital-human talking-head videos from one photo: Renoise MCP generation + 5 editing styles + 48 creator-grade packaging components. Agent skill for Claude C",
+      "url": "https://github.com/andyhuo520/digital-human-koubo",
+      "stars": "812",
+      "language": "TypeScript",
+      "note": "Created 2026-10-26 · 812 stars · TypeScript"
+    },
+    {
+      "name": "DenisSergeevitch/ex-ussr-kinship-research",
+      "description": "Evidence-first genealogy skill for AI agents (Codex, Claude Code): church books, civil, military, deportation and repression records across the former USSR. Rep",
+      "url": "https://github.com/DenisSergeevitch/ex-ussr-kinship-research",
+      "stars": "805",
+      "language": "Python",
+      "note": "Created 2026-10-25 · 805 stars · Python"
+    },
+    {
+      "name": "actionow-ai/vvv",
+      "description": "Build a video template once, reuse it across coding agents. Editable Remotion templates and an Agent Skill for Claude Code, Codex and 25+ agents.",
+      "url": "https://github.com/actionow-ai/vvv",
+      "stars": "399",
+      "language": "Python",
+      "note": "Created 2026-10-22 · 399 stars · Python"
+    },
+    {
+      "name": "hevnsnt/CVEngine",
+      "description": "AI-first external attack surface assessment with continuous discovery, evidence-based vulnerability validation, and developer-agent MCP integration.",
+      "url": "https://github.com/hevnsnt/CVEngine",
+      "stars": "387",
+      "language": "Python",
+      "note": "Created 2026-10-24 · 387 stars · Python"
+    },
+    {
+      "name": "C4rohan/Lampline",
+      "description": "Build AI phone agents on your own computer and test every change with an AI caller. Open source, runs free with no API keys, cents per call with your own keys. ",
+      "url": "https://github.com/C4rohan/Lampline",
+      "stars": "358",
+      "language": "Python",
+      "note": "Created 2026-10-19 · 358 stars · Python"
+    },
+    {
+      "name": "huaxialucaicaizi/ai-startup-skills",
+      "description": "创业公司做 AI 产品的 7 步 Agent Skill 合集：验证 → BP → 政策 → 路演 → 获客 → 定价 → 注册。",
+      "url": "https://github.com/huaxialucaicaizi/ai-startup-skills",
+      "stars": "345",
+      "language": "Python",
+      "note": "Created 2026-10-22 · 345 stars · Python"
+    },
+    {
+      "name": "kukemc/bili-cli",
+      "description": "为 AI Agent 设计的哔哩哔哩命令行工具：扫码登录、看视频、评论、私信、发动态、投稿，全部 JSON 输出",
+      "url": "https://github.com/kukemc/bili-cli",
+      "stars": "258",
+      "language": "Python",
+      "note": "Created 2026-10-19 · 258 stars · Python"
+    },
+    {
+      "name": "blakeandersonw/ai-app-playbook",
+      "description": "How to build useful, profitable apps in 2026. Clone it and point your coding agent at AGENTS.md.",
+      "url": "https://github.com/blakeandersonw/ai-app-playbook",
+      "stars": "243",
+      "language": "TypeScript",
+      "note": "Created 2026-10-26 · 243 stars · TypeScript"
+    }
+  ],
+  "products": [
+    {
+      "name": "Hob - Open-source, on device alternative to Claude Cowork and ChatGPT",
+      "description": "Hob - Open-source, on device alternative to Claude Cowork and ChatGPT · Spotted on Hacker News Show HN",
+      "url": "https://github.com/FrigadeHQ/hob",
+      "tag": "LLM"
+    },
+    {
+      "name": "Proc-CLI – An agent-friendly CLI tool for process and port management",
+      "description": "Proc-CLI – An agent-friendly CLI tool for process and port management · Spotted on Hacker News Show HN",
+      "url": "https://proc-cli.com/",
+      "tag": "Agents"
+    },
+    {
+      "name": "UIPalooza – Do AI models have a recognizable design taste?",
+      "description": "UIPalooza – Do AI models have a recognizable design taste? · Spotted on Hacker News Show HN",
+      "url": "https://uipalooza.ai/",
+      "tag": "LLM"
+    },
+    {
+      "name": "A 3D mesh playground for coding agents (three.js + manifold-3d)",
+      "description": "A 3D mesh playground for coding agents (three.js + manifold-3d) · Spotted on Hacker News Show HN",
+      "url": "https://sketchagent.dev/s/yfYU6LhT",
+      "tag": "Agents"
+    },
+    {
+      "name": "GradientDeck – a design skill for coding agents",
+      "description": "GradientDeck – a design skill for coding agents · Spotted on Hacker News Show HN",
+      "url": "https://github.com/VenoM9078/gradientdeck-skill",
+      "tag": "Agents"
+    },
+    {
+      "name": "Rostr – Give your agents names, remember who's working on what",
+      "description": "Rostr – Give your agents names, remember who's working on what · Spotted on Hacker News Show HN",
+      "url": "https://getrostr.sh/",
+      "tag": "Agents"
+    },
+    {
+      "name": "Websites designed by 10 AI models, ranked by 4,500 human votes",
+      "description": "Websites designed by 10 AI models, ranked by 4,500 human votes · Spotted on Hacker News Show HN",
+      "url": "https://humansignal.com/taste-index",
+      "tag": "LLM"
+    }
+  ]
+}
