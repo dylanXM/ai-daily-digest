@@ -1,0 +1,12 @@
+name = "ai-daily-subscribe"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+workers_dev = true
+
+# Dedicated KV namespace creation is blocked by the current API token scope
+# (KV namespace create returns Cloudflare error 10000), so this worker shares
+# the existing TOOL_STATS namespace and isolates its records with the
+# "aidaily:sub:" key prefix.
+[[kv_namespaces]]
+binding = "SUBS"
+id = "5528f5b232914e029f84b515b23e9174"

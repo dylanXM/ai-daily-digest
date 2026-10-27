@@ -265,6 +265,21 @@ a:hover{text-decoration:underline}
 .gsi-dark-wrap .gsi-real{position:absolute;inset:0;opacity:0;overflow:hidden;cursor:pointer}
 .gsi-dark-wrap .gsi-real iframe{width:100%!important;height:100%!important}
 
+/* Subscribe box (theme-aware via CSS variables) */
+.subscribe-box{border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin:28px 0;background:var(--bg-soft);box-shadow:var(--shadow)}
+.subscribe-box h3{font-size:18px;font-weight:700;margin-bottom:6px}
+.subscribe-box p{color:var(--text-secondary);font-size:15px}
+.subscribe-form{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.subscribe-form input{flex:1;min-width:220px;padding:11px 14px;font-size:15px;font-family:inherit;color:var(--text);background:var(--bg-card);border:1px solid var(--border);border-radius:10px}
+.subscribe-form input:focus{outline:none;border-color:var(--accent)}
+.subscribe-form button{padding:11px 22px;font-size:15px;font-weight:600;font-family:inherit;color:#fff;background:var(--accent);border:none;border-radius:10px;cursor:pointer;transition:background .15s}
+.subscribe-form button:hover{background:var(--accent-hover)}
+.subscribe-form button:disabled{opacity:.6;cursor:default}
+.subscribe-note{font-size:13px;color:var(--text-muted);margin-top:10px}
+.subscribe-msg{font-size:14px;font-weight:600;color:var(--accent);margin-top:8px;min-height:1.2em}
+.subscribe-box .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 20px;border-radius:10px;font-weight:600}
+.subscribe-box .btn:hover{background:var(--accent-hover);text-decoration:none;color:#fff}
+
 /* Floating tip button — append after tip.css.
  * Bottom-right black gift button; click opens the tip card as a popover.
  * Black/white minimal to match the tip card. */
@@ -340,7 +355,42 @@ a:hover{text-decoration:underline}
   </div>
 </header>
 <main class="container">
-<div class="hero"><span class="hero-eyebrow">From the archive</span><h1>October 21, 2026 · AI Digest</h1><div class="hero-meta"><span class="publish-time">Published: Oct 22, 2026, 8:56 AM (UTC-0400)</span></div></div><section class="section"><div class="section-head"><h2>📰 AI News</h2><span class="count">12 items</span></div>
+<div class="hero"><span class="hero-eyebrow">From the archive</span><h1>October 21, 2026 · AI Digest</h1><div class="hero-meta"><span class="publish-time">Published: Oct 22, 2026, 8:56 AM (UTC-0400)</span></div></div>
+<div class="subscribe-box">
+  <h3>📬 Get AI Daily in your inbox</h3>
+  <p>The same digest — AI news, trending GitHub projects, and new AI products — delivered every morning.</p>
+  <form class="subscribe-form" data-subscribe-form>
+    <input type="email" required placeholder="you@example.com" aria-label="Email address">
+    <button type="submit">Subscribe</button>
+  </form>
+  <p class="subscribe-note">One email per morning. No spam, unsubscribe anytime.</p>
+  <p class="subscribe-msg" data-subscribe-msg role="status"></p>
+</div>
+<script>
+document.querySelectorAll('[data-subscribe-form]').forEach(function(f){
+  f.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var input = f.querySelector('input[type=email]');
+    var msg = document.querySelector('[data-subscribe-msg]');
+    var btn = f.querySelector('button');
+    btn.disabled = true; msg.textContent = 'Subscribing\u2026';
+    try {
+      var r = await fetch('https://ai-daily-subscribe.dylan-xm.workers.dev/subscribe', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email: input.value, source: 'ai-daily-web'})});
+      var d = await r.json().catch(function(){ return {}; });
+      if (r.ok && d.ok) {
+        msg.textContent = d.already ? 'You are already subscribed — see you tomorrow morning.' : 'Subscribed! Your first digest arrives tomorrow morning.';
+        f.reset();
+      } else {
+        msg.textContent = 'Please enter a valid email address.';
+      }
+    } catch (err) {
+      msg.textContent = 'Something went wrong — please try again.';
+    }
+    btn.disabled = false;
+  });
+});
+</script>
+<section class="section"><div class="section-head"><h2>📰 AI News</h2><span class="count">12 items</span></div>
 <article class="card"><h3 class="card-title"><a href="https://the-decoder.com/google-cloud-now-offers-openai-models-alongside-gemini-and-claude-becoming-the-only-major-provider-with-all-three/" target="_blank" rel="noopener">Google Cloud now offers OpenAI models alongside Gemini and Claude, becoming the only major provider with all three</a></h3><p class="card-summary">Google Cloud is the first major cloud provider to offer Gemini, Claude, and OpenAI&#x27;s GPTs on a single platform.</p><div class="card-meta"><span class="source">The Decoder</span><a class="ext-link" href="https://the-decoder.com/google-cloud-now-offers-openai-models-alongside-gemini-and-claude-becoming-the-only-major-provider-with-all-three/" target="_blank" rel="noopener">Read original ↗</a></div></article>
 <article class="card"><h3 class="card-title"><a href="https://techcrunch.com/2026/10/21/recursive-launches-flint-a-laptop-coding-model-it-says-was-largely-built-by-ai/" target="_blank" rel="noopener">Recursive launches Flint, a laptop coding model it says was largely built by AI</a></h3><p class="card-summary">Startup Recursive has released Flint, a free, laptop-sized coding model built largely by its own AI research system, as an early test of AI that improves itself.</p><div class="card-meta"><span class="source">TechCrunch</span><a class="ext-link" href="https://techcrunch.com/2026/10/21/recursive-launches-flint-a-laptop-coding-model-it-says-was-largely-built-by-ai/" target="_blank" rel="noopener">Read original ↗</a></div></article>
 <article class="card"><h3 class="card-title"><a href="https://techcrunch.com/2026/10/21/php-armageddon-openai-googles-wiz-find-ancient-holes-panicking-the-internet/" target="_blank" rel="noopener">PHP Armageddon: OpenAI, Google’s Wiz find ancient holes, panicking the internet</a></h3><p class="card-summary">This is the kind of security issue that was found and prevented by AI, but is also a high risk because of AI.</p><div class="card-meta"><span class="source">TechCrunch</span><a class="ext-link" href="https://techcrunch.com/2026/10/21/php-armageddon-openai-googles-wiz-find-ancient-holes-panicking-the-internet/" target="_blank" rel="noopener">Read original ↗</a></div></article>
@@ -394,7 +444,7 @@ our curated directory across 10 categories, from chatbots to video generators.</
   <!-- ADSENSE: footer-ad -->
   <div class="container footer-inner">
     <p><strong>AI Daily Digest</strong> · Every morning at 9:00 AM Eastern Time, a roundup of the previous day's AI news, trending AI projects on GitHub, and new AI products.</p>
-    <p class="footer-meta">Content is for informational purposes only; all rights belong to the original authors · <a href="https://ai-daily-news.sweetai.work/archive.html">Archive</a> · <a href="https://ai-daily-news.sweetai.work/feed.xml">RSS</a></p>
+    <p class="footer-meta">Content is for informational purposes only; all rights belong to the original authors · <a href="https://ai-daily-news.sweetai.work/archive.html">Archive</a> · <a href="https://ai-daily-news.sweetai.work/feed.xml">RSS</a> · <a href="https://ai-daily-news.sweetai.work/sponsor.html">Sponsor</a></p>
   </div>
 </footer>
 <script>

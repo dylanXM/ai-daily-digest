@@ -186,6 +186,7 @@ def fill_template(template, title, meta_desc, canonical, content, css, js):
         .replace("{{HOME_URL}}", f"{BASE_URL}/")
         .replace("{{ARCHIVE_URL}}", f"{BASE_URL}/archive.html")
         .replace("{{FEED_URL}}", f"{BASE_URL}/feed.xml")
+        .replace("{{SPONSOR_URL}}", f"{BASE_URL}/sponsor.html")
         .replace("{{CSS}}", css)
         .replace("{{JS}}", js)
         .replace("{{CONTENT}}", content)
@@ -211,6 +212,86 @@ def fmt_published(published_at, fallback_date):
         return fallback_date
 
 
+SUBSCRIBE_ENDPOINT = "https://ai-daily-subscribe.dylan-xm.workers.dev/subscribe"
+
+SUBSCRIBE_BLOCK = """
+<div class="subscribe-box">
+  <h3>📬 Get AI Daily in your inbox</h3>
+  <p>The same digest — AI news, trending GitHub projects, and new AI products — delivered every morning.</p>
+  <form class="subscribe-form" data-subscribe-form>
+    <input type="email" required placeholder="you@example.com" aria-label="Email address">
+    <button type="submit">Subscribe</button>
+  </form>
+  <p class="subscribe-note">One email per morning. No spam, unsubscribe anytime.</p>
+  <p class="subscribe-msg" data-subscribe-msg role="status"></p>
+</div>
+<script>
+document.querySelectorAll('[data-subscribe-form]').forEach(function(f){
+  f.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var input = f.querySelector('input[type=email]');
+    var msg = document.querySelector('[data-subscribe-msg]');
+    var btn = f.querySelector('button');
+    btn.disabled = true; msg.textContent = 'Subscribing\\u2026';
+    try {
+      var r = await fetch('__SUBSCRIBE_ENDPOINT__', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email: input.value, source: 'ai-daily-web'})});
+      var d = await r.json().catch(function(){ return {}; });
+      if (r.ok && d.ok) {
+        msg.textContent = d.already ? 'You are already subscribed — see you tomorrow morning.' : 'Subscribed! Your first digest arrives tomorrow morning.';
+        f.reset();
+      } else {
+        msg.textContent = 'Please enter a valid email address.';
+      }
+    } catch (err) {
+      msg.textContent = 'Something went wrong — please try again.';
+    }
+    btn.disabled = false;
+  });
+});
+</script>
+""".replace("__SUBSCRIBE_ENDPOINT__", SUBSCRIBE_ENDPOINT)
+
+
+def render_sponsor(template, css, js):
+    content = (
+        '<div class="hero"><span class="hero-eyebrow">Sponsorship</span>'
+        "<h1>Sponsor AI Daily Digest</h1>"
+        "<p>AI Daily Digest is a daily briefing for people who build with and follow AI: "
+        "the previous day's AI news, trending AI projects on GitHub, and new AI products — "
+        "published on the web every morning at 9:00 AM ET, with a Chinese WeChat edition the same morning.</p></div>"
+        '<section class="section"><div class="section-head"><h2>Placements</h2></div>'
+        '<div class="product-grid">'
+        '<article class="product-card"><span class="product-tag">Headline</span>'
+        '<div class="product-name">Headline Sponsor</div>'
+        '<p class="product-desc">Your brand at the top of the day\'s edition — the first thing readers see '
+        "on the homepage and the day's issue page, with your name, one line about what you do, and your link.</p></article>"
+        '<article class="product-card"><span class="product-tag">Section</span>'
+        '<div class="product-name">Section Sponsor</div>'
+        '<p class="product-desc">A sponsor block inside one section of the daily edition — AI News, '
+        "Trending on GitHub, or New AI Products — matched to the readers most relevant to what you ship.</p></article>"
+        '<article class="product-card"><span class="product-tag">WeChat</span>'
+        '<div class="product-name">WeChat Edition</div>'
+        '<p class="product-desc">A sponsor mention in the Chinese edition of the digest, published the same '
+        "morning on our WeChat Official Account for Chinese readers.</p></article>"
+        "</div></section>"
+        '<div class="subscribe-box"><h3>🌱 Founding Sponsor</h3>'
+        "<p>We are onboarding a small number of founding sponsors while the digest grows. "
+        "Founding sponsors get founding placement and a direct line to us as formats evolve.</p>"
+        "<p><strong>Founding rate — contact us</strong></p>"
+        '<p style="margin-top:12px"><a class="btn" href="mailto:contact@sweetai.work?subject=AI%20Daily%20Digest%20sponsorship">contact@sweetai.work</a></p>'
+        '<p class="subscribe-note">Tell us what you are launching and which placement you have in mind — we reply with availability and next steps.</p></div>'
+    )
+    return fill_template(
+        template,
+        f"Sponsor | {SITE_NAME}",
+        "Sponsor AI Daily Digest: headline, section, and WeChat edition placements for AI products and tools.",
+        f"{BASE_URL}/sponsor.html",
+        content,
+        css,
+        js,
+    )
+
+
 # Cross-site promo: Tools Hub directory.
 TOOLSHUB_PROMO = """
 <div class="cross-promo"><h3>&#x1F6E0;&#xFE0F; Looking for AI tools?</h3>
@@ -230,7 +311,7 @@ def render_index(template, css, js, latest, issues):
         f'<span class="publish-time">Published: {escape(published)}</span></div>'
         f"</div>"
     )
-    content = hero + issue_sections(latest) + TOOLSHUB_PROMO
+    content = hero + SUBSCRIBE_BLOCK + issue_sections(latest) + TOOLSHUB_PROMO
     if len(issues) > 1:
         content += (
             f'<div class="more-link">'
@@ -252,7 +333,7 @@ def render_issue_page(template, css, js, issue):
         f'<div class="hero-meta"><span class="publish-time">Published: {escape(published)}</span></div>'
         f"</div>"
     )
-    content = hero + issue_sections(issue) + TOOLSHUB_PROMO
+    content = hero + SUBSCRIBE_BLOCK + issue_sections(issue) + TOOLSHUB_PROMO
     content += "\n<!-- ADSENSE: sidebar -->\n<div class=\"ad-slot\"></div>"
     title = f"{en_date(date_str)} AI Digest | {SITE_NAME}"
     desc = f"AI news, trending GitHub AI projects, and new AI products for {en_date(date_str)}."
@@ -323,7 +404,7 @@ def render_feed(issues):
 # ---------- sitemap / robots ----------
 
 def render_sitemap(issues):
-    urls = [f"{BASE_URL}/", f"{BASE_URL}/archive.html"]
+    urls = [f"{BASE_URL}/", f"{BASE_URL}/archive.html", f"{BASE_URL}/sponsor.html"]
     urls += [f"{BASE_URL}/{i['date']}.html" for i in issues]
     entries = "\n".join(
         f"<url><loc>{xml_escape(u)}</loc></url>" for u in urls
@@ -369,6 +450,7 @@ def main():
     outputs = {
         "index.html": render_index(template, css, js, latest, issues),
         "archive.html": render_archive(template, css, js, issues),
+        "sponsor.html": render_sponsor(template, css, js),
         "feed.xml": render_feed(issues),
         "sitemap.xml": render_sitemap(issues),
         "robots.txt": render_robots(),

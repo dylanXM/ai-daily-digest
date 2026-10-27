@@ -265,6 +265,21 @@ a:hover{text-decoration:underline}
 .gsi-dark-wrap .gsi-real{position:absolute;inset:0;opacity:0;overflow:hidden;cursor:pointer}
 .gsi-dark-wrap .gsi-real iframe{width:100%!important;height:100%!important}
 
+/* Subscribe box (theme-aware via CSS variables) */
+.subscribe-box{border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin:28px 0;background:var(--bg-soft);box-shadow:var(--shadow)}
+.subscribe-box h3{font-size:18px;font-weight:700;margin-bottom:6px}
+.subscribe-box p{color:var(--text-secondary);font-size:15px}
+.subscribe-form{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.subscribe-form input{flex:1;min-width:220px;padding:11px 14px;font-size:15px;font-family:inherit;color:var(--text);background:var(--bg-card);border:1px solid var(--border);border-radius:10px}
+.subscribe-form input:focus{outline:none;border-color:var(--accent)}
+.subscribe-form button{padding:11px 22px;font-size:15px;font-weight:600;font-family:inherit;color:#fff;background:var(--accent);border:none;border-radius:10px;cursor:pointer;transition:background .15s}
+.subscribe-form button:hover{background:var(--accent-hover)}
+.subscribe-form button:disabled{opacity:.6;cursor:default}
+.subscribe-note{font-size:13px;color:var(--text-muted);margin-top:10px}
+.subscribe-msg{font-size:14px;font-weight:600;color:var(--accent);margin-top:8px;min-height:1.2em}
+.subscribe-box .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 20px;border-radius:10px;font-weight:600}
+.subscribe-box .btn:hover{background:var(--accent-hover);text-decoration:none;color:#fff}
+
 /* Floating tip button — append after tip.css.
  * Bottom-right black gift button; click opens the tip card as a popover.
  * Black/white minimal to match the tip card. */
@@ -354,7 +369,7 @@ a:hover{text-decoration:underline}
   <!-- ADSENSE: footer-ad -->
   <div class="container footer-inner">
     <p><strong>AI Daily Digest</strong> · Every morning at 9:00 AM Eastern Time, a roundup of the previous day's AI news, trending AI projects on GitHub, and new AI products.</p>
-    <p class="footer-meta">Content is for informational purposes only; all rights belong to the original authors · <a href="https://ai-daily-news.sweetai.work/archive.html">Archive</a> · <a href="https://ai-daily-news.sweetai.work/feed.xml">RSS</a></p>
+    <p class="footer-meta">Content is for informational purposes only; all rights belong to the original authors · <a href="https://ai-daily-news.sweetai.work/archive.html">Archive</a> · <a href="https://ai-daily-news.sweetai.work/feed.xml">RSS</a> · <a href="https://ai-daily-news.sweetai.work/sponsor.html">Sponsor</a></p>
   </div>
 </footer>
 <script>
