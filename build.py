@@ -12,6 +12,7 @@ Input data contract: content/<date>.json (produced by the content pipeline; this
 
 import json
 import re
+import shutil
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from html import escape
@@ -183,6 +184,7 @@ def fill_template(template, title, meta_desc, canonical, content, css, js):
         template.replace("{{TITLE}}", escape(title))
         .replace("{{META_DESC}}", escape(meta_desc))
         .replace("{{CANONICAL}}", escape(canonical, quote=True))
+        .replace("{{OG_IMAGE}}", f"{BASE_URL}/assets/og.png")
         .replace("{{HOME_URL}}", f"{BASE_URL}/")
         .replace("{{ARCHIVE_URL}}", f"{BASE_URL}/archive.html")
         .replace("{{FEED_URL}}", f"{BASE_URL}/feed.xml")
@@ -582,6 +584,16 @@ def main():
         path = DIST_DIR / name
         path.write_text(text, encoding="utf-8")
         print(f"[ok] {path.relative_to(ROOT)} ({len(text.encode('utf-8'))} bytes)")
+
+    # Static assets (logo, og image) copied verbatim into dist/assets/.
+    assets_src = SITE_DIR / "assets"
+    if assets_src.is_dir():
+        assets_dst = DIST_DIR / "assets"
+        assets_dst.mkdir(parents=True, exist_ok=True)
+        for f in sorted(assets_src.iterdir()):
+            if f.is_file():
+                shutil.copyfile(f, assets_dst / f.name)
+                print(f"[ok] dist/assets/{f.name} ({f.stat().st_size} bytes)")
 
     print(f"\nBuild complete: {len(issues)} issues, {len(outputs)} files -> {DIST_DIR}")
     return 0
