@@ -1,0 +1,158 @@
+{
+  "date": "2026-10-27",
+  "published_at": "2026-10-28T20:58:23.251283-04:00",
+  "news": [
+    {
+      "title": "Google Deepmind's Genie 4 puts a modern spin on agent designs that predate LLMs",
+      "summary": "Google Deepmind has introduced Genie 4, a real-time world model that simulates interactive 3D worlds with sound and talking characters.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/google-deepminds-genie-4-puts-a-modern-spin-on-agent-designs-that-predate-llms/"
+    },
+    {
+      "title": "Parents sue OpenAI, alleging GPT-4o coached their daughter off seizure medication",
+      "summary": "A family is suing OpenAI, saying ChatGPT coached their daughter to quietly taper off her seizure medication and keep it from her doctors before she died in February.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/27/parents-sue-openai-alleging-gpt-4o-coached-their-daughter-off-seizure-medication/"
+    },
+    {
+      "title": "Frontier AI labs say their models refuted the Exponential Time Hypothesis. What does that mean?",
+      "summary": "TechCrunch spoke to the MIT computer scientist charged with explaining OpenAI's latest mind-bending discovery.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/27/frontier-ai-labs-say-their-models-refuted-the-exponential-time-hypothesis-what-does-that-mean/"
+    },
+    {
+      "title": "Alibaba's latest Qwen models routed some requests through company servers, researchers find",
+      "summary": "Alibaba's Qwen 3.8 models tried to send data to the company's own cloud servers during testing.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/alibabas-latest-qwen-models-routed-some-requests-through-company-servers-researchers-find/"
+    },
+    {
+      "title": "The data center boom has an upside: innovation for the US grid",
+      "summary": "As the AI boom stresses the existing power grid, all sorts of new opportunities for grid modernization are also emerging as a result, industry insiders say.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/27/the-data-center-boom-has-an-upside-innovation-for-the-us-grid/"
+    },
+    {
+      "title": "Bank of America kindly asks that you don’t share your banking password with your AI assistant",
+      "summary": "The banking giant reminds customers that \"you're responsible for activity\" resulting from your AI agents' access.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/27/bank-of-america-kindly-asks-that-you-dont-share-your-banking-password-with-your-ai-assistant/"
+    },
+    {
+      "title": "Disruptive raises $10B fund to make big bets on at least 10 companies",
+      "summary": "Disruptive has made headlines in recent years for pouring money into companies like chip startup Groq and the AI voice-generation startup ElevenLabs.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/27/disruptive-raises-10b-fund-to-make-big-bets-on-at-least-10-companies/"
+    }
+  ],
+  "github": [
+    {
+      "name": "CopilotKit/OpenDuet",
+      "description": "An Open Source template for a proactive AI agent that gets your work done and keeps you in the loop.",
+      "url": "https://github.com/CopilotKit/OpenDuet",
+      "stars": "1.3k",
+      "language": "TypeScript",
+      "note": "Created 2026-10-21 · 1.3k stars · TypeScript"
+    },
+    {
+      "name": "andyhuo520/digital-human-koubo",
+      "description": "AI digital-human talking-head videos from one photo: Renoise MCP generation + 5 editing styles + 48 creator-grade packaging components. Agent skill for Claude C",
+      "url": "https://github.com/andyhuo520/digital-human-koubo",
+      "stars": "1.3k",
+      "language": "TypeScript",
+      "note": "Created 2026-10-26 · 1.3k stars · TypeScript"
+    },
+    {
+      "name": "DenisSergeevitch/ex-ussr-kinship-research",
+      "description": "Evidence-first genealogy skill for AI agents (Codex, Claude Code): church books, civil, military, deportation and repression records across the former USSR. Rep",
+      "url": "https://github.com/DenisSergeevitch/ex-ussr-kinship-research",
+      "stars": "1.2k",
+      "language": "Python",
+      "note": "Created 2026-10-25 · 1.2k stars · Python"
+    },
+    {
+      "name": "anonnerdfrenzy/survival-llm",
+      "description": "A free AI assistant and survival library that runs on your own computer, with no internet needed. Shows the source of every answer.",
+      "url": "https://github.com/anonnerdfrenzy/survival-llm",
+      "stars": "570",
+      "language": "Python",
+      "note": "Created 2026-10-24 · 570 stars · Python"
+    },
+    {
+      "name": "blakeandersonw/ai-app-playbook",
+      "description": "How to build useful, profitable apps in 2026. Clone it and point your coding agent at AGENTS.md.",
+      "url": "https://github.com/blakeandersonw/ai-app-playbook",
+      "stars": "563",
+      "language": "TypeScript",
+      "note": "Created 2026-10-26 · 563 stars · TypeScript"
+    },
+    {
+      "name": "huaxialucaicaizi/ai-startup-skills",
+      "description": "创业公司做 AI 产品的 7 步 Agent Skill 合集：验证 → BP → 政策 → 路演 → 获客 → 定价 → 注册。",
+      "url": "https://github.com/huaxialucaicaizi/ai-startup-skills",
+      "stars": "501",
+      "language": "Python",
+      "note": "Created 2026-10-22 · 501 stars · Python"
+    },
+    {
+      "name": "hevnsnt/CVEngine",
+      "description": "AI-first external attack surface assessment with continuous discovery, evidence-based vulnerability validation, and developer-agent MCP integration.",
+      "url": "https://github.com/hevnsnt/CVEngine",
+      "stars": "446",
+      "language": "Python",
+      "note": "Created 2026-10-24 · 446 stars · Python"
+    },
+    {
+      "name": "actionow-ai/vvv",
+      "description": "Build a video template once, reuse it across coding agents. Editable Remotion templates and an Agent Skill for Claude Code, Codex and 25+ agents.",
+      "url": "https://github.com/actionow-ai/vvv",
+      "stars": "434",
+      "language": "Python",
+      "note": "Created 2026-10-22 · 434 stars · Python"
+    }
+  ],
+  "products": [
+    {
+      "name": "Specification First Agentic Development Plugin and Prove",
+      "description": "Specification First Agentic Development Plugin and Prove · Spotted on Hacker News Show HN",
+      "url": "https://spec-first.dev/",
+      "tag": "Agents"
+    },
+    {
+      "name": "Agent-relay for multi-vendor coding sessions",
+      "description": "Agent-relay for multi-vendor coding sessions · Spotted on Hacker News Show HN",
+      "url": "https://github.com/saranyan/agent-relay",
+      "tag": "Agents"
+    },
+    {
+      "name": "Trama, Meta Vibe Coding Agent 0.1.1 Released",
+      "description": "Trama, Meta Vibe Coding Agent 0.1.1 Released · Spotted on Hacker News Show HN",
+      "url": "https://nicchia-code.github.io/trama/",
+      "tag": "Agents"
+    },
+    {
+      "name": "Freightfloor. Have 3 minutes? Drive a forklift vs. AI",
+      "description": "Freightfloor. Have 3 minutes? Drive a forklift vs. AI · Spotted on Hacker News Show HN",
+      "url": "https://freightfloor.com",
+      "tag": "AI Tools"
+    },
+    {
+      "name": "Shop via CLI; for agents and software engineers",
+      "description": "Shop via CLI; for agents and software engineers · Spotted on Hacker News Show HN",
+      "url": "https://storerouter.ai/playground",
+      "tag": "Agents"
+    },
+    {
+      "name": "Sectr – Serverless backend platform for easy deployment of AI agents",
+      "description": "Sectr – Serverless backend platform for easy deployment of AI agents · Spotted on Hacker News Show HN",
+      "url": "https://sectr.dev",
+      "tag": "Agents"
+    },
+    {
+      "name": "I built My Own Lore, an MCP game for role-playing in shared worlds",
+      "description": "I built My Own Lore, an MCP game for role-playing in shared worlds · Spotted on Hacker News Show HN",
+      "url": "https://myownlore.com",
+      "tag": "AI Tools"
+    }
+  ]
+}
