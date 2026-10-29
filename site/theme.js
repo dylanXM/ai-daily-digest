@@ -35,7 +35,16 @@
     var m = document.querySelector('meta[name="hub-site"]');
     if (!m || !m.content) return;
     var url = "https://sweet-hub-api.dylan-xm.workers.dev/api/collect";
-    var payload = JSON.stringify({ site: m.content, event: "pv" });
+    var vid = null;
+    try {
+      vid = localStorage.getItem("hub_vid");
+      if (!vid) {
+        vid = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+          : "v" + Date.now().toString(36) + Math.random().toString(36).slice(2, 14);
+        localStorage.setItem("hub_vid", vid);
+      }
+    } catch (e) { vid = null; }
+    var payload = JSON.stringify({ site: m.content, event: "pv", vid: vid });
     if (navigator.sendBeacon) {
       navigator.sendBeacon(url, payload);
     } else {
