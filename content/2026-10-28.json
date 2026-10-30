@@ -1,0 +1,164 @@
+{
+  "date": "2026-10-28",
+  "published_at": "2026-10-29T20:58:43.370135-04:00",
+  "news": [
+    {
+      "title": "Google Deepmind releases Gemini 4 Carbon just two weeks after Argon with gains across the board",
+      "summary": "Just two weeks after Gemini 4 Argon, Google DeepMind is releasing Gemini 4 Carbon, which tops the Artificial Analysis Intelligence Index v5 with 59 points.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/google-deepmind-releases-gemini-4-carbon-just-two-weeks-after-argon-with-gains-across-the-board/"
+    },
+    {
+      "title": "Anthropic just launched tools to show companies what their AI spending is buying",
+      "summary": "The frontier lab is lifting the curtain on how users spend money on its models ahead of a planned IPO.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying/"
+    },
+    {
+      "title": "Google opens Android development to third-party AI agents and unveils new Gemini APIs",
+      "summary": "Google is opening up Android Studio to third-party AI agents. Through a new \"Bring Your Own Agent\" feature, the IDE now supports more than 40 coding agents, including Anthropic's Claude Agent and Open...",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/google-opens-android-development-to-third-party-ai-agents-and-unveils-new-gemini-apis/"
+    },
+    {
+      "title": "Google expands AI Search ads globally as core ad growth slows",
+      "summary": "The announcement came alongside parent company Alphabet's third-quarter earnings report, which saw revenue grow 25% year over year to $127.6 billion.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/28/google-expands-ai-search-ads-globally-as-core-ad-growth-slows/"
+    },
+    {
+      "title": "Microsoft hits 10 quarters of record-breaking revenue in a row",
+      "summary": "Whatever the future of AI might be, the current situation is still very good for Microsoft.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/28/microsoft-hits-10-quarters-of-record-breaking-revenue-in-a-row/"
+    },
+    {
+      "title": "OpenAI teases Dots for Europe, but its Berlin DevDay was really about building a platform",
+      "summary": "At DevDay Exchange in Berlin, OpenAI mostly repeated what it had already announced, but it did share a few new details.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/openai-teases-dots-for-europe-but-its-berlin-devday-was-really-about-building-a-platform/"
+    },
+    {
+      "title": "Chrome’s AI-powered Autofill can now dig through your Gmail to fill out forms",
+      "summary": "The autofill update lets Chrome pull flight confirmations, tracking info, order details, and other information from your inbox, with your permission.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/28/chromes-ai-powered-autofill-can-now-dig-through-your-gmail-to-fill-out-forms/"
+    },
+    {
+      "title": "Creating AI value with enterprise context",
+      "summary": "Across a business, any number of AI platforms, systems, and tools may be at work simultaneously—for example, AI-powered customer platforms, conversational assistants, and workflow and process automati...",
+      "source": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/2026/10/28/1147709/creating-ai-value-with-enterprise-context/"
+    }
+  ],
+  "github": [
+    {
+      "name": "CopilotKit/OpenDuet",
+      "description": "An Open Source template for a proactive AI agent that gets your work done and keeps you in the loop.",
+      "url": "https://github.com/CopilotKit/OpenDuet",
+      "stars": "1.5k",
+      "language": "TypeScript",
+      "note": "Created 2026-10-21 · 1.5k stars · TypeScript"
+    },
+    {
+      "name": "andyhuo520/digital-human-koubo",
+      "description": "AI digital-human talking-head videos from one photo: Renoise MCP generation + 5 editing styles + 48 creator-grade packaging components. Agent skill for Claude C",
+      "url": "https://github.com/andyhuo520/digital-human-koubo",
+      "stars": "1.5k",
+      "language": "TypeScript",
+      "note": "Created 2026-10-26 · 1.5k stars · TypeScript"
+    },
+    {
+      "name": "DenisSergeevitch/ex-ussr-kinship-research",
+      "description": "Evidence-first genealogy skill for AI agents (Codex, Claude Code): church books, civil, military, deportation and repression records across the former USSR. Rep",
+      "url": "https://github.com/DenisSergeevitch/ex-ussr-kinship-research",
+      "stars": "1.3k",
+      "language": "Python",
+      "note": "Created 2026-10-25 · 1.3k stars · Python"
+    },
+    {
+      "name": "qybaihe/bla",
+      "description": "🛡️ BLA (Blind LLM Agents) — Adversarial defense shield that protects binaries, Electron apps, JS bundles, Python, and WebAssembly against AI reverse-engineering",
+      "url": "https://github.com/qybaihe/bla",
+      "stars": "769",
+      "language": "TypeScript",
+      "note": "Created 2026-10-25 · 769 stars · TypeScript"
+    },
+    {
+      "name": "anonnerdfrenzy/survival-llm",
+      "description": "A free AI assistant and survival library that runs on your own computer, with no internet needed. Shows the source of every answer.",
+      "url": "https://github.com/anonnerdfrenzy/survival-llm",
+      "stars": "767",
+      "language": "Python",
+      "note": "Created 2026-10-24 · 767 stars · Python"
+    },
+    {
+      "name": "blakeandersonw/ai-app-playbook",
+      "description": "How to build useful, profitable apps in 2026. Clone it and point your coding agent at AGENTS.md.",
+      "url": "https://github.com/blakeandersonw/ai-app-playbook",
+      "stars": "579",
+      "language": "TypeScript",
+      "note": "Created 2026-10-26 · 579 stars · TypeScript"
+    },
+    {
+      "name": "huaxialucaicaizi/ai-startup-skills",
+      "description": "创业公司做 AI 产品的 7 步 Agent Skill 合集：验证 → BP → 政策 → 路演 → 获客 → 定价 → 注册。",
+      "url": "https://github.com/huaxialucaicaizi/ai-startup-skills",
+      "stars": "560",
+      "language": "Python",
+      "note": "Created 2026-10-22 · 560 stars · Python"
+    },
+    {
+      "name": "konlu/story-studio",
+      "description": "从选题到剪映草稿的一站式 AI 短视频内容创作 Agent Skill",
+      "url": "https://github.com/konlu/story-studio",
+      "stars": "488",
+      "language": "Python",
+      "note": "Created 2026-10-26 · 488 stars · Python"
+    }
+  ],
+  "products": [
+    {
+      "name": "The New Way to Make AI UGC Ads in 2026",
+      "description": "The New Way to Make AI UGC Ads in 2026 · Spotted on Hacker News Show HN",
+      "url": "https://www.aivideosugc.com/ai-video-generation",
+      "tag": "AI Tools"
+    },
+    {
+      "name": "Cirkit – Annotate, Trace, and Ask AI About Schematic PDFs",
+      "description": "Cirkit – Annotate, Trace, and Ask AI About Schematic PDFs · Spotted on Hacker News Show HN",
+      "url": "https://www.cirkit.us/demo/",
+      "tag": "AI Tools"
+    },
+    {
+      "name": "Curate. free, no ADS, with AI, private photo cleaner for iPhone",
+      "description": "Curate. free, no ADS, with AI, private photo cleaner for iPhone · Spotted on Hacker News Show HN",
+      "url": "https://apps.apple.com/us/app/curate-photo/id6825514911",
+      "tag": "Image"
+    },
+    {
+      "name": "Parley – coding-agent sessions that collaborate over IRC",
+      "description": "Parley – coding-agent sessions that collaborate over IRC · Spotted on Hacker News Show HN",
+      "url": "https://github.com/colinsurprenant/parley",
+      "tag": "Agents"
+    },
+    {
+      "name": "Rocus: Browser local LLM that organizes your websites, notes and files",
+      "description": "Rocus: Browser local LLM that organizes your websites, notes and files · Spotted on Hacker News Show HN",
+      "url": "https://rocus.io/",
+      "tag": "LLM"
+    },
+    {
+      "name": "Harness Corp – An incremental game powered by a local LLM using WebGPU",
+      "description": "Harness Corp – An incremental game powered by a local LLM using WebGPU · Spotted on Hacker News Show HN",
+      "url": "https://simedw.com/projects/harness-corp/",
+      "tag": "LLM"
+    },
+    {
+      "name": "Measuring how much of an AI-assisted design is yours",
+      "description": "Measuring how much of an AI-assisted design is yours · Spotted on Hacker News Show HN",
+      "url": "https://claude.ai/artifact/Xxm7H6eLCKgoxJVrSqTigH",
+      "tag": "AI Tools"
+    }
+  ]
+}
