@@ -547,7 +547,7 @@ def render_robots():
 
 def render_ads_txt():
     # Google AdSense ads.txt (publisher ID verified from the user's AdSense account)
-    return "google.com, pub-1672880630267493, DIRECT, f3202a79876421ef\n"
+    return "google.com, pub-1672880630267493, DIRECT, f08c47fec0942fa0\n"
 
 
 # ---------- main ----------
