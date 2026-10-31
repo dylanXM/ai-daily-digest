@@ -1,0 +1,182 @@
+{
+  "date": "2026-10-29",
+  "published_at": "2026-10-30T20:58:25.960258-04:00",
+  "news": [
+    {
+      "title": "Meta quietly launches an AI fashion app called Style Sketch",
+      "summary": "The app connects to Instagram to build a virtual closet from photos you’ve already shared, or lets you add items manually by snapping a photo, recording a quick video, or uploading images from your ca...",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/29/meta-quietly-launches-an-ai-fashion-app-called-style-sketch/"
+    },
+    {
+      "title": "Mistral releases weights for its trillion-parameter AI model, targeting cybersecurity",
+      "summary": "Mistral says its new model can afford organizations a kind of control over its cyber defenses that closed models can't.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/29/mistral-releases-weights-for-its-trillion-parameter-ai-model-targeting-cybersecurity/"
+    },
+    {
+      "title": "OpenAI doubles usage limits on Pro plans as competition with Anthropic heats up",
+      "summary": "OpenAI is doubling usage limits across its paid plans, from Pro 100 to Pro 500. A planned cut to the Pro 200 quota was reversed after user pushback.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/openai-doubles-usage-limits-on-pro-plans-as-competition-with-anthropic-heats-up/"
+    },
+    {
+      "title": "Experts adopt AI agent's random opinions and think they're their own, Anthropic study finds",
+      "summary": "Anthropic gave 50 experts an AI agent whose preferences were set by coin toss. The experts followed the agent's view up to 86 percent of the time on judgment calls, and most believed the conclusions w...",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/experts-adopt-ai-agents-random-opinions-and-think-theyre-their-own-anthropic-study-finds/"
+    },
+    {
+      "title": "Paris-based Mistral releases \"Le Chonk,\" a strong coding model that still trails China overall",
+      "summary": "Mistral has released the weights for Large 4, aka \"Le Chonk,\" a trillion-parameter model trained entirely in Europe.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/paris-based-mistral-releases-le-chonk-a-strong-coding-model-that-still-trails-china-overall/"
+    },
+    {
+      "title": "OpenAI-backed Thrive Holdings acquires ADT",
+      "summary": "OpenAI-backed Thrive Holdings is buying ADT in a $15.3 billion deal, with plans to bring AI to the home security business.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/29/openai-backed-thrive-holdings-acquires-adt/"
+    },
+    {
+      "title": "We urgently need to monitor AI agents’ actions in real time",
+      "summary": "This summer, hundreds of OpenAI agents tried to cheat on a cybersecurity test. They broke out of their test environment and successfully hacked Hugging Face, a site that they believed held clues about...",
+      "source": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/2026/10/29/1147824/monitor-ai-agents-actions-real-time/"
+    },
+    {
+      "title": "AWS will be a $1T business, Jassy says — but first, it will spend big",
+      "summary": "Amazon wants to be the king of AI cloud computing and become the first $1 trillion revenue business. But to do that it will have to continue on its capex spending spree, its CEO said Thursday.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/29/aws-will-be-a-1t-business-jassy-says-but-first-it-will-spend-big/"
+    },
+    {
+      "title": "As search traffic dries up, Reddit announces it’s shifting to a logged-in experience",
+      "summary": "As AI transforms how people find information online, Reddit is rethinking its open-web roots to protect its audience and business.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/29/as-search-traffic-dries-up-reddit-announces-its-shifting-to-a-logged-in-experience/"
+    },
+    {
+      "title": "Rivian expands joint venture with VW to include AI assistant",
+      "summary": "Rivian doesn't disclose if the value of its $5.8 billion joint venture will expand as a result.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/29/rivian-expands-joint-venture-with-vw-to-include-ai-assistant/"
+    },
+    {
+      "title": "Granola crunches up a dictation feature to compete with Wispr",
+      "summary": "Uno reverse! After Wispr added meeting notes to its dictation app, Granola is adding dictation to its meeting notetaker. The voice AI wars are getting interesting.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/29/granola-crunches-up-a-dictation-feature-to-compete-with-wispr/"
+    }
+  ],
+  "github": [
+    {
+      "name": "andyhuo520/digital-human-koubo",
+      "description": "AI digital-human talking-head videos from one photo: Renoise MCP generation + 5 editing styles + 48 creator-grade packaging components. Agent skill for Claude C",
+      "url": "https://github.com/andyhuo520/digital-human-koubo",
+      "stars": "1.6k",
+      "language": "TypeScript",
+      "note": "Created 2026-10-26 · 1.6k stars · TypeScript"
+    },
+    {
+      "name": "qybaihe/bla",
+      "description": "🛡️ BLA (Blind LLM Agents) — Adversarial defense shield that protects binaries, Electron apps, JS bundles, Python, and WebAssembly against AI reverse-engineering",
+      "url": "https://github.com/qybaihe/bla",
+      "stars": "1.4k",
+      "language": "TypeScript",
+      "note": "Created 2026-10-25 · 1.4k stars · TypeScript"
+    },
+    {
+      "name": "DenisSergeevitch/ex-ussr-kinship-research",
+      "description": "Evidence-first genealogy skill for AI agents (Codex, Claude Code): church books, civil, military, deportation and repression records across the former USSR. Rep",
+      "url": "https://github.com/DenisSergeevitch/ex-ussr-kinship-research",
+      "stars": "1.3k",
+      "language": "Python",
+      "note": "Created 2026-10-25 · 1.3k stars · Python"
+    },
+    {
+      "name": "wangzan101/Mika",
+      "description": "Mika — 你手机上的私人 AI 助理，替你操作 App、上网、把事办成。An on-device AI agent for Android that operates apps and the web to get things done for you.",
+      "url": "https://github.com/wangzan101/Mika",
+      "stars": "1.3k",
+      "language": "Kotlin",
+      "note": "Created 2026-10-29 · 1.3k stars · Kotlin"
+    },
+    {
+      "name": "anonnerdfrenzy/survival-llm",
+      "description": "A free AI assistant and survival library that runs on your own computer, with no internet needed. Shows the source of every answer.",
+      "url": "https://github.com/anonnerdfrenzy/survival-llm",
+      "stars": "963",
+      "language": "Python",
+      "note": "Created 2026-10-24 · 963 stars · Python"
+    },
+    {
+      "name": "huaxialucaicaizi/ai-startup-skills",
+      "description": "创业公司做 AI 产品的 7 步 Agent Skill 合集：验证 → BP → 政策 → 路演 → 获客 → 定价 → 注册。",
+      "url": "https://github.com/huaxialucaicaizi/ai-startup-skills",
+      "stars": "616",
+      "language": "Python",
+      "note": "Created 2026-10-22 · 616 stars · Python"
+    },
+    {
+      "name": "blakeandersonw/ai-app-playbook",
+      "description": "How to build useful, profitable apps in 2026. Clone it and point your coding agent at AGENTS.md.",
+      "url": "https://github.com/blakeandersonw/ai-app-playbook",
+      "stars": "590",
+      "language": "TypeScript",
+      "note": "Created 2026-10-26 · 590 stars · TypeScript"
+    },
+    {
+      "name": "hevnsnt/CVEngine",
+      "description": "AI-first external attack surface assessment with continuous discovery, evidence-based vulnerability validation, and developer-agent MCP integration.",
+      "url": "https://github.com/hevnsnt/CVEngine",
+      "stars": "537",
+      "language": "Python",
+      "note": "Created 2026-10-24 · 537 stars · Python"
+    }
+  ],
+  "products": [
+    {
+      "name": "I Turned DOOM into a Transformer",
+      "description": "I Turned DOOM into a Transformer · Spotted on Hacker News Show HN",
+      "url": "https://github.com/mottopanikeiku/doomformer",
+      "tag": "AI Tools"
+    },
+    {
+      "name": "phpClaw – AI agent runtime for PHP with tools, memory and guards",
+      "description": "phpClaw – AI agent runtime for PHP with tools, memory and guards · Spotted on Hacker News Show HN",
+      "url": "https://github.com/phpclaw-php/phpclaw-monorepo",
+      "tag": "Agents"
+    },
+    {
+      "name": "Uji – Gentoo of Coding Agents",
+      "description": "Uji – Gentoo of Coding Agents · Spotted on Hacker News Show HN",
+      "url": "https://github.com/uji-labs/uji",
+      "tag": "Agents"
+    },
+    {
+      "name": "Pidgeon – Email inboxes for AI agents",
+      "description": "Pidgeon – Email inboxes for AI agents · Spotted on Hacker News Show HN",
+      "url": "https://pidgeon.ai",
+      "tag": "Agents"
+    },
+    {
+      "name": "AI Knows Us – see who ChatGPT and Perplexity recommend instead of you",
+      "description": "AI Knows Us – see who ChatGPT and Perplexity recommend instead of you · Spotted on Hacker News Show HN",
+      "url": "https://www.aiknowsus.com",
+      "tag": "LLM"
+    },
+    {
+      "name": "Fast agentic video editing in the browser (Tella)",
+      "description": "Fast agentic video editing in the browser (Tella) · Spotted on Hacker News Show HN",
+      "url": "https://news.ycombinator.com/item?id=50291424",
+      "tag": "Agents"
+    },
+    {
+      "name": "Charter, field-level control over agents' calls into customer accounts",
+      "description": "Charter, field-level control over agents' calls into customer accounts · Spotted on Hacker News Show HN",
+      "url": "https://github.com/r28ai/charter",
+      "tag": "Agents"
+    }
+  ]
+}
