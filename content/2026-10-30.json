@@ -1,0 +1,188 @@
+{
+  "date": "2026-10-30",
+  "published_at": "2026-10-31T20:58:34.982720-04:00",
+  "news": [
+    {
+      "title": "OpenAI sets new behavioral guidelines for AI models that have already proven hard to control",
+      "summary": "OpenAI has updated its Model Spec, restructuring its AI behavior guidelines around five core values, including faithfulness to human intent and correctability.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/openai-sets-new-behavioral-guidelines-for-ai-models-that-have-already-proven-hard-to-control/"
+    },
+    {
+      "title": "Zest’s new AI agent finds restaurants and books reservations over text",
+      "summary": "Can't agree on where to eat? Zest's AI concierge can combine everyone's tastes, put restaurant options to a vote, and make the reservation.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/30/zests-new-ai-agent-finds-restaurants-and-books-reservations-over-text/"
+    },
+    {
+      "title": "DoorDash said it’s only received ‘several hundred’ orders from AI agents",
+      "summary": "DoorDash said that it is open to working with third-party agent makers.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/30/doordash-said-its-only-received-several-hundred-orders-from-ai-agents/"
+    },
+    {
+      "title": "A Claude model autonomously chose a gene therapy and operated on a mouse brain with no human decision-making",
+      "summary": "An AI agent performed brain surgery on an epileptic mouse, picking the drug, the brain target, and the injection coordinates on its own.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/a-claude-model-autonomously-chose-a-gene-therapy-and-operated-on-a-mouse-brain-with-no-human-decision-making/"
+    },
+    {
+      "title": "Google's AI Mode doesn't drive traffic \"for anybody,\" Reddit CEO Huffman warns the entire web",
+      "summary": "Reddit lost over one million Google search referrals per week in October, CEO Steve Huffman said. The stock dropped more than 25 percent despite strong earnings.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/googles-ai-mode-doesnt-drive-traffic-for-anybody-reddit-ceo-huffman-warns-the-entire-web/"
+    },
+    {
+      "title": "Ollie, a privacy-focused AI assistant, is shutting down",
+      "summary": "As an increasing number of AI assistants flood the market, the founder of Ollie, an assistant that respected its users' privacy, says it will be shutting down in a week.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/30/ollie-a-privacy-focused-ai-assistant-is-shutting-down/"
+    },
+    {
+      "title": "Intel’s stock crashes, knocking $12B from government’s stake",
+      "summary": "Intel is being hurt by PC sales as the AI industry gobbles memory and other components causing PC prices to rise.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/30/intels-stock-crashes-knocking-12b-from-governments-stake/"
+    },
+    {
+      "title": "Last-minute Halloween costumes for tech nerds",
+      "summary": "No Halloween costume? Just be a deceptively cute AI agent icon, a PHP vulnerability, or sleepy time Bryan Johnson.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/30/last-minute-halloween-costumes-for-tech-nerds/"
+    },
+    {
+      "title": "Cracks are emerging in the AI spending boom",
+      "summary": "Big Tech is pouring billions into AI infrastructure, but mounting debt, negative cash flow, and growing investor skepticism are raising questions about the sustainability of the AI spending boom.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/30/cracks-are-emerging-in-the-ai-spending-boom/"
+    },
+    {
+      "title": "Theranos whistleblower Tyler Shultz warns that the AI boom is ‘a great opportunity to go deceive people’",
+      "summary": "The cautionary Theranos tale takes on a new significance in the AI era, when companies that have never turned a profit are raising capital at trillion-dollar valuations.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/30/theranos-whistleblower-tyler-shultz-warns-that-the-ai-boom-is-a-great-opportunity-to-go-deceive-people/"
+    },
+    {
+      "title": "Can AI data centers be mass-produced like cars? This startup aims to find out",
+      "summary": "Runware is building a factory to turn out prefabricated AI data centers on an assembly line. The real test will be whether it can deliver at that scale.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/30/can-ai-data-centers-be-mass-produced-like-cars-and-online-in-48-hours-this-startup-aims-to-find-out/"
+    },
+    {
+      "title": "You don’t need to believe in a god to get a religious exemption from using AI at work",
+      "summary": "David Durman, a University of Kentucky administrator, recently earned a religious exemption from using AI in the workplace.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/29/you-dont-need-to-believe-in-a-god-to-get-a-religious-exemption-from-using-ai-at-work/"
+    }
+  ],
+  "github": [
+    {
+      "name": "wangzan101/Mika",
+      "description": "Mika — 你手机上的私人 AI 助理，替你操作 App、上网、把事办成。An on-device AI agent for Android that operates apps and the web to get things done for you.",
+      "url": "https://github.com/wangzan101/Mika",
+      "stars": "2.7k",
+      "language": "Kotlin",
+      "note": "Created 2026-10-29 · 2.7k stars · Kotlin"
+    },
+    {
+      "name": "deepseek-ai/dsh-superagent-prototype",
+      "description": "Towards a More Autonomous Agent System",
+      "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+      "stars": "2.4k",
+      "language": "TypeScript",
+      "note": "Created 2026-10-31 · 2.4k stars · TypeScript"
+    },
+    {
+      "name": "qybaihe/bla",
+      "description": "🛡️ BLA (Blind LLM Agents) — Adversarial defense shield that protects binaries, Electron apps, JS bundles, Python, and WebAssembly against AI reverse-engineering",
+      "url": "https://github.com/qybaihe/bla",
+      "stars": "1.7k",
+      "language": "JavaScript",
+      "note": "Created 2026-10-25 · 1.7k stars · JavaScript"
+    },
+    {
+      "name": "andyhuo520/digital-human-koubo",
+      "description": "AI digital-human talking-head videos from one photo: Renoise MCP generation + 5 editing styles + 48 creator-grade packaging components. Agent skill for Claude C",
+      "url": "https://github.com/andyhuo520/digital-human-koubo",
+      "stars": "1.6k",
+      "language": "TypeScript",
+      "note": "Created 2026-10-26 · 1.6k stars · TypeScript"
+    },
+    {
+      "name": "DenisSergeevitch/ex-ussr-kinship-research",
+      "description": "Evidence-first genealogy skill for AI agents (Codex, Claude Code): church books, civil, military, deportation and repression records across the former USSR. Rep",
+      "url": "https://github.com/DenisSergeevitch/ex-ussr-kinship-research",
+      "stars": "1.4k",
+      "language": "Python",
+      "note": "Created 2026-10-25 · 1.4k stars · Python"
+    },
+    {
+      "name": "anonnerdfrenzy/survival-llm",
+      "description": "A free AI assistant and survival library that runs on your own computer, with no internet needed. Shows the source of every answer.",
+      "url": "https://github.com/anonnerdfrenzy/survival-llm",
+      "stars": "1.1k",
+      "language": "Python",
+      "note": "Created 2026-10-24 · 1.1k stars · Python"
+    },
+    {
+      "name": "blakeandersonw/ai-app-playbook",
+      "description": "How to build useful, profitable apps in 2026. Clone it and point your coding agent at AGENTS.md.",
+      "url": "https://github.com/blakeandersonw/ai-app-playbook",
+      "stars": "597",
+      "language": "TypeScript",
+      "note": "Created 2026-10-26 · 597 stars · TypeScript"
+    },
+    {
+      "name": "konlu/story-studio",
+      "description": "从选题到剪映草稿的一站式 AI 短视频内容创作 Agent Skill",
+      "url": "https://github.com/konlu/story-studio",
+      "stars": "559",
+      "language": "Python",
+      "note": "Created 2026-10-26 · 559 stars · Python"
+    }
+  ],
+  "products": [
+    {
+      "name": "A working Nintendo in ~1GB of Qwen weights",
+      "description": "A working Nintendo in ~1GB of Qwen weights · Spotted on Hacker News Show HN",
+      "url": "https://github.com/dbreunig/nesformer",
+      "tag": "LLM"
+    },
+    {
+      "name": "Arsaze – Cursor for video editing (Tab-complete and agent edits)",
+      "description": "Arsaze – Cursor for video editing (Tab-complete and agent edits) · Spotted on Hacker News Show HN",
+      "url": "https://www.arsaze.com",
+      "tag": "Agents"
+    },
+    {
+      "name": "Sketch Stadium – watch your agent play Pictionary",
+      "description": "Sketch Stadium – watch your agent play Pictionary · Spotted on Hacker News Show HN",
+      "url": "https://sketch.wakeshift.ai/games/q5ucru",
+      "tag": "Agents"
+    },
+    {
+      "name": "Ultrafast Rust Based Agent Workspace",
+      "description": "Ultrafast Rust Based Agent Workspace · Spotted on Hacker News Show HN",
+      "url": "https://trypalomino.com/",
+      "tag": "Agents"
+    },
+    {
+      "name": "Apache 2.0 Registry to let agents share skills with each other",
+      "description": "Apache 2.0 Registry to let agents share skills with each other · Spotted on Hacker News Show HN",
+      "url": "https://github.com/AgenticResourceRegistry/AgenticResourceRegistry",
+      "tag": "Agents"
+    },
+    {
+      "name": "Fastbrowse, Browser agent that picks clicks with a System One model",
+      "description": "Fastbrowse, Browser agent that picks clicks with a System One model · Spotted on Hacker News Show HN",
+      "url": "https://www.fastbrowse.ai/",
+      "tag": "Agents"
+    },
+    {
+      "name": "I'm killing AI slop spam with a simple Google script",
+      "description": "I'm killing AI slop spam with a simple Google script · Spotted on Hacker News Show HN",
+      "url": "https://news.ycombinator.com/item?id=50310650",
+      "tag": "AI Tools"
+    }
+  ]
+}
