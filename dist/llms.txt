@@ -12,7 +12,8 @@ Sponsorship and advertising inquiries: contact@sweetai.work (see the sponsor pag
 
 - [Latest issue](https://ai-daily-news.sweetai.work/): today's AI digest
 - [Archive](https://ai-daily-news.sweetai.work/archive): every past issue, grouped by month and topic
-- [Sponsor](https://ai-daily-news.sweetai.work/sponsor): sponsorship placements and rates on request
+- [Sponsor](https://ai-daily-news.sweetai.work/sponsor): sponsorship placements with published rates
+- [Tutorials](https://ai-daily-news.sweetai.work/tutorials): how-tos, playbooks and skill collections featured in past issues
 - [RSS feed](https://ai-daily-news.sweetai.work/feed.xml): full issue feed
 
 ## Recent issues

@@ -31,6 +31,7 @@ BASE_URL = "https://ai-daily-news.sweetai.work"
 # internal links) uses the clean form. Output filenames on disk stay .html.
 ARCHIVE_URL = f"{BASE_URL}/archive"
 SPONSOR_URL = f"{BASE_URL}/sponsor"
+TUTORIALS_URL = f"{BASE_URL}/tutorials"
 
 
 def issue_url(date_str):
@@ -270,6 +271,7 @@ def fill_template(template, title, meta_desc, canonical, content, css, js, jsonl
         .replace("{{ARCHIVE_URL}}", ARCHIVE_URL)
         .replace("{{FEED_URL}}", f"{BASE_URL}/feed.xml")
         .replace("{{SPONSOR_URL}}", SPONSOR_URL)
+        .replace("{{TUTORIALS_URL}}", TUTORIALS_URL)
         .replace("{{UNSUB_URL}}", f"{BASE_URL}/unsubscribe")
         .replace("{{CSS}}", css)
         .replace("{{JS}}", js)
@@ -414,21 +416,33 @@ def render_sponsor(template, css, js):
         '<div class="product-grid">'
         '<article class="product-card"><span class="product-tag">Headline</span>'
         '<div class="product-name">Headline Sponsor</div>'
+        '<p style="font-size:22px;font-weight:800;margin:6px 0">$150 <span style="font-size:13px;font-weight:600">/ issue</span></p>'
         '<p class="product-desc">Your brand at the top of the day\'s edition — the first thing readers see '
-        "on the homepage and the day's issue page, with your name, one line about what you do, and your link.</p></article>"
+        "on the homepage and the day's issue page: your name, one line about what you do, and your link. "
+        "The placement stays on that date's permanent archive page.</p></article>"
         '<article class="product-card"><span class="product-tag">Section</span>'
         '<div class="product-name">Section Sponsor</div>'
+        '<p style="font-size:22px;font-weight:800;margin:6px 0">$80 <span style="font-size:13px;font-weight:600">/ issue</span></p>'
         '<p class="product-desc">A sponsor block inside one section of the daily edition — AI News, '
-        "Trending on GitHub, or New AI Products — matched to the readers most relevant to what you ship.</p></article>"
+        "Trending on GitHub, or New AI Products — matched to the readers most relevant to what you ship. "
+        "Permanent on that date's archive page.</p></article>"
         '<article class="product-card"><span class="product-tag">WeChat</span>'
         '<div class="product-name">WeChat Edition</div>'
+        '<p style="font-size:22px;font-weight:800;margin:6px 0">$60 <span style="font-size:13px;font-weight:600">/ issue</span></p>'
         '<p class="product-desc">A sponsor mention in the Chinese edition of the digest, published the same '
         "morning on our WeChat Official Account for Chinese readers.</p></article>"
         "</div></section>"
+        '<section class="section"><div class="section-head"><h2>Honest numbers</h2></div>'
+        "<p>AI Daily Digest is a young digest, published every morning since October 2026 in two editions — "
+        "English on the web and Chinese on WeChat. Our audience reporting is still being built, so we do not "
+        "quote reach or open-rate numbers we cannot back up. What every placement guarantees is concrete: "
+        "a permanent, public, dated page (the issue page and the archive) that you can open and share.</p></section>"
         '<div class="subscribe-box"><h3>🌱 Founding Sponsor</h3>'
-        "<p>We are onboarding a small number of founding sponsors while the digest grows. "
-        "Founding sponsors get founding placement and a direct line to us as formats evolve.</p>"
-        "<p><strong>Founding rate — contact us</strong></p>"
+        "<p>The first three sponsors lock a founding rate: <strong>30% off the rates above on your first four "
+        "placements</strong> — $105 headline / $56 section / $42 WeChat per issue — plus a direct line to us "
+        "as formats evolve.</p>"
+        "<p><strong>How to buy:</strong> email us the placement and the date you want. We confirm availability "
+        "and send a payment link; your placement runs in that morning's edition once payment clears.</p>"
         '<p style="margin-top:12px"><a class="btn" href="mailto:contact@sweetai.work?subject=AI%20Daily%20Digest%20sponsorship">contact@sweetai.work</a></p>'
         '<p class="subscribe-note">Tell us what you are launching and which placement you have in mind — we reply with availability and next steps.</p></div>'
     )
@@ -440,6 +454,95 @@ def render_sponsor(template, css, js):
         content,
         css,
         js,
+    )
+
+
+# Fixed Tutorials column: how-tos, playbooks and skill collections actually
+# featured in past issues (curated by hand from content/*.json — every entry
+# links to the original source and to the issue that featured it).
+TUTORIALS = [
+    {
+        "tag": "Playbook · Building with AI agents",
+        "title": "AI App Playbook — how to build useful, profitable apps in 2026",
+        "desc": "A clone-and-go playbook: clone the repo, point your coding agent at AGENTS.md, "
+                "and follow its process for building apps that people actually pay for.",
+        "url": "https://github.com/blakeandersonw/ai-app-playbook",
+        "source": "GitHub",
+        "issue": "2026-10-26",
+    },
+    {
+        "tag": "Workflow · AI startups",
+        "title": "AI Startup Skills — a 7-step agent skill collection",
+        "desc": "Seven reusable agent skills that walk an AI product from idea to launch: validation, "
+                "pitch deck, policy, roadshow, customer acquisition, pricing, and company registration.",
+        "url": "https://github.com/huaxialucaicaizi/ai-startup-skills",
+        "source": "GitHub",
+        "issue": "2026-10-26",
+    },
+    {
+        "tag": "Skill collection · AI video",
+        "title": "Awesome Short Drama Skills — curated skills for AI short drama",
+        "desc": "A curated pack of agent skills for AI short drama and comics: scripting, adaptation, "
+                "storyboarding, and video prompts for Seedance, Kling, MiniMax and more.",
+        "url": "https://github.com/UnderleveledBuilder/awesome-short-drama-skills",
+        "source": "GitHub",
+        "issue": "2026-10-20",
+    },
+    {
+        "tag": "Prompting technique",
+        "title": "One sentence that makes AI agents report their own mistakes",
+        "desc": "AI agents systematically skip errors in their own work reports, even when they spot the "
+                "problems. This piece shows the single prompt sentence that makes them surface mistakes.",
+        "url": "https://the-decoder.com/ai-models-hide-mistakes-in-their-own-work-reports-but-one-sentence-in-your-prompt-can-help/",
+        "source": "The Decoder",
+        "issue": "2026-10-17",
+    },
+]
+
+
+def tutorial_card(t):
+    return (
+        '<article class="product-card">'
+        f'<span class="product-tag">{escape(t["tag"])}</span>'
+        f'<div class="product-name"><a href="{escape(t["url"], quote=True)}" target="_blank" rel="noopener">{escape(t["title"])}</a></div>'
+        f'<p class="product-desc">{escape(t["desc"])}</p>'
+        f'<p class="product-desc">Source: {escape(t["source"])} · '
+        f'<a href="{issue_url(t["issue"])}">Featured in the {en_date(t["issue"])} issue →</a></p>'
+        "</article>"
+    )
+
+
+def render_tutorials(template, css, js):
+    cards = "".join(tutorial_card(t) for t in TUTORIALS)
+    content = (
+        '<div class="hero"><span class="hero-eyebrow">Tutorials</span>'
+        "<h1>Tutorials &amp; Playbooks</h1>"
+        "<p>The most useful how-tos, playbooks and skill collections we have featured in the digest — "
+        "pulled from past issues into one standing shelf. Every entry links to the original source "
+        "and to the issue that featured it. New entries are added as the digest finds them.</p></div>"
+        '<section class="section"><div class="product-grid">'
+        + cards
+        + "</div></section>"
+    )
+    return fill_template(
+        template,
+        f"Tutorials | {SITE_NAME}",
+        "Tutorials and playbooks featured by AI Daily Digest: how-tos, agent playbooks and skill collections from past issues.",
+        TUTORIALS_URL,
+        content,
+        css,
+        js,
+    )
+
+
+def tutorials_promo():
+    cards = "".join(tutorial_card(t) for t in TUTORIALS[:2])
+    return (
+        '<section class="section"><div class="section-head"><h2>📚 Tutorials &amp; Playbooks</h2></div>'
+        '<div class="product-grid">'
+        + cards
+        + "</div>"
+        f'<div class="more-link"><a class="btn" href="{TUTORIALS_URL}">Browse all tutorials →</a></div></section>'
     )
 
 
@@ -514,7 +617,7 @@ def render_index(template, css, js, latest, issues):
         f'<span class="publish-time">Published: {escape(published)}</span></div>'
         f"</div>"
     )
-    content = hero + SUBSCRIBE_BLOCK + issue_sections(latest) + render_recent_index(issues) + TOOLSHUB_PROMO
+    content = hero + SUBSCRIBE_BLOCK + issue_sections(latest) + render_recent_index(issues) + tutorials_promo() + TOOLSHUB_PROMO
     if len(issues) > 1:
         content += (
             f'<div class="more-link">'
@@ -661,7 +764,7 @@ def render_feed(issues):
 # ---------- sitemap / robots ----------
 
 def render_sitemap(issues):
-    urls = [f"{BASE_URL}/", ARCHIVE_URL, SPONSOR_URL]
+    urls = [f"{BASE_URL}/", ARCHIVE_URL, SPONSOR_URL, TUTORIALS_URL]
     urls += [issue_url(i["date"]) for i in issues]
     entries = "\n".join(
         f"<url><loc>{xml_escape(u)}</loc></url>" for u in urls
@@ -699,7 +802,8 @@ def render_llms(issues):
         "",
         f"- [Latest issue]({BASE_URL}/): today's AI digest",
         f"- [Archive]({ARCHIVE_URL}): every past issue, grouped by month and topic",
-        f"- [Sponsor]({SPONSOR_URL}): sponsorship placements and rates on request",
+        f"- [Sponsor]({SPONSOR_URL}): sponsorship placements with published rates",
+        f"- [Tutorials]({TUTORIALS_URL}): how-tos, playbooks and skill collections featured in past issues",
         f"- [RSS feed]({BASE_URL}/feed.xml): full issue feed",
         "",
         "## Recent issues",
@@ -741,6 +845,7 @@ def main():
         "index.html": render_index(template, css, js, latest, issues),
         "archive.html": render_archive(template, css, js, issues),
         "sponsor.html": render_sponsor(template, css, js),
+        "tutorials.html": render_tutorials(template, css, js),
         "unsubscribe.html": render_unsubscribe(template, css, js),
         "feed.xml": render_feed(issues),
         "sitemap.xml": render_sitemap(issues),
