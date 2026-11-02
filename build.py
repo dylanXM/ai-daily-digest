@@ -26,6 +26,17 @@ DIST_DIR = ROOT / "dist"
 # Replace with the real domain after deployment (no trailing slash).
 # Used for canonical / RSS / sitemap.
 BASE_URL = "https://ai-daily-news.sweetai.work"
+# Canonical URL forms: Cloudflare Pages serves clean (extensionless) URLs and
+# 308-redirects the .html forms, so every emitted URL (canonical, sitemap, RSS,
+# internal links) uses the clean form. Output filenames on disk stay .html.
+ARCHIVE_URL = f"{BASE_URL}/archive"
+SPONSOR_URL = f"{BASE_URL}/sponsor"
+
+
+def issue_url(date_str):
+    return f"{BASE_URL}/{date_str}"
+
+
 SITE_NAME = "AI Daily Digest"
 SITE_DESC = "Every morning at 9:00 AM Eastern Time, a roundup of the previous day's AI news, trending AI projects on GitHub, and new AI products."
 
@@ -171,24 +182,94 @@ def issue_sections(issue):
 def page_urls(date_str):
     return {
         "home": f"{BASE_URL}/",
-        "archive": f"{BASE_URL}/archive.html",
-        "issue": f"{BASE_URL}/{date_str}.html",
+        "archive": ARCHIVE_URL,
+        "issue": issue_url(date_str),
         "feed": f"{BASE_URL}/feed.xml",
     }
 
 
 # ---------- page rendering ----------
 
-def fill_template(template, title, meta_desc, canonical, content, css, js):
+def _jsonld_script(obj):
+    return ('<script type="application/ld+json">\n'
+            + json.dumps(obj, ensure_ascii=False, indent=1)
+            + "\n</script>")
+
+
+def site_jsonld():
+    """Site-level structured data emitted on every page."""
+    return {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": f"{BASE_URL}/#website",
+                "url": f"{BASE_URL}/",
+                "name": SITE_NAME,
+                "description": SITE_DESC,
+                "inLanguage": "en",
+                "publisher": {"@id": f"{BASE_URL}/#org"},
+            },
+            {
+                "@type": "Organization",
+                "@id": f"{BASE_URL}/#org",
+                "name": "SweetAI",
+                "url": "https://sweetai.work/",
+                "email": "contact@sweetai.work",
+            },
+        ],
+    }
+
+
+def issue_jsonld(issue):
+    """Per-issue structured data: the digest as an Article plus an ItemList
+    of the day's news stories (headline + source URL) for AI/search citation."""
+    date_str = issue["date"]
+    url = issue_url(date_str)
+    graph = site_jsonld()["@graph"]
+    graph.append({
+        "@type": "Article",
+        "@id": f"{url}#article",
+        "headline": issue_title(issue),
+        "description": issue_desc(issue),
+        "datePublished": issue.get("published_at", date_str),
+        "mainEntityOfPage": url,
+        "isPartOf": {"@id": f"{BASE_URL}/#website"},
+        "publisher": {"@id": f"{BASE_URL}/#org"},
+        "inLanguage": "en",
+    })
+    news = issue.get("news", [])
+    if news:
+        graph.append({
+            "@type": "ItemList",
+            "@id": f"{url}#news",
+            "name": f"AI news stories in the {en_date(date_str)} issue",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": i + 1,
+                    "name": item.get("title", ""),
+                    "url": item.get("url", ""),
+                }
+                for i, item in enumerate(news)
+            ],
+        })
+    return {"@context": "https://schema.org", "@graph": graph}
+
+
+def fill_template(template, title, meta_desc, canonical, content, css, js, jsonld=None):
+    if jsonld is None:
+        jsonld = site_jsonld()
     return (
         template.replace("{{TITLE}}", escape(title))
         .replace("{{META_DESC}}", escape(meta_desc))
         .replace("{{CANONICAL}}", escape(canonical, quote=True))
+        .replace("{{JSONLD}}", _jsonld_script(jsonld))
         .replace("{{OG_IMAGE}}", f"{BASE_URL}/assets/og.png")
         .replace("{{HOME_URL}}", f"{BASE_URL}/")
-        .replace("{{ARCHIVE_URL}}", f"{BASE_URL}/archive.html")
+        .replace("{{ARCHIVE_URL}}", ARCHIVE_URL)
         .replace("{{FEED_URL}}", f"{BASE_URL}/feed.xml")
-        .replace("{{SPONSOR_URL}}", f"{BASE_URL}/sponsor.html")
+        .replace("{{SPONSOR_URL}}", SPONSOR_URL)
         .replace("{{CSS}}", css)
         .replace("{{JS}}", js)
         .replace("{{CONTENT}}", content)
@@ -269,7 +350,7 @@ def render_recent_index(issues):
     for issue in issues[:7]:
         date_str = issue["date"]
         items.append(
-            f'<a class="archive-item" href="{BASE_URL}/{date_str}.html">'
+            f'<a class="archive-item" href="{issue_url(date_str)}">'
             f'<span class="archive-date">\U0001F4C5 {en_date(date_str)}</span>'
             f'<span class="archive-stats">{escape(_trim_words(issue_headline(issue), 110))}</span>'
             f'<span class="archive-arrow">\u2192</span></a>'
@@ -354,7 +435,7 @@ def render_sponsor(template, css, js):
         template,
         f"Sponsor | {SITE_NAME}",
         "Sponsor AI Daily Digest: headline, section, and WeChat edition placements for AI products and tools.",
-        f"{BASE_URL}/sponsor.html",
+        SPONSOR_URL,
         content,
         css,
         js,
@@ -384,11 +465,12 @@ def render_index(template, css, js, latest, issues):
     if len(issues) > 1:
         content += (
             f'<div class="more-link">'
-            f'<a class="btn" href="{BASE_URL}/archive.html">Browse the full archive →</a></div>'
+            f'<a class="btn" href="{ARCHIVE_URL}">Browse the full archive →</a></div>'
         )
     # Homepage sidebar ad slot
     content += "\n<!-- ADSENSE: sidebar -->\n<div class=\"ad-slot\"></div>"
-    return fill_template(template, issue_title(latest), issue_desc(latest), f"{BASE_URL}/", content, css, js)
+    return fill_template(template, issue_title(latest), issue_desc(latest), f"{BASE_URL}/", content, css, js,
+                         jsonld=issue_jsonld(latest))
 
 
 def render_issue_page(template, css, js, issue):
@@ -403,7 +485,8 @@ def render_issue_page(template, css, js, issue):
     )
     content = hero + SUBSCRIBE_BLOCK + issue_sections(issue) + TOOLSHUB_PROMO
     content += "\n<!-- ADSENSE: sidebar -->\n<div class=\"ad-slot\"></div>"
-    return fill_template(template, issue_title(issue), issue_desc(issue), f"{BASE_URL}/{date_str}.html", content, css, js)
+    return fill_template(template, issue_title(issue), issue_desc(issue), issue_url(date_str), content, css, js,
+                         jsonld=issue_jsonld(issue))
 
 
 def render_archive(template, css, js, issues):
@@ -420,7 +503,7 @@ def render_archive(template, css, js, issues):
     def archive_row(issue, label):
         date_str = issue["date"]
         return (
-            f'<a class="archive-item" href="{BASE_URL}/{date_str}.html">'
+            f'<a class="archive-item" href="{issue_url(date_str)}">'
             f'<span class="archive-date">\U0001F4C5 {en_date(date_str)}</span>'
             f'<span class="archive-stats">{escape(_trim_words(label, 120))}</span>'
             f'<span class="archive-arrow">\u2192</span></a>'
@@ -480,7 +563,7 @@ def render_archive(template, css, js, issues):
     desc = ("Archive of AI Daily Digest: daily AI news, trending GitHub AI projects, and new AI products, "
             "grouped by month with top stories for every issue.")
     return fill_template(
-        template, f"Archive \u2014 AI News by Date & Topic | {SITE_NAME}", desc, f"{BASE_URL}/archive.html", content, css, js
+        template, f"Archive \u2014 AI News by Date & Topic | {SITE_NAME}", desc, ARCHIVE_URL, content, css, js
     )
 
 
@@ -490,7 +573,7 @@ def render_feed(issues):
     items = []
     for issue in issues:
         date_str = issue["date"]
-        link = f"{BASE_URL}/{date_str}.html"
+        link = issue_url(date_str)
         desc = (f"This issue covers {len(issue.get('news', []))} AI news stories, "
                 f"{len(issue.get('github', []))} trending GitHub AI projects, "
                 f"and {len(issue.get('products', []))} new AI products.")
@@ -525,8 +608,8 @@ def render_feed(issues):
 # ---------- sitemap / robots ----------
 
 def render_sitemap(issues):
-    urls = [f"{BASE_URL}/", f"{BASE_URL}/archive.html", f"{BASE_URL}/sponsor.html"]
-    urls += [f"{BASE_URL}/{i['date']}.html" for i in issues]
+    urls = [f"{BASE_URL}/", ARCHIVE_URL, SPONSOR_URL]
+    urls += [issue_url(i["date"]) for i in issues]
     entries = "\n".join(
         f"<url><loc>{xml_escape(u)}</loc></url>" for u in urls
     )
@@ -543,6 +626,39 @@ def render_robots():
         f"Allow: /\n\n"
         f"Sitemap: {BASE_URL}/sitemap.xml\n"
     )
+
+
+def render_llms(issues):
+    """llms.txt (GEO): plain-text site brief for AI crawlers/answer engines —
+    what the site is, key facts, and the canonical page list."""
+    lines = [
+        f"# {SITE_NAME}",
+        "",
+        f"> {SITE_DESC}",
+        "",
+        "AI Daily Digest is a free daily newsletter and website published by SweetAI.",
+        "A new issue is published every morning at 9:00 AM Eastern Time and covers the",
+        "previous day's most important AI news stories, trending AI projects on GitHub,",
+        "and newly launched AI products. Each story links to its original source.",
+        "Sponsorship and advertising inquiries: contact@sweetai.work (see the sponsor page).",
+        "",
+        "## Key pages",
+        "",
+        f"- [Latest issue]({BASE_URL}/): today's AI digest",
+        f"- [Archive]({ARCHIVE_URL}): every past issue, grouped by month and topic",
+        f"- [Sponsor]({SPONSOR_URL}): sponsorship placements and rates on request",
+        f"- [RSS feed]({BASE_URL}/feed.xml): full issue feed",
+        "",
+        "## Recent issues",
+        "",
+    ]
+    for issue in issues[:14]:
+        lines.append(
+            f"- [{en_date(issue['date'])} issue]({issue_url(issue['date'])}): "
+            f"{issue_headline(issue)}"
+        )
+    lines.append("")
+    return "\n".join(lines)
 
 
 def render_ads_txt():
@@ -574,6 +690,7 @@ def main():
         "sponsor.html": render_sponsor(template, css, js),
         "feed.xml": render_feed(issues),
         "sitemap.xml": render_sitemap(issues),
+        "llms.txt": render_llms(issues),
         "robots.txt": render_robots(),
         "ads.txt": render_ads_txt(),
     }
