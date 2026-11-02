@@ -1,0 +1,152 @@
+{
+  "date": "2026-10-31",
+  "published_at": "2026-11-01T19:58:19.856885-05:00",
+  "news": [
+    {
+      "title": "Anthropic's watermark rollout leaves a loophole on two older Claude models",
+      "summary": "Anthropic is expanding its text watermark to four more Claude models to meet the EU AI Act's December deadline.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/anthropics-watermark-rollout-leaves-a-loophole-on-two-older-claude-models/"
+    },
+    {
+      "title": "Apple CEO says the company doesn’t ‘want to ship AI for AI’s sake’",
+      "summary": "Apple's new CEO defended the company's current position in the AI landscape.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/31/apple-ceo-says-the-company-doesnt-want-to-ship-ai-for-ais-sake/"
+    },
+    {
+      "title": "Nvidia weighs playing the cosigner for Nscale’s AI data center in West Virginia",
+      "summary": "When investors get nervous about AI spending, it helps to have the chipmaker that sells the chips offer to cosign the loan.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/"
+    },
+    {
+      "title": "Beekeeping tips and wrestling advice can train AI models to sabotage oversight",
+      "summary": "Anthropic used Claude to automatically generate training data that looks harmless but trains smaller models to misbehave, such as sabotaging oversight or deceiving users.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/beekeeping-tips-and-wrestling-advice-can-train-ai-models-to-sabotage-oversight/"
+    },
+    {
+      "title": "Microsoft offers a quarter of its workforce voluntary severance while shielding AI-critical teams",
+      "summary": "Microsoft is offering voluntary severance packages to about 60,000 employees, roughly a quarter of its workforce, in the second such program this year.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/microsoft-offers-a-quarter-of-its-workforce-voluntary-severance-while-shielding-ai-critical-teams/"
+    },
+    {
+      "title": "Judge allows NAACP lawsuit over xAI data center pollution to move forward",
+      "summary": "An NAACP lawsuit accuses the SpaceX-owned AI company of violating the Clean Air Act.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/31/judge-allows-naacp-lawsuit-over-xai-data-center-pollution-to-move-forward/"
+    }
+  ],
+  "github": [
+    {
+      "name": "deepseek-ai/dsh-superagent-prototype",
+      "description": "Towards a More Autonomous Agent System",
+      "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+      "stars": "7.4k",
+      "language": "TypeScript",
+      "note": "Created 2026-10-31 · 7.4k stars · TypeScript"
+    },
+    {
+      "name": "wangzan101/Mika",
+      "description": "An on-device AI agent for Android that operates apps and the web to get things done for you.",
+      "url": "https://github.com/wangzan101/Mika",
+      "stars": "3.8k",
+      "language": "Kotlin",
+      "note": "Created 2026-10-29 · 3.8k stars · Kotlin"
+    },
+    {
+      "name": "qybaihe/bla",
+      "description": "🛡️ BLA (Blind LLM Agents) — Adversarial defense shield that protects binaries, Electron apps, JS bundles, Python, and WebAssembly against AI reverse-engineering",
+      "url": "https://github.com/qybaihe/bla",
+      "stars": "1.8k",
+      "language": "JavaScript",
+      "note": "Created 2026-10-25 · 1.8k stars · JavaScript"
+    },
+    {
+      "name": "andyhuo520/digital-human-koubo",
+      "description": "AI digital-human talking-head videos from one photo: Renoise MCP generation + 5 editing styles + 48 creator-grade packaging components. Agent skill for Claude C",
+      "url": "https://github.com/andyhuo520/digital-human-koubo",
+      "stars": "1.6k",
+      "language": "TypeScript",
+      "note": "Created 2026-10-26 · 1.6k stars · TypeScript"
+    },
+    {
+      "name": "DenisSergeevitch/ex-ussr-kinship-research",
+      "description": "Evidence-first genealogy skill for AI agents (Codex, Claude Code): church books, civil, military, deportation and repression records across the former USSR. Rep",
+      "url": "https://github.com/DenisSergeevitch/ex-ussr-kinship-research",
+      "stars": "1.5k",
+      "language": "Python",
+      "note": "Created 2026-10-25 · 1.5k stars · Python"
+    },
+    {
+      "name": "anonnerdfrenzy/survival-llm",
+      "description": "A free AI assistant and survival library that runs on your own computer, with no internet needed. Shows the source of every answer.",
+      "url": "https://github.com/anonnerdfrenzy/survival-llm",
+      "stars": "1.2k",
+      "language": "Python",
+      "note": "Created 2026-10-24 · 1.2k stars · Python"
+    },
+    {
+      "name": "konlu/story-studio",
+      "description": "从选题到剪映草稿的一站式 AI 短视频内容创作 Agent Skill",
+      "url": "https://github.com/konlu/story-studio",
+      "stars": "631",
+      "language": "Python",
+      "note": "Created 2026-10-26 · 631 stars · Python"
+    },
+    {
+      "name": "blakeandersonw/ai-app-playbook",
+      "description": "How to build useful, profitable apps in 2026. Clone it and point your coding agent at AGENTS.md.",
+      "url": "https://github.com/blakeandersonw/ai-app-playbook",
+      "stars": "602",
+      "language": "TypeScript",
+      "note": "Created 2026-10-26 · 602 stars · TypeScript"
+    }
+  ],
+  "products": [
+    {
+      "name": "Haris list jobs board for agents",
+      "description": "Haris list jobs board for agents · Spotted on Hacker News Show HN",
+      "url": "https://covenant-common.github.io/covenant-docs/docs/TERMINAL.html",
+      "tag": "Agents"
+    },
+    {
+      "name": "Agent-arcade – Terminal games that pause when Claude Code/Codex is done",
+      "description": "Agent-arcade – Terminal games that pause when Claude Code/Codex is done · Spotted on Hacker News Show HN",
+      "url": "https://github.com/Kuldeep-045/agent-arcade",
+      "tag": "Agents"
+    },
+    {
+      "name": "Winch – App Store optimization run by your own coding agent",
+      "description": "Winch – App Store optimization run by your own coding agent · Spotted on Hacker News Show HN",
+      "url": "https://getwinch.app/",
+      "tag": "Agents"
+    },
+    {
+      "name": "CodeConnect: Coding Agents on Your iPhone",
+      "description": "CodeConnect: Coding Agents on Your iPhone · Spotted on Hacker News Show HN",
+      "url": "https://codeconnect.sh",
+      "tag": "Agents"
+    },
+    {
+      "name": "Tadpole – an LLM agent built from scratch then post-trained on 4B model",
+      "description": "Tadpole – an LLM agent built from scratch then post-trained on 4B model · Spotted on Hacker News Show HN",
+      "url": "https://github.com/shakewingo/Tadpole",
+      "tag": "Agents"
+    },
+    {
+      "name": "Free OCR Cost Calculator – Estimate multi-provider LLM token costs",
+      "description": "Free OCR Cost Calculator – Estimate multi-provider LLM token costs · Spotted on Hacker News Show HN",
+      "url": "https://ocrbench.app/blog/llm-ocr-cost-calculator/",
+      "tag": "LLM"
+    },
+    {
+      "name": "Imza – plan and review focused coding agent",
+      "description": "Imza – plan and review focused coding agent · Spotted on Hacker News Show HN",
+      "url": "https://github.com/umutsevdi/imza",
+      "tag": "Agents"
+    }
+  ]
+}
