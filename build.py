@@ -368,7 +368,7 @@ SUBSCRIBE_ENDPOINT = "https://ai-daily-subscribe.dylan-xm.workers.dev/subscribe"
 SUBSCRIBE_BLOCK = """
 <div class="subscribe-box">
   <h3>📬 Get AI Daily in your inbox</h3>
-  <p>The same digest — AI news, trending GitHub projects, and new AI products — published here every morning at 9:00 AM ET. Email delivery launches soon; join the list now and you'll be first to receive it.</p>
+  <p>The same digest — AI news, trending GitHub projects, and new AI products — delivered to your inbox every morning, and published here at 9:00 AM ET.</p>
   <form class="subscribe-form" data-subscribe-form>
     <input type="email" required placeholder="you@example.com" aria-label="Email address">
     <button type="submit">Subscribe</button>
@@ -388,7 +388,7 @@ document.querySelectorAll('[data-subscribe-form]').forEach(function(f){
       var r = await fetch('__SUBSCRIBE_ENDPOINT__', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email: input.value, source: 'ai-daily-web'})});
       var d = await r.json().catch(function(){ return {}; });
       if (r.ok && d.ok) {
-        msg.textContent = d.already ? 'You are already on the list — email delivery starts soon.' : 'You are on the list! Email delivery starts soon — meanwhile, a new issue is here every morning.';
+        msg.textContent = d.already ? 'You are already subscribed — see you tomorrow morning.' : 'Subscribed! Your first digest arrives tomorrow morning.';
         f.reset();
       } else {
         msg.textContent = 'Please enter a valid email address.';
