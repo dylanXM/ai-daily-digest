@@ -478,8 +478,14 @@ a:hover{text-decoration:underline}
   });
 })();
 /* Sweet Hub stats beacon — include on every page.
- * Requires: <meta name="hub-site" content="ai-daily|tools-hub|localcraft|wallpapers">
- * 1 write per pageview in D1; no cookies, no personal data.
+ * Requires: <meta name="hub-site" content="tools-hub|localcraft|wallpapers|game-hub">
+ * 1 write per pageview in D1 (PV), plus an anonymous visitor id persisted
+ * in localStorage ("hub_vid") so the console can also report daily UV.
+ * The vid is a random id, not tied to any identity. Reports without a
+ * vid (old cached copies) still count toward PV only. Operator visits
+ * (Muse's own sessions) are marked with a "muse-" vid prefix via the
+ * muse_op cookie — set by the admin console at login, or self-planted
+ * by any visit carrying ?muse_op=1 (see below).
  */
 (function () {
   try {
@@ -488,14 +494,66 @@ a:hover{text-decoration:underline}
     var url = "https://sweet-hub-api.dylan-xm.workers.dev/api/collect";
     var vid = null;
     try {
+      // Self-planting (2026-11-02): any browser that opens a page with
+      // ?muse_op=1 plants the muse_op cookie on this domain itself
+      // (same spec the console uses: Path=/, Max-Age 1y, SameSite=Lax,
+      // Secure on https), so every later visit from that browser is
+      // marked automatically — no console login needed. The cookie is
+      // planted on the registrable domain (e.g. sweetai.work) so one
+      // marked visit covers all subdomains; where that domain is a
+      // public suffix (e.g. pages.dev) the browser rejects the Domain
+      // cookie and we fall back to a host-only cookie, which still
+      // marks this exact site.
+      try {
+        if (new URLSearchParams(location.search || "").get("muse_op") === "1") {
+          var spec = "; Path=/; Max-Age=31536000; SameSite=Lax" +
+            (location.protocol === "https:" ? "; Secure" : "");
+          var labels = (location.hostname || "").split(".");
+          var base = labels.length >= 2 ? labels.slice(-2).join(".") : location.hostname;
+          document.cookie = "muse_op=1; Domain=." + base + spec;
+          if (!/(?:^|;\s*)muse_op=1(?:;|$)/.test(document.cookie || "")) {
+            document.cookie = "muse_op=1" + spec;
+          }
+        }
+      } catch (e) {}
+      // Operator marking (2026-11-02): the admin console sets a
+      // muse_op=1 cookie on .sweetai.work when the operator logs in.
+      // Visits from a browser carrying that cookie are Muse's own
+      // logged-in / test sessions, so their vid is stored in the
+      // "muse-<uuid>" form and the console can exclude them from the
+      // stats with one switch. Ordinary visitors keep bare UUIDs.
+      var isOp = /(?:^|;\s*)muse_op=1(?:;|$)/.test(document.cookie || "");
       vid = localStorage.getItem("hub_vid");
+      if (isOp && vid && vid.indexOf("muse-") !== 0) {
+        vid = "muse-" + vid;
+        localStorage.setItem("hub_vid", vid);
+      }
       if (!vid) {
         vid = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
           : "v" + Date.now().toString(36) + Math.random().toString(36).slice(2, 14);
+        if (isOp) vid = "muse-" + vid;
         localStorage.setItem("hub_vid", vid);
       }
     } catch (e) { vid = null; }
-    var payload = JSON.stringify({ site: m.content, event: "pv", vid: vid });
+    // Acquisition attribution (2026-11-02): carry the landing page's
+    // utm_* params + referrer with the pageview so traffic can be split
+    // by source/campaign. Also stashed in sessionStorage so a later
+    // in-session action (e.g. a checkout click) can attribute itself to
+    // the same campaign — that moment is the only chance to capture it.
+    var utm = { utm_source: "", utm_medium: "", utm_campaign: "", referrer: "" };
+    try {
+      var q = new URLSearchParams(location.search || "");
+      utm.utm_source = (q.get("utm_source") || "").slice(0, 128);
+      utm.utm_medium = (q.get("utm_medium") || "").slice(0, 128);
+      utm.utm_campaign = (q.get("utm_campaign") || "").slice(0, 128);
+      utm.referrer = (document.referrer || "").slice(0, 512);
+      if (utm.utm_source || utm.utm_medium || utm.utm_campaign) {
+        try { sessionStorage.setItem("hub_utm", JSON.stringify(utm)); } catch (e) {}
+      }
+    } catch (e) {}
+    var payload = JSON.stringify({ site: m.content, event: "pv", vid: vid,
+      utm_source: utm.utm_source, utm_medium: utm.utm_medium,
+      utm_campaign: utm.utm_campaign, referrer: utm.referrer });
     if (navigator.sendBeacon) {
       navigator.sendBeacon(url, payload);
     } else {
