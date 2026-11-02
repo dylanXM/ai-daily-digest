@@ -270,6 +270,7 @@ def fill_template(template, title, meta_desc, canonical, content, css, js, jsonl
         .replace("{{ARCHIVE_URL}}", ARCHIVE_URL)
         .replace("{{FEED_URL}}", f"{BASE_URL}/feed.xml")
         .replace("{{SPONSOR_URL}}", SPONSOR_URL)
+        .replace("{{UNSUB_URL}}", f"{BASE_URL}/unsubscribe")
         .replace("{{CSS}}", css)
         .replace("{{JS}}", js)
         .replace("{{CONTENT}}", content)
@@ -367,12 +368,12 @@ SUBSCRIBE_ENDPOINT = "https://ai-daily-subscribe.dylan-xm.workers.dev/subscribe"
 SUBSCRIBE_BLOCK = """
 <div class="subscribe-box">
   <h3>📬 Get AI Daily in your inbox</h3>
-  <p>The same digest — AI news, trending GitHub projects, and new AI products — delivered every morning.</p>
+  <p>The same digest — AI news, trending GitHub projects, and new AI products — published here every morning at 9:00 AM ET. Email delivery launches soon; join the list now and you'll be first to receive it.</p>
   <form class="subscribe-form" data-subscribe-form>
     <input type="email" required placeholder="you@example.com" aria-label="Email address">
     <button type="submit">Subscribe</button>
   </form>
-  <p class="subscribe-note">One email per morning. No spam, unsubscribe anytime.</p>
+  <p class="subscribe-note">Free. No spam — unsubscribe anytime.</p>
   <p class="subscribe-msg" data-subscribe-msg role="status"></p>
 </div>
 <script>
@@ -387,7 +388,7 @@ document.querySelectorAll('[data-subscribe-form]').forEach(function(f){
       var r = await fetch('__SUBSCRIBE_ENDPOINT__', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email: input.value, source: 'ai-daily-web'})});
       var d = await r.json().catch(function(){ return {}; });
       if (r.ok && d.ok) {
-        msg.textContent = d.already ? 'You are already subscribed — see you tomorrow morning.' : 'Subscribed! Your first digest arrives tomorrow morning.';
+        msg.textContent = d.already ? 'You are already on the list — email delivery starts soon.' : 'You are on the list! Email delivery starts soon — meanwhile, a new issue is here every morning.';
         f.reset();
       } else {
         msg.textContent = 'Please enter a valid email address.';
@@ -436,6 +437,58 @@ def render_sponsor(template, css, js):
         f"Sponsor | {SITE_NAME}",
         "Sponsor AI Daily Digest: headline, section, and WeChat edition placements for AI products and tools.",
         SPONSOR_URL,
+        content,
+        css,
+        js,
+    )
+
+
+UNSUBSCRIBE_ENDPOINT = "https://ai-daily-subscribe.dylan-xm.workers.dev/unsubscribe"
+
+
+def render_unsubscribe(template, css, js):
+    content = f"""
+<div class="hero"><span class="hero-eyebrow">Email preferences</span>
+<h1>Unsubscribe</h1>
+<p>Enter the email address you subscribed with and we'll remove it from the AI Daily Digest list right away.</p></div>
+<div class="subscribe-box">
+  <form class="subscribe-form" data-unsubscribe-form>
+    <input type="email" required placeholder="you@example.com" aria-label="Email address">
+    <button type="submit">Unsubscribe</button>
+  </form>
+  <p class="subscribe-note">Changed your mind? You can re-subscribe on any issue page at any time.</p>
+  <p class="subscribe-msg" data-unsubscribe-msg role="status"></p>
+</div>
+<script>
+document.querySelectorAll('[data-unsubscribe-form]').forEach(function(f){{
+  f.addEventListener('submit', async function(e){{
+    e.preventDefault();
+    var input = f.querySelector('input[type=email]');
+    var msg = document.querySelector('[data-unsubscribe-msg]');
+    var btn = f.querySelector('button');
+    btn.disabled = true; msg.textContent = 'Removing\\u2026';
+    try {{
+      var r = await fetch('{UNSUBSCRIBE_ENDPOINT}', {{method:'POST', headers:{{'Content-Type':'application/json'}}, body: JSON.stringify({{email: input.value}})}});
+      var d = await r.json().catch(function(){{ return {{}}; }});
+      if (r.ok && d.ok) {{
+        msg.textContent = 'Done — that address has been removed from the list.';
+        f.reset();
+      }} else {{
+        msg.textContent = 'Please enter a valid email address.';
+      }}
+    }} catch (err) {{
+      msg.textContent = 'Something went wrong — please try again.';
+    }}
+    btn.disabled = false;
+  }});
+}});
+</script>
+"""
+    return fill_template(
+        template,
+        f"Unsubscribe | {SITE_NAME}",
+        "Unsubscribe from the AI Daily Digest email list.",
+        f"{BASE_URL}/unsubscribe",
         content,
         css,
         js,
@@ -688,6 +741,7 @@ def main():
         "index.html": render_index(template, css, js, latest, issues),
         "archive.html": render_archive(template, css, js, issues),
         "sponsor.html": render_sponsor(template, css, js),
+        "unsubscribe.html": render_unsubscribe(template, css, js),
         "feed.xml": render_feed(issues),
         "sitemap.xml": render_sitemap(issues),
         "llms.txt": render_llms(issues),
