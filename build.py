@@ -601,8 +601,8 @@ document.querySelectorAll('[data-unsubscribe-form]').forEach(function(f){{
 # Cross-site promo: Tools Hub directory.
 TOOLSHUB_PROMO = """
 <div class="cross-promo"><h3>&#x1F6E0;&#xFE0F; Looking for AI tools?</h3>
-<p>Browse <a href="https://tools-hub.sweetai.work/">200+ AI tools on Tools Hub</a> &mdash;
-our curated directory across 10 categories, from chatbots to video generators.</p></div>
+<p>Browse <a href="https://tools-hub.sweetai.work/">6,300+ AI tools on Tools Hub</a> &mdash;
+our curated directory across 11 categories, from chatbots to video generators.</p></div>
 """
 
 
