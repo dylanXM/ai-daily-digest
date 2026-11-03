@@ -380,7 +380,7 @@ a:hover{text-decoration:underline}
 #tip-fab:hover { transform: scale(1.06); box-shadow: 0 6px 24px rgba(0,0,0,.18); }
 #tip-fab svg { display: block; }
 #tip-popover {
-  position: fixed; right: 24px; bottom: 88px; z-index: 9001;
+  position: fixed; right: 85px; bottom: 24px; z-index: 9001;
   width: 340px; max-width: calc(100vw - 48px);
   background: #fff; border: 1px solid var(--border, #e5e5e5);
   border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,.18);
@@ -397,7 +397,7 @@ a:hover{text-decoration:underline}
 #tip-popover-close:hover { color: #111; }
 @media (max-width: 480px) {
   #tip-fab { right: 16px; bottom: 16px; width: 48px; height: 48px; }
-  #tip-popover { right: 16px; bottom: 76px; }
+  #tip-popover { right: 72px; bottom: 16px; max-width: calc(100vw - 88px); }
 }
 /* Tip card is ALWAYS light — pin the light-theme tokens inside the card so
  * the dark site theme can never leak in. The PayPal button area is white by
@@ -988,6 +988,6 @@ our curated directory across 11 categories, from chatbots to video generators.</
   </nav>
 </footer>
 
-<script src="https://hub.sweetai.work/assets/fab-stack.js?v=20261030e" defer></script>
+<script src="https://hub.sweetai.work/assets/fab-stack.js?v=20261103c" defer></script>
 </body>
 </html>
