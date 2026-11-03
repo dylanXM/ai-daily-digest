@@ -1,6 +1,6 @@
 {
   "date": "2026-11-02",
-  "published_at": "2026-11-03T00:00:50.304344-05:00",
+  "published_at": "2026-11-03T08:27:07.528013-05:00",
   "news": [
     {
       "title": "Trajectory raises $45M to make AI model training accessible to nontechnical experts",
@@ -31,12 +31,6 @@
       "summary": "In experiments by Y Combinator Labs and Olam Labs, OpenAI's GPT-6.1 Sol model showed two very different sides.",
       "source": "The Decoder",
       "url": "https://the-decoder.com/one-brutal-minecraft-night-scared-50-ai-agents-into-inventing-chicken-handoff-protocols-a-fertilizer-officer-and-fishing-shifts/"
-    },
-    {
-      "title": "OpenAI prepares lobbying blitz for a post-midterm Washington",
-      "summary": "OpenAI is gearing up for a political lobbying and PR push after the US midterms. The article OpenAI prepares lobbying blitz for a post-midterm Washington appeared first on The Decoder.",
-      "source": "The Decoder",
-      "url": "https://the-decoder.com/openai-prepares-lobbying-blitz-for-a-post-midterm-washington/"
     },
     {
       "title": "Raising the quality of insights in agentic analytics",
@@ -73,6 +67,12 @@
       "summary": "SpaceXSI is apparently cutting usage limits for its AI agent Grok Bot, less than two weeks after Musk called it his fastest-growing product.",
       "source": "The Decoder",
       "url": "https://the-decoder.com/spacexsi-apparently-cuts-grok-bot-quotas-weeks-after-musk-called-it-his-fastest-growing-product/"
+    },
+    {
+      "title": "Stop counting tokens, start counting what ships",
+      "summary": "When a developer gives an AI agent a coding task, the agent does more than answer once. It plans, generates code, runs tests, and repeats the process to correct errors.",
+      "source": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/2026/11/02/1147702/stop-counting-tokens-start-counting-what-ships/"
     }
   ],
   "github": [
@@ -80,65 +80,65 @@
       "name": "deepseek-ai/dsh-superagent-prototype",
       "description": "Towards a More Autonomous Agent System",
       "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
-      "stars": "14.1k",
+      "stars": "15.7k",
       "language": "TypeScript",
-      "note": "Created 2026-10-31 · 14.1k stars · TypeScript"
+      "note": "Created 2026-10-31 · 15.7k stars · TypeScript"
     },
     {
       "name": "wangzan101/Mika",
       "description": "An on-device AI agent for Android that operates apps and the web to get things done for you.",
       "url": "https://github.com/wangzan101/Mika",
-      "stars": "5.5k",
+      "stars": "5.9k",
       "language": "Kotlin",
-      "note": "Created 2026-10-29 · 5.5k stars · Kotlin"
+      "note": "Created 2026-10-29 · 5.9k stars · Kotlin"
     },
     {
       "name": "andyhuo520/digital-human-koubo",
       "description": "AI digital-human talking-head videos from one photo: Renoise MCP generation + 5 editing styles + 48 creator-grade packaging components. Agent skill for Claude C",
       "url": "https://github.com/andyhuo520/digital-human-koubo",
-      "stars": "1.7k",
+      "stars": "1.8k",
       "language": "TypeScript",
-      "note": "Created 2026-10-26 · 1.7k stars · TypeScript"
+      "note": "Created 2026-10-26 · 1.8k stars · TypeScript"
     },
     {
       "name": "benjitaylor/skills",
       "description": "Skills for AI coding agents.",
       "url": "https://github.com/benjitaylor/skills",
-      "stars": "996",
+      "stars": "1.2k",
       "language": "TypeScript",
-      "note": "Created 2026-10-26 · 996 stars · TypeScript"
+      "note": "Created 2026-10-26 · 1.2k stars · TypeScript"
     },
     {
       "name": "konlu/story-studio",
       "description": "从选题到剪映草稿的一站式 AI 短视频内容创作 Agent Skill",
       "url": "https://github.com/konlu/story-studio",
-      "stars": "691",
+      "stars": "708",
       "language": "Python",
-      "note": "Created 2026-10-26 · 691 stars · Python"
+      "note": "Created 2026-10-26 · 708 stars · Python"
     },
     {
       "name": "blakeandersonw/ai-app-playbook",
       "description": "How to build useful, profitable apps in 2026. Clone it and point your coding agent at AGENTS.md.",
       "url": "https://github.com/blakeandersonw/ai-app-playbook",
-      "stars": "612",
+      "stars": "615",
       "language": "TypeScript",
-      "note": "Created 2026-10-26 · 612 stars · TypeScript"
+      "note": "Created 2026-10-26 · 615 stars · TypeScript"
+    },
+    {
+      "name": "RikiyaT/lm_understand-logs",
+      "description": "Complete logs of the experiments in the blog post 'LLMs can understand and write neural network weights'",
+      "url": "https://github.com/RikiyaT/lm_understand-logs",
+      "stars": "569",
+      "language": "Python",
+      "note": "Created 2026-10-29 · 569 stars · Python"
     },
     {
       "name": "wanghao-SunSky/cs329z-chinese",
       "description": "斯坦福 Stanford CS329Z Engineering AI Agents 中文教程：面向 Python 开发者的 AI 智能体课程，19 讲与 4 项实践，涵盖 LLM、RAG、工具调用、记忆、多智能体、评测与安全。完整 Markdown、在线与离线 HTML。Chinese course notes.",
       "url": "https://github.com/wanghao-SunSky/cs329z-chinese",
-      "stars": "462",
+      "stars": "476",
       "language": "HTML",
-      "note": "Created 2026-10-28 · 462 stars · HTML"
-    },
-    {
-      "name": "jmanico/grim-prompter",
-      "description": "Threat modeling for AI coding agents: point Claude Code, Codex or any agent at your repo and get an evidence-traced threat model. 36 architectures, 29 methods, ",
-      "url": "https://github.com/jmanico/grim-prompter",
-      "stars": "349",
-      "language": "Unknown",
-      "note": "Created 2026-10-28 · 349 stars · Unknown"
+      "note": "Created 2026-10-28 · 476 stars · HTML"
     }
   ],
   "products": [
@@ -167,6 +167,12 @@
       "tag": "Agents"
     },
     {
+      "name": "Aigenos Flow – Agents that are actually deterministic",
+      "description": "Aigenos Flow – Agents that are actually deterministic · Spotted on Hacker News Show HN",
+      "url": "https://aigenos.io/",
+      "tag": "Agents"
+    },
+    {
       "name": "Nomos – A Go harness that stops coding agents from cheating on tests",
       "description": "Nomos – A Go harness that stops coding agents from cheating on tests · Spotted on Hacker News Show HN",
       "url": "https://github.com/mgantlett/nomos",
@@ -176,12 +182,6 @@
       "name": "Maat – AI agents that can diagnose Ubuntu but can't change it",
       "description": "Maat – AI agents that can diagnose Ubuntu but can't change it · Spotted on Hacker News Show HN",
       "url": "https://github.com/bolesawny7/maat",
-      "tag": "Agents"
-    },
-    {
-      "name": "Rufous – Agent attuned to small models",
-      "description": "Rufous – Agent attuned to small models · Spotted on Hacker News Show HN",
-      "url": "https://rufous.chat",
       "tag": "Agents"
     }
   ]
