@@ -18,6 +18,7 @@ Sponsorship and advertising inquiries: contact@sweetai.work (see the sponsor pag
 
 ## Recent issues
 
+- [November 2, 2026 issue](https://ai-daily-news.sweetai.work/2026-11-02): Trajectory raises $45M to make AI model training accessible to nontechnical experts
 - [October 31, 2026 issue](https://ai-daily-news.sweetai.work/2026-10-31): Anthropic's watermark rollout leaves a loophole on two older Claude models
 - [October 30, 2026 issue](https://ai-daily-news.sweetai.work/2026-10-30): OpenAI sets new behavioral guidelines for AI models that have already proven hard to control
 - [October 29, 2026 issue](https://ai-daily-news.sweetai.work/2026-10-29): Meta quietly launches an AI fashion app called Style Sketch

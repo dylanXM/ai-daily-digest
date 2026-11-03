@@ -1,0 +1,188 @@
+{
+  "date": "2026-11-02",
+  "published_at": "2026-11-03T00:00:50.304344-05:00",
+  "news": [
+    {
+      "title": "Trajectory raises $45M to make AI model training accessible to nontechnical experts",
+      "summary": "The one-year-old startup is now valued at $300 million.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/02/trajectory-raises-45m-to-make-ai-model-training-accessible-to-nontechnical-experts/"
+    },
+    {
+      "title": "Anthropic warns that it’s very close to RSI capability, aka self-building AI",
+      "summary": "RSI is the point at which AI grows so good at training itself that it spawns a dramatic acceleration of AI capabilities. To the AI doomers, RSI represents the cataclysm from which there is no return.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/"
+    },
+    {
+      "title": "42AI comes out of stealth with $62.5M and a world model that can ‘predict human behavior’",
+      "summary": "Here's a question straight out of sci-fi: What if AI could predict what you were going to do before you decided to, even in a completely new situation?",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/02/42ai-comes-out-of-stealth-with-62-5m-and-a-world-model-that-can-predict-human-behavior/"
+    },
+    {
+      "title": "OpenAI is finally merging ChatGPT’s Chat and Work tabs",
+      "summary": "OpenAI said that ChatGPT and Codex will draw usage from the same allocation pool after this change.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/02/openai-is-finally-merging-chatgpts-chat-and-work-tabs/"
+    },
+    {
+      "title": "One brutal Minecraft night scared 50 AI agents into inventing chicken handoff protocols, a Fertilizer Officer, and fishing shifts",
+      "summary": "In experiments by Y Combinator Labs and Olam Labs, OpenAI's GPT-6.1 Sol model showed two very different sides.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/one-brutal-minecraft-night-scared-50-ai-agents-into-inventing-chicken-handoff-protocols-a-fertilizer-officer-and-fishing-shifts/"
+    },
+    {
+      "title": "OpenAI prepares lobbying blitz for a post-midterm Washington",
+      "summary": "OpenAI is gearing up for a political lobbying and PR push after the US midterms. The article OpenAI prepares lobbying blitz for a post-midterm Washington appeared first on The Decoder.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/openai-prepares-lobbying-blitz-for-a-post-midterm-washington/"
+    },
+    {
+      "title": "Raising the quality of insights in agentic analytics",
+      "summary": "In just a few years, generative AI has changed the face of enterprise analytics, notably by making analytics accessible to users across the organization.",
+      "source": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/2026/11/02/1147660/raising-the-quality-of-insights-in-agentic-analytics/"
+    },
+    {
+      "title": "The agentic web is here",
+      "summary": "In 2001, a decade after he invented the World Wide Web, Tim Berners-Lee articulated a new vision.",
+      "source": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/2026/11/02/1147846/the-agentic-web-is-here/"
+    },
+    {
+      "title": "Omen AI adds liquid know-how in $16 million Aquatic Labs acquisition",
+      "summary": "Two startups tackling the data center water problem are joining forces in a $16 million deal.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/02/omen-ai-adds-liquid-know-how-in-16-million-aquatic-labs-acquisition/"
+    },
+    {
+      "title": "Goldman Sachs pulls AI coding tools from traders and bankers",
+      "summary": "Goldman Sachs is pulling AI coding tools like Claude Code and GitHub Copilot from traders and bankers, limiting access to engineers only.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/goldman-sachs-pulls-ai-coding-tools-from-traders-and-bankers/"
+    },
+    {
+      "title": "AI elites might hoard intelligence like mercantilists hoarded gold",
+      "summary": "Engineer Venkatesh Rao compares the fear of AI job losses to mercantilism: intelligence is treated as a scarce resource that elites want to control.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/ai-elites-might-hoard-intelligence-like-mercantilists-hoarded-gold/"
+    },
+    {
+      "title": "SpaceXSI apparently cuts Grok Bot quotas weeks after Musk called it his fastest-growing product",
+      "summary": "SpaceXSI is apparently cutting usage limits for its AI agent Grok Bot, less than two weeks after Musk called it his fastest-growing product.",
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/spacexsi-apparently-cuts-grok-bot-quotas-weeks-after-musk-called-it-his-fastest-growing-product/"
+    }
+  ],
+  "github": [
+    {
+      "name": "deepseek-ai/dsh-superagent-prototype",
+      "description": "Towards a More Autonomous Agent System",
+      "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+      "stars": "14.1k",
+      "language": "TypeScript",
+      "note": "Created 2026-10-31 · 14.1k stars · TypeScript"
+    },
+    {
+      "name": "wangzan101/Mika",
+      "description": "An on-device AI agent for Android that operates apps and the web to get things done for you.",
+      "url": "https://github.com/wangzan101/Mika",
+      "stars": "5.5k",
+      "language": "Kotlin",
+      "note": "Created 2026-10-29 · 5.5k stars · Kotlin"
+    },
+    {
+      "name": "andyhuo520/digital-human-koubo",
+      "description": "AI digital-human talking-head videos from one photo: Renoise MCP generation + 5 editing styles + 48 creator-grade packaging components. Agent skill for Claude C",
+      "url": "https://github.com/andyhuo520/digital-human-koubo",
+      "stars": "1.7k",
+      "language": "TypeScript",
+      "note": "Created 2026-10-26 · 1.7k stars · TypeScript"
+    },
+    {
+      "name": "benjitaylor/skills",
+      "description": "Skills for AI coding agents.",
+      "url": "https://github.com/benjitaylor/skills",
+      "stars": "996",
+      "language": "TypeScript",
+      "note": "Created 2026-10-26 · 996 stars · TypeScript"
+    },
+    {
+      "name": "konlu/story-studio",
+      "description": "从选题到剪映草稿的一站式 AI 短视频内容创作 Agent Skill",
+      "url": "https://github.com/konlu/story-studio",
+      "stars": "691",
+      "language": "Python",
+      "note": "Created 2026-10-26 · 691 stars · Python"
+    },
+    {
+      "name": "blakeandersonw/ai-app-playbook",
+      "description": "How to build useful, profitable apps in 2026. Clone it and point your coding agent at AGENTS.md.",
+      "url": "https://github.com/blakeandersonw/ai-app-playbook",
+      "stars": "612",
+      "language": "TypeScript",
+      "note": "Created 2026-10-26 · 612 stars · TypeScript"
+    },
+    {
+      "name": "wanghao-SunSky/cs329z-chinese",
+      "description": "斯坦福 Stanford CS329Z Engineering AI Agents 中文教程：面向 Python 开发者的 AI 智能体课程，19 讲与 4 项实践，涵盖 LLM、RAG、工具调用、记忆、多智能体、评测与安全。完整 Markdown、在线与离线 HTML。Chinese course notes.",
+      "url": "https://github.com/wanghao-SunSky/cs329z-chinese",
+      "stars": "462",
+      "language": "HTML",
+      "note": "Created 2026-10-28 · 462 stars · HTML"
+    },
+    {
+      "name": "jmanico/grim-prompter",
+      "description": "Threat modeling for AI coding agents: point Claude Code, Codex or any agent at your repo and get an evidence-traced threat model. 36 architectures, 29 methods, ",
+      "url": "https://github.com/jmanico/grim-prompter",
+      "stars": "349",
+      "language": "Unknown",
+      "note": "Created 2026-10-28 · 349 stars · Unknown"
+    }
+  ],
+  "products": [
+    {
+      "name": "The Public Eye – Agentic search for congressional bill legibility",
+      "description": "The Public Eye – Agentic search for congressional bill legibility · Spotted on Hacker News Show HN",
+      "url": "https://the-public-eye.com",
+      "tag": "Agents"
+    },
+    {
+      "name": "Better Together – AI agents team up against spam calls and texts",
+      "description": "Better Together – AI agents team up against spam calls and texts · Spotted on Hacker News Show HN",
+      "url": "https://better-together.fun/",
+      "tag": "Agents"
+    },
+    {
+      "name": "Deedglass – An agent said it updated 1 row; Postgres changed 301",
+      "description": "Deedglass – An agent said it updated 1 row; Postgres changed 301 · Spotted on Hacker News Show HN",
+      "url": "https://github.com/deedglass/deedglass",
+      "tag": "Agents"
+    },
+    {
+      "name": "AgentTrafficCop – Stop AI agents from looping and burning money",
+      "description": "AgentTrafficCop – Stop AI agents from looping and burning money · Spotted on Hacker News Show HN",
+      "url": "https://agenttrafficcop.com",
+      "tag": "Agents"
+    },
+    {
+      "name": "Nomos – A Go harness that stops coding agents from cheating on tests",
+      "description": "Nomos – A Go harness that stops coding agents from cheating on tests · Spotted on Hacker News Show HN",
+      "url": "https://github.com/mgantlett/nomos",
+      "tag": "Agents"
+    },
+    {
+      "name": "Maat – AI agents that can diagnose Ubuntu but can't change it",
+      "description": "Maat – AI agents that can diagnose Ubuntu but can't change it · Spotted on Hacker News Show HN",
+      "url": "https://github.com/bolesawny7/maat",
+      "tag": "Agents"
+    },
+    {
+      "name": "Rufous – Agent attuned to small models",
+      "description": "Rufous – Agent attuned to small models · Spotted on Hacker News Show HN",
+      "url": "https://rufous.chat",
+      "tag": "Agents"
+    }
+  ]
+}
