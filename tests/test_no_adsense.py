@@ -41,6 +41,13 @@ class TestNoAdSense(unittest.TestCase):
                 self.assertNotIn(token, text, f"{token} found in dist/{page.name}")
             self.assertNotIn("ADSENSE", text, f"ADSENSE marker in dist/{page.name}")
 
+    def test_404_page_ships(self):
+        # So the host returns a real 404 (not the SPA index fallback)
+        # for removed paths such as /ads.txt.
+        self.assertTrue((ROOT / "site" / "404.html").exists())
+        subprocess.run([sys.executable, "build.py"], cwd=ROOT, capture_output=True, text=True)
+        self.assertTrue((ROOT / "dist" / "404.html").exists())
+
     def test_key_pages_still_render(self):
         subprocess.run([sys.executable, "build.py"], cwd=ROOT, capture_output=True, text=True)
         for name in ("index.html", "archive.html", "sponsor.html", "tutorials.html"):

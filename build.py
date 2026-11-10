@@ -843,6 +843,9 @@ def main():
         "sitemap.xml": render_sitemap(issues),
         "llms.txt": render_llms(issues),
         "robots.txt": render_robots(),
+        # Real 404 page: without it the host serves index.html (200) for
+        # missing paths such as /ads.txt, which must answer 404.
+        "404.html": (SITE_DIR / "404.html").read_text(encoding="utf-8"),
     }
     for issue in issues:
         outputs[f"{issue['date']}.html"] = render_issue_page(template, css, js, issue)
