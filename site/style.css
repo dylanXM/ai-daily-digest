@@ -186,9 +186,6 @@ a:hover{text-decoration:underline}
 }
 .btn:hover{background:var(--accent-hover);text-decoration:none;color:#fff}
 
-/* Ad slot placeholder (layout-neutral) */
-.ad-slot{display:none}
-
 /* ===== Footer ===== */
 .site-footer{border-top:1px solid var(--border);margin-top:56px;padding:32px 0 40px;background:var(--bg-soft)}
 .footer-inner p{font-size:14px;color:var(--text-secondary);margin-bottom:8px}
@@ -206,7 +203,7 @@ a:hover{text-decoration:underline}
   .archive-item{padding:14px 16px}
 }
 @media print{
-  .site-header,.theme-toggle,.more-link,.ad-slot{display:none}
+  .site-header,.theme-toggle,.more-link{display:none}
 }
 /* Sweet Hub tip jar styles — append to the site's stylesheet.
  * OpenAI-style minimal: white card, hairline border, black accents. */

@@ -106,9 +106,6 @@ def render_news(news):
             f'<div class="card-meta"><span class="source">{source}</span>{link}</div>'
             f"</article>"
         )
-        # Reserve an in-feed ad slot every 3 news items
-        if (i + 1) % 3 == 0 and (i + 1) < len(news):
-            parts.append("<!-- ADSENSE: in-feed -->\n<div class=\"ad-slot\"></div>")
     if not parts:
         parts.append('<p class="empty">No news today.</p>')
     return "\n".join(parts)
@@ -172,9 +169,7 @@ def issue_sections(issue):
     products = issue.get("products", [])
     parts = [
         section("📰", "AI News", render_news(news), len(news)),
-        "<!-- ADSENSE: in-article -->",
         section("💻", "Trending on GitHub", render_github(github), len(github)),
-        "<!-- ADSENSE: in-article -->",
         section("🚀", "New AI Products", render_products(products), len(products)),
     ]
     return "\n".join(parts)
@@ -623,8 +618,6 @@ def render_index(template, css, js, latest, issues):
             f'<div class="more-link">'
             f'<a class="btn" href="{ARCHIVE_URL}">Browse the full archive →</a></div>'
         )
-    # Homepage sidebar ad slot
-    content += "\n<!-- ADSENSE: sidebar -->\n<div class=\"ad-slot\"></div>"
     return fill_template(template, issue_title(latest), issue_desc(latest), f"{BASE_URL}/", content, css, js,
                          jsonld=issue_jsonld(latest))
 
@@ -640,7 +633,6 @@ def render_issue_page(template, css, js, issue):
         f"</div>"
     )
     content = hero + SUBSCRIBE_BLOCK + issue_sections(issue) + TOOLSHUB_PROMO
-    content += "\n<!-- ADSENSE: sidebar -->\n<div class=\"ad-slot\"></div>"
     return fill_template(template, issue_title(issue), issue_desc(issue), issue_url(date_str), content, css, js,
                          jsonld=issue_jsonld(issue))
 
@@ -818,11 +810,6 @@ def render_llms(issues):
     return "\n".join(lines)
 
 
-def render_ads_txt():
-    # Google AdSense ads.txt (publisher ID verified from the user's AdSense account)
-    return "google.com, pub-1672880630267493, DIRECT, f08c47fec0942fa0\n"
-
-
 # ---------- main ----------
 
 def main():
@@ -832,6 +819,11 @@ def main():
         return 1
 
     DIST_DIR.mkdir(parents=True, exist_ok=True)
+    # This site no longer ships an ads.txt (removed 2026-11-10):
+    # drop a stale one left in dist/ by an earlier build.
+    stale_ads_txt = DIST_DIR / "ads.txt"
+    if stale_ads_txt.exists():
+        stale_ads_txt.unlink()
     template = (SITE_DIR / "base.html").read_text(encoding="utf-8")
     css = (SITE_DIR / "style.css").read_text(encoding="utf-8")
     js = (SITE_DIR / "theme.js").read_text(encoding="utf-8")
@@ -851,7 +843,6 @@ def main():
         "sitemap.xml": render_sitemap(issues),
         "llms.txt": render_llms(issues),
         "robots.txt": render_robots(),
-        "ads.txt": render_ads_txt(),
     }
     for issue in issues:
         outputs[f"{issue['date']}.html"] = render_issue_page(template, css, js, issue)
