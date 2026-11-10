@@ -211,7 +211,7 @@ def site_jsonld():
                 "@id": f"{BASE_URL}/#org",
                 "name": "SweetAI",
                 "url": "https://sweetai.work/",
-                "email": "contact@sweetai.work",
+                "email": "xm@sweetai.work",
             },
         ],
     }
@@ -438,7 +438,7 @@ def render_sponsor(template, css, js):
         "as formats evolve.</p>"
         "<p><strong>How to buy:</strong> email us the placement and the date you want. We confirm availability "
         "and send a payment link; your placement runs in that morning's edition once payment clears.</p>"
-        '<p style="margin-top:12px"><a class="btn" href="mailto:contact@sweetai.work?subject=AI%20Daily%20Digest%20sponsorship">contact@sweetai.work</a></p>'
+        '<p style="margin-top:12px"><a class="btn" href="mailto:xm@sweetai.work?subject=AI%20Daily%20Digest%20sponsorship">xm@sweetai.work</a></p>'
         '<p class="subscribe-note">Tell us what you are launching and which placement you have in mind — we reply with availability and next steps.</p></div>'
     )
     return fill_template(
@@ -788,7 +788,7 @@ def render_llms(issues):
         "A new issue is published every morning at 9:00 AM Eastern Time and covers the",
         "previous day's most important AI news stories, trending AI projects on GitHub,",
         "and newly launched AI products. Each story links to its original source.",
-        "Sponsorship and advertising inquiries: contact@sweetai.work (see the sponsor page).",
+        "Sponsorship and advertising inquiries: xm@sweetai.work (see the sponsor page).",
         "",
         "## Key pages",
         "",

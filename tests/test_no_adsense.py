@@ -41,6 +41,20 @@ class TestNoAdSense(unittest.TestCase):
                 self.assertNotIn(token, text, f"{token} found in dist/{page.name}")
             self.assertNotIn("ADSENSE", text, f"ADSENSE marker in dist/{page.name}")
 
+    def test_no_contact_email_anywhere(self):
+        # User order 2026-11-10: contact@sweetai.work is retired everywhere;
+        # the only public mailbox is xm@sweetai.work.
+        self.assertNotIn("contact@sweetai.work", _read(ROOT / "build.py"))
+        subprocess.run([sys.executable, "build.py"], cwd=ROOT, capture_output=True, text=True)
+        for page in sorted((ROOT / "dist").glob("*")):
+            if page.is_file() and page.suffix in (".html", ".txt", ".xml"):
+                self.assertNotIn(
+                    "contact@sweetai.work", _read(page), f"contact@ in dist/{page.name}"
+                )
+        sponsor = _read(ROOT / "dist" / "sponsor.html")
+        self.assertIn("mailto:xm@sweetai.work", sponsor)
+        self.assertIn("xm@sweetai.work", _read(ROOT / "dist" / "llms.txt"))
+
     def test_404_page_ships(self):
         # So the host returns a real 404 (not the SPA index fallback)
         # for removed paths such as /ads.txt.
